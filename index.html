@@ -49,6 +49,79 @@
       color: var(--light-text);
     }
     
+    /* Scroll Progress Indicator */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 1001;
+    }
+    .scroll-progress-bar {
+      height: 100%;
+      background: var(--primary-gradient);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+    
+    /* Dark/Light Mode Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 100px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      background: var(--primary-gradient);
+      color: white;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 60px;
+      height: 60px;
+      background: var(--primary-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6);
+    }
+    
     /* Enhanced Video Background */
     .video-background {
       position: fixed;
@@ -390,6 +463,22 @@
       backdrop-filter: blur(20px);
       transition: all 0.4s ease;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--primary-gradient);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover::before {
+      transform: translateX(0);
     }
     .service-card:hover {
       transform: translateY(-15px);
@@ -406,6 +495,10 @@
       margin: 0 auto 2rem;
       font-size: 2.5rem;
       color: white;
+      transition: all 0.3s ease;
+    }
+    .service-card:hover .service-icon {
+      transform: rotate(360deg) scale(1.1);
     }
     .service-title {
       font-size: 1.5rem;
@@ -415,6 +508,20 @@
     .service-description {
       color: var(--text-secondary);
       line-height: 1.7;
+    }
+    .service-features {
+      margin-top: 1.5rem;
+      text-align: left;
+    }
+    .service-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-secondary);
+    }
+    .service-feature i {
+      color: var(--success-color);
     }
     
     /* Portfolio Section */
@@ -491,6 +598,411 @@
     .portfolio-category {
       color: var(--text-secondary);
     }
+    .portfolio-link {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: var(--primary-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    .portfolio-item:hover .portfolio-link {
+      opacity: 1;
+    }
+    
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+    .lightbox-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .lightbox-close:hover {
+      transform: rotate(90deg);
+    }
+    
+    /* Pricing Section */
+    .pricing {
+      padding: 8rem 5%;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(217, 70, 239, 0.05) 100%);
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .pricing-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 3rem;
+      text-align: center;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .pricing-card.featured {
+      transform: scale(1.05);
+      border-color: #6366f1;
+    }
+    .pricing-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary-gradient);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    .pricing-card.featured:hover {
+      transform: scale(1.05) translateY(-10px);
+    }
+    .pricing-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .pricing-price {
+      font-size: 3rem;
+      font-weight: 900;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    .pricing-period {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .pricing-feature {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-secondary);
+    }
+    .pricing-feature:last-child {
+      border-bottom: none;
+    }
+    .pricing-feature i {
+      color: var(--success-color);
+      margin-right: 0.5rem;
+    }
+    .pricing-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .pricing-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+    }
+    
+    /* FAQ Section */
+    .faq {
+      padding: 8rem 5%;
+    }
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .faq-question {
+      padding: 1.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    .faq-question:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+    .faq-answer-content {
+      padding: 0 1.5rem 1.5rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    
+    /* Blog Section */
+    .blog {
+      padding: 8rem 5%;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .blog-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    .blog-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .blog-content {
+      padding: 2rem;
+    }
+    .blog-date {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .blog-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .blog-excerpt {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    .blog-link {
+      color: #6366f1;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .blog-link:hover {
+      gap: 1rem;
+    }
+    
+    /* Careers Section */
+    .careers {
+      padding: 8rem 5%;
+    }
+    .careers-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .job-listing {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+    .job-listing:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .job-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .job-type {
+      background: var(--primary-gradient);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .job-details {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+    .job-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .job-description {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    .apply-btn {
+      padding: 0.75rem 2rem;
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .apply-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+    }
+    
+    /* Newsletter Popup */
+    .newsletter-popup {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 400px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 2rem;
+      z-index: 1000;
+      transform: translateY(150%);
+      transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      backdrop-filter: blur(20px);
+    }
+    .newsletter-popup.show {
+      transform: translateY(0);
+    }
+    .popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .popup-close:hover {
+      color: var(--text-primary);
+      transform: rotate(90deg);
+    }
+    .popup-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .popup-description {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .popup-form {
+      display: flex;
+      gap: 1rem;
+    }
+    .popup-form input {
+      flex: 1;
+      padding: 0.75rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-color);
+      border-radius: 50px;
+      color: var(--text-primary);
+    }
+    .popup-form button {
+      padding: 0.75rem 1.5rem;
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .popup-form button:hover {
+      transform: scale(1.05);
+    }
     
     /* About Us Section */
     .about {
@@ -530,6 +1042,11 @@
       background: var(--card-bg);
       border-radius: 16px;
       border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
     .stat-number {
       font-size: 2.5rem;
@@ -547,6 +1064,7 @@
       border-radius: 20px;
       overflow: hidden;
       height: 500px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
     .about-image img {
       width: 100%;
@@ -582,6 +1100,10 @@
       margin: 0 auto 1.5rem;
       overflow: hidden;
       border: 4px solid var(--primary-gradient);
+      transition: all 0.3s ease;
+    }
+    .team-member:hover .member-avatar {
+      transform: scale(1.1);
     }
     .member-avatar img {
       width: 100%;
@@ -680,6 +1202,10 @@
       color: var(--text-secondary);
       font-size: 0.9rem;
     }
+    .rating {
+      margin-bottom: 1rem;
+      color: #f59e0b;
+    }
     
     /* Contact Section */
     .contact {
@@ -714,6 +1240,10 @@
       align-items: flex-start;
       gap: 1rem;
       margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .contact-item:hover {
+      transform: translateX(10px);
     }
     .contact-icon {
       width: 50px;
@@ -725,6 +1255,7 @@
       justify-content: center;
       font-size: 1.25rem;
       color: white;
+      flex-shrink: 0;
     }
     .contact-text h4 {
       font-weight: 700;
@@ -751,12 +1282,12 @@
     }
     .form-control {
       width: 100%;
-      padding: 1rem;
+      padding: 1.25rem;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
+      border-radius: 16px;
       color: var(--text-primary);
-      font-size: 1rem;
+      font-size: 1.1rem;
       transition: all 0.3s ease;
     }
     .form-control:focus {
@@ -766,7 +1297,7 @@
     }
     textarea.form-control {
       resize: vertical;
-      min-height: 120px;
+      min-height: 150px;
     }
     .form-row {
       display: grid;
@@ -778,7 +1309,7 @@
       padding: 1.25rem;
       background: var(--primary-gradient);
       border: none;
-      border-radius: 12px;
+      border-radius: 16px;
       color: white;
       font-weight: 700;
       font-size: 1.1rem;
@@ -899,7 +1430,7 @@
       66% { transform: translateY(30px) rotate(240deg); }
     }
     
-    /* Loading Screen */
+    /* Enhanced Loading Screen */
     .loading-screen {
       position: fixed;
       top: 0;
@@ -908,6 +1439,7 @@
       height: 100%;
       background: var(--dark-bg);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       z-index: 9999;
@@ -915,6 +1447,24 @@
     }
     .loading-content {
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    .loading-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--primary-gradient);
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+      animation: pulse 2s infinite;
+    }
+    .loading-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .loading-spinner {
       width: 60px;
@@ -923,7 +1473,6 @@
       border-top: 3px solid #6366f1;
       border-radius: 50%;
       animation: spin 1s linear infinite;
-      margin: 0 auto 1rem;
     }
     .loading-text {
       font-size: 1.5rem;
@@ -931,6 +1480,30 @@
       background: var(--primary-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+    .loading-error {
+      display: none;
+      color: var(--error-color);
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .loading-error.show {
+      display: block;
+    }
+    .retry-btn {
+      margin-top: 1rem;
+      padding: 0.75rem 2rem;
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: none;
+    }
+    .retry-btn.show {
+      display: inline-block;
     }
     @keyframes spin {
       0% { transform: rotate(0deg); }
@@ -951,14 +1524,19 @@
     
     @keyframes pulse {
       0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
       }
       70% {
-        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        box-shadow: 0 0 0 15px rgba(99, 102, 241, 0);
       }
       100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
       }
+    }
+    
+    /* Counting Animation */
+    .count {
+      transition: all 0.5s ease;
     }
     
     /* Responsive */
@@ -976,7 +1554,9 @@
       .portfolio-grid,
       .testimonials-grid,
       .about-content,
-      .contact-content {
+      .contact-content,
+      .pricing-grid,
+      .blog-grid {
         grid-template-columns: 1fr;
       }
       
@@ -989,16 +1569,48 @@
       .form-row {
         grid-template-columns: 1fr;
       }
+      
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+      
+      .newsletter-popup {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Loading Screen -->
+  <!-- Enhanced Loading Screen -->
   <div class="loading-screen" id="loadingScreen">
     <div class="loading-content">
+      <div class="loading-image">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300" alt="Professional Designer">
+      </div>
       <div class="loading-spinner"></div>
       <div class="loading-text">Typixel Studio</div>
+      <div class="loading-error" id="loadingError">
+        <p>Network connection issue. Please check your internet connection.</p>
+        <button class="retry-btn" id="retryBtn">Retry</button>
+      </div>
     </div>
+  </div>
+  
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar" id="progressBar"></div>
+  </div>
+  
+  <!-- Theme Toggle -->
+  <div class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
   </div>
   
   <!-- Video Background -->
@@ -1021,7 +1633,9 @@
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#about">About</a>
-        <a href="#testimonials">Testimonials</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#blog">Blog</a>
+        <a href="#careers">Careers</a>
         <a href="#contact">Contact</a>
       </nav>
       <a href="#contact" class="cta-button">Start Project</a>
@@ -1071,6 +1685,20 @@
         <p class="service-description">
           Craft memorable brand identities that resonate with your audience and stand out in the market.
         </p>
+        <div class="service-features">
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Logo Design</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Brand Guidelines</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Visual Identity</span>
+          </div>
+        </div>
       </div>
       <div class="service-card" data-aos="fade-up" data-aos-delay="200">
         <div class="service-icon">
@@ -1080,6 +1708,20 @@
         <p class="service-description">
           Build stunning, responsive websites that deliver exceptional user experiences and drive conversions.
         </p>
+        <div class="service-features">
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Responsive Design</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>E-commerce Solutions</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>CMS Integration</span>
+          </div>
+        </div>
       </div>
       <div class="service-card" data-aos="fade-up" data-aos-delay="300">
         <div class="service-icon">
@@ -1089,6 +1731,20 @@
         <p class="service-description">
           Create intuitive interfaces that enhance user satisfaction and improve product usability.
         </p>
+        <div class="service-features">
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>User Research</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Wireframing</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Prototyping</span>
+          </div>
+        </div>
       </div>
       <div class="service-card" data-aos="fade-up" data-aos-delay="400">
         <div class="service-icon">
@@ -1098,6 +1754,20 @@
         <p class="service-description">
           Develop comprehensive digital marketing strategies that increase brand visibility and drive growth.
         </p>
+        <div class="service-features">
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Social Media</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Content Marketing</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>SEO Optimization</span>
+          </div>
+        </div>
       </div>
       <div class="service-card" data-aos="fade-up" data-aos-delay="500">
         <div class="service-icon">
@@ -1107,6 +1777,20 @@
         <p class="service-description">
           Bring your ideas to life with captivating animations and motion graphics that tell your story.
         </p>
+        <div class="service-features">
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>2D Animation</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Video Production</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Motion Design</span>
+          </div>
+        </div>
       </div>
       <div class="service-card" data-aos="fade-up" data-aos-delay="600">
         <div class="service-icon">
@@ -1116,6 +1800,20 @@
         <p class="service-description">
           Create impactful print materials that leave a lasting impression on your audience.
         </p>
+        <div class="service-features">
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Brochures</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Business Cards</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Packaging Design</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1137,6 +1835,9 @@
           <h3 class="portfolio-title">Tech Startup Rebrand</h3>
           <p class="portfolio-category">Brand Identity</p>
         </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
       </div>
       <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="200">
         <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=500" alt="Design Project 2" class="portfolio-img">
@@ -1144,6 +1845,9 @@
           <h3 class="portfolio-title">E-commerce Platform</h3>
           <p class="portfolio-category">Web Design</p>
         </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1558655146-d09347e92766?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
       </div>
       <div class="portfolio-item" data-category="ui" data-aos="fade-up" data-aos-delay="300">
         <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500" alt="Design Project 3" class="portfolio-img">
@@ -1151,6 +1855,9 @@
           <h3 class="portfolio-title">Mobile App Design</h3>
           <p class="portfolio-category">UI/UX Design</p>
         </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
       </div>
       <div class="portfolio-item" data-category="marketing" data-aos="fade-up" data-aos-delay="400">
         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500" alt="Design Project 4" class="portfolio-img">
@@ -1158,6 +1865,9 @@
           <h3 class="portfolio-title">Digital Campaign</h3>
           <p class="portfolio-category">Marketing</p>
         </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
       </div>
       <div class="portfolio-item" data-category="branding" data-aos="fade-up" data-aos-delay="500">
         <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500" alt="Design Project 5" class="portfolio-img">
@@ -1165,6 +1875,9 @@
           <h3 class="portfolio-title">Restaurant Branding</h3>
           <p class="portfolio-category">Brand Identity</p>
         </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
       </div>
       <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="600">
         <img src="https://images.unsplash.com/photo-1522542550221-31fdadf757da?w=500" alt="Design Project 6" class="portfolio-img">
@@ -1172,6 +1885,315 @@
           <h3 class="portfolio-title">Corporate Website</h3>
           <p class="portfolio-category">Web Design</p>
         </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1522542550221-31fdadf757da?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
+      </div>
+      <div class="portfolio-item" data-category="ui" data-aos="fade-up" data-aos-delay="700">
+        <img src="https://images.unsplash.com/photo-1559028006-44a36f563c3e?w=500" alt="Design Project 7" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Dashboard Design</h3>
+          <p class="portfolio-category">UI/UX Design</p>
+        </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1559028006-44a36f563c3e?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
+      </div>
+      <div class="portfolio-item" data-category="marketing" data-aos="fade-up" data-aos-delay="800">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500" alt="Design Project 8" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Social Media Campaign</h3>
+          <p class="portfolio-category">Marketing</p>
+        </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
+      </div>
+      <div class="portfolio-item" data-category="branding" data-aos="fade-up" data-aos-delay="900">
+        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=500" alt="Design Project 9" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Fashion Brand</h3>
+          <p class="portfolio-category">Brand Identity</p>
+        </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" onclick="closeLightbox()">
+        <i class="fas fa-times"></i>
+      </button>
+      <img src="" alt="Portfolio Image" class="lightbox-img" id="lightboxImg">
+    </div>
+  </div>
+  
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing">
+    <h2 class="section-title" data-aos="fade-up">Our Pricing Plans</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="pricing-title">Starter</h3>
+        <div class="pricing-price">$2,500</div>
+        <div class="pricing-period">per project</div>
+        <ul class="pricing-features">
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Basic Brand Identity</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Logo Design</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Business Card Design</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>2 Revisions</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>2 Weeks Delivery</span>
+          </li>
+        </ul>
+        <button class="pricing-btn">Get Started</button>
+      </div>
+      <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="pricing-title">Professional</h3>
+        <div class="pricing-price">$5,000</div>
+        <div class="pricing-period">per project</div>
+        <ul class="pricing-features">
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Complete Brand Identity</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Logo & Brand Guidelines</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Website Design (5 pages)</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>5 Revisions</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>4 Weeks Delivery</span>
+          </li>
+        </ul>
+        <button class="pricing-btn">Get Started</button>
+      </div>
+      <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="pricing-title">Enterprise</h3>
+        <div class="pricing-price">$10,000+</div>
+        <div class="pricing-period">per project</div>
+        <ul class="pricing-features">
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Full Brand Strategy</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Complete Digital Package</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Custom Website & App</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Unlimited Revisions</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Custom Timeline</span>
+          </li>
+        </ul>
+        <button class="pricing-btn">Contact Us</button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="faq" id="faq">
+    <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>What is your design process?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Our design process follows a structured approach: Discovery → Research → Design → Development → Testing → Launch. We collaborate closely with clients at each stage to ensure the final product meets their expectations and business goals.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>How long does a typical project take?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Project timelines vary depending on scope and complexity. A basic brand identity project typically takes 2-3 weeks, while a complete website with custom design can take 4-8 weeks. We provide detailed timelines during the proposal phase.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>What files will I receive upon completion?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            You'll receive all necessary file formats for your project. For brand identity: vector files (AI, EPS, SVG), raster files (PNG, JPG), and brand guidelines. For websites: source files, CMS access, and documentation. We ensure you have everything needed for future use.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>Do you offer ongoing support?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Yes, we offer various support packages depending on your needs. From basic maintenance to comprehensive retainer agreements that include updates, security monitoring, and ongoing design improvements. We'll recommend the best option for your business.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>How do you handle revisions?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Each package includes a set number of revision rounds. We gather detailed feedback at each stage and implement changes efficiently. Additional revisions can be accommodated at our hourly rate. Clear communication ensures we get it right within the allocated revisions.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Blog Section -->
+  <section class="blog" id="blog">
+    <h2 class="section-title" data-aos="fade-up">Latest Insights</h2>
+    <div class="blog-grid">
+      <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500" alt="Blog Post 1" class="blog-img">
+        <div class="blog-content">
+          <div class="blog-date">October 15, 2023</div>
+          <h3 class="blog-title">The Future of Web Design</h3>
+          <p class="blog-excerpt">
+            Explore the latest trends and technologies shaping the future of web design, from AI integration to immersive experiences.
+          </p>
+          <a href="#" class="blog-link">
+            Read More <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500" alt="Blog Post 2" class="blog-img">
+        <div class="blog-content">
+          <div class="blog-date">October 8, 2023</div>
+          <h3 class="blog-title">Building a Strong Brand Identity</h3>
+          <p class="blog-excerpt">
+            Learn the essential elements of creating a memorable brand identity that resonates with your target audience.
+          </p>
+          <a href="#" class="blog-link">
+            Read More <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://images.unsplash.com/photo-1559028006-44a36f563c3e?w=500" alt="Blog Post 3" class="blog-img">
+        <div class="blog-content">
+          <div class="blog-date">October 1, 2023</div>
+          <h3 class="blog-title">UX Design Best Practices</h3>
+          <p class="blog-excerpt">
+            Discover proven UX design principles and techniques to create user-friendly digital experiences.
+          </p>
+          <a href="#" class="blog-link">
+            Read More <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Careers Section -->
+  <section class="careers" id="careers">
+    <h2 class="section-title" data-aos="fade-up">Join Our Team</h2>
+    <div class="careers-container">
+      <div class="job-listing" data-aos="fade-up" data-aos-delay="100">
+        <div class="job-header">
+          <h3 class="job-title">Senior UI/UX Designer</h3>
+          <span class="job-type">Full-time</span>
+        </div>
+        <div class="job-details">
+          <div class="job-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>New York, NY</span>
+          </div>
+          <div class="job-detail">
+            <i class="fas fa-dollar-sign"></i>
+            <span>$80,000 - $100,000</span>
+          </div>
+        </div>
+        <p class="job-description">
+          We're looking for an experienced UI/UX designer to join our creative team. You'll be responsible for creating intuitive and visually appealing designs for web and mobile applications.
+        </p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="job-listing" data-aos="fade-up" data-aos-delay="200">
+        <div class="job-header">
+          <h3 class="job-title">Frontend Developer</h3>
+          <span class="job-type">Full-time</span>
+        </div>
+        <div class="job-details">
+          <div class="job-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Remote</span>
+          </div>
+          <div class="job-detail">
+            <i class="fas fa-dollar-sign"></i>
+            <span>$70,000 - $90,000</span>
+          </div>
+        </div>
+        <p class="job-description">
+          Join our development team to build cutting-edge web applications. You'll work closely with designers to bring creative visions to life with clean, efficient code.
+        </p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="job-listing" data-aos="fade-up" data-aos-delay="300">
+        <div class="job-header">
+          <h3 class="job-title">Digital Marketing Specialist</h3>
+          <span class="job-type">Part-time</span>
+        </div>
+        <div class="job-details">
+          <div class="job-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>New York, NY</span>
+          </div>
+          <div class="job-detail">
+            <i class="fas fa-dollar-sign"></i>
+            <span>$40,000 - $50,000</span>
+          </div>
+        </div>
+        <p class="job-description">
+          Help our clients grow their online presence through strategic digital marketing campaigns. Experience with SEO, social media, and content marketing required.
+        </p>
+        <button class="apply-btn">Apply Now</button>
       </div>
     </div>
   </section>
@@ -1192,19 +2214,19 @@
         </p>
         <div class="about-stats">
           <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
-            <div class="stat-number">200+</div>
+            <div class="stat-number count" data-target="200">0</div>
             <div class="stat-label">Projects Completed</div>
           </div>
           <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
-            <div class="stat-number">150+</div>
+            <div class="stat-number count" data-target="150">0</div>
             <div class="stat-label">Happy Clients</div>
           </div>
           <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
-            <div class="stat-number">25+</div>
+            <div class="stat-number count" data-target="25">0</div>
             <div class="stat-label">Awards Won</div>
           </div>
           <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
-            <div class="stat-number">8</div>
+            <div class="stat-number count" data-target="8">0</div>
             <div class="stat-label">Years Experience</div>
           </div>
         </div>
@@ -1275,6 +2297,13 @@
     <div class="testimonials-grid">
       <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
         <i class="fas fa-quote-right quote-icon"></i>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
         <p class="testimonial-text">
           Typixel transformed our brand identity completely. Their attention to detail and creative approach exceeded our expectations. The new design has significantly improved our market presence.
         </p>
@@ -1290,6 +2319,13 @@
       </div>
       <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
         <i class="fas fa-quote-right quote-icon"></i>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
         <p class="testimonial-text">
           Working with Typixel was a game-changer for our business. Their team understood our vision perfectly and delivered a website that not only looks stunning but also converts visitors into customers.
         </p>
@@ -1305,6 +2341,13 @@
       </div>
       <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
         <i class="fas fa-quote-right quote-icon"></i>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
         <p class="testimonial-text">
           The mobile app designed by Typixel has revolutionized how our customers interact with our services. The user experience is seamless, and we've seen a 40% increase in user engagement since launch.
         </p>
@@ -1355,6 +2398,15 @@
             <div class="contact-text">
               <h4>Email Address</h4>
               <p>hello@typixel.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Business Hours</h4>
+              <p>Monday - Friday: 9am - 6pm</p>
             </div>
           </div>
         </div>
@@ -1449,6 +2501,21 @@
     </div>
   </footer>
   
+  <!-- Newsletter Popup -->
+  <div class="newsletter-popup" id="newsletterPopup">
+    <button class="popup-close" onclick="closeNewsletterPopup()">
+      <i class="fas fa-times"></i>
+    </button>
+    <h3 class="popup-title">Stay Updated</h3>
+    <p class="popup-description">
+      Subscribe to our newsletter and get the latest design insights and exclusive offers.
+    </p>
+    <form class="popup-form" onsubmit="subscribeNewsletter(event)">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+  
   <!-- WhatsApp Direct -->
   <a href="https://wa.me/1234567890?text=Hi!%20I'm%20interested%20in%20your%20design%20services" class="whatsapp-direct" target="_blank">
     <div class="whatsapp-button">
@@ -1490,14 +2557,136 @@
       offset: 100
     });
     
-    // Loading Screen
-    window.addEventListener('load', function() {
-      setTimeout(() => {
-        document.getElementById('loadingScreen').style.opacity = '0';
+    // Enhanced Loading Screen with Network Check
+    function checkNetworkAndLoad() {
+      const loadingScreen = document.getElementById('loadingScreen');
+      const loadingError = document.getElementById('loadingError');
+      const retryBtn = document.getElementById('retryBtn');
+      
+      // Check if online
+      if (navigator.onLine) {
+        // Simulate loading time
         setTimeout(() => {
-          document.getElementById('loadingScreen').style.display = 'none';
-        }, 500);
-      }, 2000);
+          loadingScreen.style.opacity = '0';
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            // Initialize counting animation after loading
+            initCountingAnimation();
+          }, 500);
+        }, 3000);
+      } else {
+        // Show network error
+        loadingError.classList.add('show');
+        retryBtn.classList.add('show');
+        document.querySelector('.loading-spinner').style.display = 'none';
+        document.querySelector('.loading-text').textContent = 'Connection Error';
+      }
+    }
+    
+    // Retry button click handler
+    document.getElementById('retryBtn').addEventListener('click', () => {
+      document.getElementById('loadingError').classList.remove('show');
+      document.getElementById('retryBtn').classList.remove('show');
+      document.querySelector('.loading-spinner').style.display = 'block';
+      document.querySelector('.loading-text').textContent = 'Typixel Studio';
+      checkNetworkAndLoad();
+    });
+    
+    // Initialize on page load
+    window.addEventListener('load', checkNetworkAndLoad);
+    
+    // Online/Offline event listeners
+    window.addEventListener('online', () => {
+      if (document.getElementById('loadingScreen').style.display !== 'none') {
+        checkNetworkAndLoad();
+      }
+    });
+    
+    window.addEventListener('offline', () => {
+      // Could add offline notification here
+      console.log('You are offline');
+    });
+    
+    // Counting Animation for Statistics
+    function initCountingAnimation() {
+      const counters = document.querySelectorAll('.count');
+      const speed = 200; // The lower the faster
+      
+      const observerOptions = {
+        threshold: 0.7,
+        rootMargin: '0px 0px -100px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const increment = target / speed;
+            
+            if (count < target) {
+              counter.innerText = Math.ceil(count + increment);
+              setTimeout(() => updateCounter(counter, target, increment), 1);
+            } else {
+              counter.innerText = target;
+            }
+          }
+        });
+      }, observerOptions);
+      
+      counters.forEach(counter => {
+        observer.observe(counter);
+      });
+    }
+    
+    function updateCounter(counter, target, increment) {
+      const count = +counter.innerText;
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(() => updateCounter(counter, target, increment), 1);
+      } else {
+        counter.innerText = target;
+      }
+    }
+    
+    // Scroll Progress
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+      document.getElementById('progressBar').style.width = scrollPercent + '%';
+      
+      // Back to Top Button
+      if (scrollTop > 500) {
+        document.getElementById('backToTop').classList.add('visible');
+      } else {
+        document.getElementById('backToTop').classList.remove('visible');
+      }
+    });
+    
+    // Back to Top
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const icon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      if (body.classList.contains('light-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
     });
     
     // Smooth Scrolling
@@ -1536,7 +2725,10 @@
       'timeline': 'Typical projects take 4-6 weeks. Rush options are available for urgent needs with an additional fee.',
       'process': 'We follow a 4-step process: Discovery → Design → Development → Delivery. Every step includes client collaboration and feedback.',
       'team': 'Our team consists of creative professionals with expertise in design, development, and marketing. Meet our team in the About section!',
-      'testimonials': 'We\'ve worked with over 150 clients and have received excellent feedback. Check out our testimonials section to see what our clients say about us.'
+      'testimonials': 'We\'ve worked with over 150 clients and have received excellent feedback. Check out our testimonials section to see what our clients say about us.',
+      'careers': 'We\'re always looking for talented individuals to join our team. Check our careers section for current openings!',
+      'blog': 'Our blog features the latest insights on design, technology, and marketing. Subscribe to stay updated!',
+      'faq': 'We\'ve compiled answers to common questions in our FAQ section. What would you like to know?'
     };
     function sendMessage() {
       const message = chatbotInput.value.trim();
@@ -1607,6 +2799,33 @@
       });
     });
     
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    
+    function openLightbox(src) {
+      lightboxImg.src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+    
+    // FAQ Toggle
+    function toggleFAQ(element) {
+      const faqItem = element.parentElement;
+      faqItem.classList.toggle('active');
+    }
+    
     // Contact Form
     const clientForm = document.getElementById('clientForm');
     clientForm.addEventListener('submit', (e) => {
@@ -1636,14 +2855,6 @@
       
       // Reset form
       clientForm.reset();
-    });
-    
-    // Parallax Effect
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const parallax = document.querySelector('.video-background');
-      const speed = scrolled * 0.5;
-      parallax.style.transform = `translateY(${speed}px)`;
     });
     
     // Newsletter Form
@@ -1676,6 +2887,2984 @@
       
       // Reset form
       newsletterForm.reset();
+    });
+    
+    // Newsletter Popup
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('newsletterPopup').classList.add('show');
+      }, 5000);
+    });
+    
+    function closeNewsletterPopup() {
+      document.getElementById('newsletterPopup').classList.remove('show');
+    }
+    
+    function subscribeNewsletter(e) {
+      e.preventDefault();
+      const email = e.target.querySelector('input').value;
+      
+      // Here you would normally send the email to a server
+      
+      // Show success message
+      const popup = document.getElementById('newsletterPopup');
+      popup.innerHTML = `
+        <button class="popup-close" onclick="closeNewsletterPopup()">
+          <i class="fas fa-times"></i>
+        </button>
+        <h3 class="popup-title">Success!</h3>
+        <p class="popup-description">
+          Thank you for subscribing! You'll receive our latest updates and exclusive offers.
+        </p>
+      `;
+      
+      // Close popup after 3 seconds
+      setTimeout(() => {
+        closeNewsletterPopup();
+      }, 3000);
+    }
+    
+    // Parallax Effect
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallax = document.querySelector('.video-background');
+      const speed = scrolled * 0.5;
+      parallax.style.transform = `translateY(${speed}px)`;
+    });
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typixel - Award-Winning Design Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+      --secondary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+      --accent-gradient: linear-gradient(135deg, #f59e0b 0%, #ef4444 50%, #ec4899 100%);
+      --dark-bg: #0a0a0f;
+      --darker-bg: #050507;
+      --card-bg: rgba(255, 255, 255, 0.08);
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --text-primary: #ffffff;
+      --text-secondary: #a1a1aa;
+      --border-color: rgba(255, 255, 255, 0.12);
+      --light-bg: #f8fafc;
+      --light-text: #1e293b;
+      --light-secondary: #64748b;
+      --light-card: #ffffff;
+      --success-color: #10b981;
+      --warning-color: #f59e0b;
+      --error-color: #ef4444;
+      --whatsapp-green: #25d366;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-primary);
+      background: var(--dark-bg);
+      overflow-x: hidden;
+      line-height: 1.6;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    body.light-mode {
+      background: var(--light-bg);
+      color: var(--light-text);
+    }
+    
+    /* Scroll Progress Indicator */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 1001;
+    }
+    .scroll-progress-bar {
+      height: 100%;
+      background: var(--primary-gradient);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+    
+    /* Dark/Light Mode Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 100px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      background: var(--primary-gradient);
+      color: white;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 60px;
+      height: 60px;
+      background: var(--primary-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6);
+    }
+    
+    /* Enhanced Video Background */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(10, 10, 15, 0.9) 0%,
+        rgba(99, 102, 241, 0.3) 30%,
+        rgba(139, 92, 246, 0.2) 60%,
+        rgba(217, 70, 239, 0.1) 100%
+      );
+      z-index: 1;
+    }
+    #bgVideo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* Ultra Professional Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 10, 15, 0.15);
+      backdrop-filter: blur(25px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 2rem;
+      font-weight: 900;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: all 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 1.1rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-gradient);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .cta-button {
+      padding: 1rem 2.5rem;
+      background: var(--primary-gradient);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+    }
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6);
+    }
+    
+    /* Hero Section Ultra Professional */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content {
+      max-width: 1200px;
+      padding: 0 2rem;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(15px);
+      font-weight: 600;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .hero-title span {
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary, .btn-secondary {
+      padding: 1.25rem 3rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-primary {
+      background: var(--primary-gradient);
+      color: white;
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+    }
+    .btn-secondary {
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: var(--text-primary);
+      backdrop-filter: blur(10px);
+    }
+    .btn-primary:hover, .btn-secondary:hover {
+      transform: translateY(-3px);
+    }
+    
+    /* WhatsApp Direct Integration */
+    .whatsapp-direct {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+    }
+    .whatsapp-button {
+      width: 70px;
+      height: 70px;
+      background: var(--whatsapp-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+    .whatsapp-button:hover {
+      transform: scale(1.15);
+      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+    }
+    
+    /* AI Chatbot Integration */
+    .ai-chatbot {
+      position: fixed;
+      bottom: 120px;
+      right: 30px;
+      width: 400px;
+      height: 600px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      overflow: hidden;
+      z-index: 1001;
+      backdrop-filter: blur(20px);
+      transform: scale(0) rotate(45deg);
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    .ai-chatbot.active {
+      transform: scale(1) rotate(0deg);
+    }
+    .chatbot-header {
+      background: var(--primary-gradient);
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .chatbot-title {
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .chatbot-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .chatbot-close:hover {
+      transform: rotate(90deg);
+    }
+    .chatbot-messages {
+      height: 450px;
+      overflow-y: auto;
+      padding: 1.5rem;
+    }
+    .message {
+      max-width: 80%;
+      padding: 1rem 1.5rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      animation: slideUp 0.3s ease;
+    }
+    .message.bot {
+      background: rgba(99, 102, 241, 0.2);
+      align-self: flex-start;
+    }
+    .message.user {
+      background: var(--primary-gradient);
+      color: white;
+      align-self: flex-end;
+      margin-left: auto;
+    }
+    .chatbot-input {
+      display: flex;
+      padding: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .chatbot-input input {
+      flex: 1;
+      padding: 1rem;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 25px;
+      color: var(--text-primary);
+    }
+    .chatbot-input button {
+      margin-left: 1rem;
+      padding: 1rem 1.5rem;
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 25px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .chatbot-toggle {
+      position: fixed;
+      bottom: 120px;
+      right: 30px;
+      width: 70px;
+      height: 70px;
+      background: var(--primary-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+    
+    /* Services Section */
+    .services {
+      padding: 8rem 5%;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      text-align: center;
+      margin-bottom: 3rem;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 3rem;
+      backdrop-filter: blur(20px);
+      transition: all 0.4s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--primary-gradient);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover::before {
+      transform: translateX(0);
+    }
+    .service-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    }
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--primary-gradient);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      font-size: 2.5rem;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    .service-card:hover .service-icon {
+      transform: rotate(360deg) scale(1.1);
+    }
+    .service-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .service-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .service-features {
+      margin-top: 1.5rem;
+      text-align: left;
+    }
+    .service-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-secondary);
+    }
+    .service-feature i {
+      color: var(--success-color);
+    }
+    
+    /* Portfolio Section */
+    .portfolio {
+      padding: 8rem 5%;
+    }
+    .portfolio-filter {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 0.75rem 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-color);
+      border-radius: 50px;
+      color: var(--text-primary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary-gradient);
+      border-color: transparent;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .portfolio-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 300px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+    .portfolio-item:hover {
+      transform: scale(1.05);
+    }
+    .portfolio-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+    .portfolio-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .portfolio-category {
+      color: var(--text-secondary);
+    }
+    .portfolio-link {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: var(--primary-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    .portfolio-item:hover .portfolio-link {
+      opacity: 1;
+    }
+    
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+    .lightbox-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .lightbox-close:hover {
+      transform: rotate(90deg);
+    }
+    
+    /* Pricing Section */
+    .pricing {
+      padding: 8rem 5%;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(217, 70, 239, 0.05) 100%);
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .pricing-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 3rem;
+      text-align: center;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .pricing-card.featured {
+      transform: scale(1.05);
+      border-color: #6366f1;
+    }
+    .pricing-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary-gradient);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    .pricing-card.featured:hover {
+      transform: scale(1.05) translateY(-10px);
+    }
+    .pricing-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .pricing-price {
+      font-size: 3rem;
+      font-weight: 900;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    .pricing-period {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .pricing-feature {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-secondary);
+    }
+    .pricing-feature:last-child {
+      border-bottom: none;
+    }
+    .pricing-feature i {
+      color: var(--success-color);
+      margin-right: 0.5rem;
+    }
+    .pricing-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .pricing-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+    }
+    
+    /* FAQ Section */
+    .faq {
+      padding: 8rem 5%;
+    }
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .faq-question {
+      padding: 1.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    .faq-question:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+    .faq-answer-content {
+      padding: 0 1.5rem 1.5rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    
+    /* Blog Section */
+    .blog {
+      padding: 8rem 5%;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .blog-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    .blog-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .blog-content {
+      padding: 2rem;
+    }
+    .blog-date {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .blog-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .blog-excerpt {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    .blog-link {
+      color: #6366f1;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .blog-link:hover {
+      gap: 1rem;
+    }
+    
+    /* Careers Section */
+    .careers {
+      padding: 8rem 5%;
+    }
+    .careers-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .job-listing {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+    .job-listing:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .job-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .job-type {
+      background: var(--primary-gradient);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .job-details {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+    .job-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .job-description {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    .apply-btn {
+      padding: 0.75rem 2rem;
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .apply-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+    }
+    
+    /* Newsletter Popup */
+    .newsletter-popup {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 400px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 2rem;
+      z-index: 1000;
+      transform: translateY(150%);
+      transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      backdrop-filter: blur(20px);
+    }
+    .newsletter-popup.show {
+      transform: translateY(0);
+    }
+    .popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .popup-close:hover {
+      color: var(--text-primary);
+      transform: rotate(90deg);
+    }
+    .popup-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .popup-description {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .popup-form {
+      display: flex;
+      gap: 1rem;
+    }
+    .popup-form input {
+      flex: 1;
+      padding: 0.75rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-color);
+      border-radius: 50px;
+      color: var(--text-primary);
+    }
+    .popup-form button {
+      padding: 0.75rem 1.5rem;
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .popup-form button:hover {
+      transform: scale(1.05);
+    }
+    
+    /* About Us Section */
+    .about {
+      padding: 8rem 5%;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(217, 70, 239, 0.05) 100%);
+    }
+    .about-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 2rem;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .about-text p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      color: var(--text-secondary);
+    }
+    .about-image {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 500px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .team-section {
+      margin-top: 5rem;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 3rem auto 0;
+    }
+    .team-member {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    .member-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      overflow: hidden;
+      border: 4px solid var(--primary-gradient);
+      transition: all 0.3s ease;
+    }
+    .team-member:hover .member-avatar {
+      transform: scale(1.1);
+    }
+    .member-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .member-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .member-role {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+    .member-social {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .member-social a {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+    .member-social a:hover {
+      background: var(--primary-gradient);
+      transform: translateY(-3px);
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      padding: 8rem 5%;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .testimonial-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    .quote-icon {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 3rem;
+      opacity: 0.2;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .testimonial-text {
+      margin-bottom: 2rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+    .client-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .client-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .client-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .client-details h4 {
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .client-details p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    .rating {
+      margin-bottom: 1rem;
+      color: #f59e0b;
+    }
+    
+    /* Contact Section */
+    .contact {
+      padding: 8rem 5%;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    }
+    .contact-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+    }
+    .contact-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 2rem;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .contact-info p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+    .contact-details {
+      margin-top: 2rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .contact-item:hover {
+      transform: translateX(10px);
+    }
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary-gradient);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: white;
+      flex-shrink: 0;
+    }
+    .contact-text h4 {
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .contact-text p {
+      color: var(--text-secondary);
+      margin: 0;
+    }
+    .contact-form {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 3rem;
+      backdrop-filter: blur(20px);
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .form-control {
+      width: 100%;
+      padding: 1.25rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+    textarea.form-control {
+      resize: vertical;
+      min-height: 150px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 1.25rem;
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 16px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+    }
+    
+    /* Footer */
+    footer {
+      padding: 4rem 5%;
+      background: var(--darker-bg);
+      border-top: 1px solid var(--border-color);
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+    }
+    .footer-column h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 1rem;
+    }
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .footer-links a:hover {
+      color: var(--text-primary);
+      padding-left: 5px;
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      background: var(--primary-gradient);
+      transform: translateY(-3px);
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-secondary);
+    }
+    
+    /* Floating Elements */
+    .floating-elements {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .floating-shape {
+      position: absolute;
+      opacity: 0.1;
+      animation: float 20s infinite ease-in-out;
+    }
+    .shape-1 {
+      top: 20%;
+      left: 10%;
+      width: 100px;
+      height: 100px;
+      background: var(--primary-gradient);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      animation-delay: 0s;
+    }
+    .shape-2 {
+      top: 60%;
+      right: 10%;
+      width: 150px;
+      height: 150px;
+      background: var(--accent-gradient);
+      border-radius: 50%;
+      animation-delay: 5s;
+    }
+    .shape-3 {
+      bottom: 20%;
+      left: 50%;
+      width: 80px;
+      height: 80px;
+      background: var(--secondary-gradient);
+      transform: rotate(45deg);
+      animation-delay: 10s;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      33% { transform: translateY(-30px) rotate(120deg); }
+      66% { transform: translateY(30px) rotate(240deg); }
+    }
+    
+    /* Enhanced Loading Screen */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--dark-bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    .loading-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    .loading-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--primary-gradient);
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+      animation: pulse 2s infinite;
+    }
+    .loading-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .loading-spinner {
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(99, 102, 241, 0.3);
+      border-top: 3px solid #6366f1;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    .loading-text {
+      font-size: 1.5rem;
+      font-weight: 600;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .loading-error {
+      display: none;
+      color: var(--error-color);
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .loading-error.show {
+      display: block;
+    }
+    .retry-btn {
+      margin-top: 1rem;
+      padding: 0.75rem 2rem;
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: none;
+    }
+    .retry-btn.show {
+      display: inline-block;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Animations */
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(99, 102, 241, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+      }
+    }
+    
+    /* Counting Animation */
+    .count {
+      transition: all 0.5s ease;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .services-grid,
+      .portfolio-grid,
+      .testimonials-grid,
+      .about-content,
+      .contact-content,
+      .pricing-grid,
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .ai-chatbot {
+        width: 90%;
+        right: 5%;
+        left: 5%;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+      
+      .newsletter-popup {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Enhanced Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-image">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300" alt="Professional Designer">
+      </div>
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Typixel Studio</div>
+      <div class="loading-error" id="loadingError">
+        <p>Network connection issue. Please check your internet connection.</p>
+        <button class="retry-btn" id="retryBtn">Retry</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar" id="progressBar"></div>
+  </div>
+  
+  <!-- Theme Toggle -->
+  <div class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+  
+  <!-- Video Background -->
+  <div class="video-background">
+    <video autoplay muted loop id="bgVideo">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-graphic-designer-working-on-a-computer-38257-large.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+  
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <i class="fas fa-cube"></i>
+        Typixel
+      </a>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#blog">Blog</a>
+        <a href="#careers">Careers</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="cta-button">Start Project</a>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="floating-elements">
+      <div class="floating-shape shape-1"></div>
+      <div class="floating-shape shape-2"></div>
+      <div class="floating-shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-award"></i>
+        Award-Winning Design Studio
+      </div>
+      <h1 class="hero-title">
+        We Create <span>Exceptional</span> Digital Experiences
+      </h1>
+      <p class="hero-subtitle">
+        Transform your brand with cutting-edge design solutions that captivate, engage, and convert your audience into loyal customers.
+      </p>
+      <div class="hero-buttons">
+        <a href="#services" class="btn-primary">
+          <i class="fas fa-rocket"></i>
+          Explore Services
+        </a>
+        <a href="#portfolio" class="btn-secondary">
+          <i class="fas fa-eye"></i>
+          View Work
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <h2 class="section-title" data-aos="fade-up">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-icon">
+          <i class="fas fa-palette"></i>
+        </div>
+        <h3 class="service-title">Brand Identity Design</h3>
+        <p class="service-description">
+          Craft memorable brand identities that resonate with your audience and stand out in the market.
+        </p>
+        <div class="service-features">
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Logo Design</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Brand Guidelines</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Visual Identity</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-icon">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <h3 class="service-title">Web Design & Development</h3>
+        <p class="service-description">
+          Build stunning, responsive websites that deliver exceptional user experiences and drive conversions.
+        </p>
+        <div class="service-features">
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Responsive Design</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>E-commerce Solutions</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>CMS Integration</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3 class="service-title">UI/UX Design</h3>
+        <p class="service-description">
+          Create intuitive interfaces that enhance user satisfaction and improve product usability.
+        </p>
+        <div class="service-features">
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>User Research</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Wireframing</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Prototyping</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-icon">
+          <i class="fas fa-bullhorn"></i>
+        </div>
+        <h3 class="service-title">Digital Marketing</h3>
+        <p class="service-description">
+          Develop comprehensive digital marketing strategies that increase brand visibility and drive growth.
+        </p>
+        <div class="service-features">
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Social Media</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Content Marketing</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>SEO Optimization</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-icon">
+          <i class="fas fa-film"></i>
+        </div>
+        <h3 class="service-title">Motion Graphics</h3>
+        <p class="service-description">
+          Bring your ideas to life with captivating animations and motion graphics that tell your story.
+        </p>
+        <div class="service-features">
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>2D Animation</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Video Production</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Motion Design</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="service-icon">
+          <i class="fas fa-print"></i>
+        </div>
+        <h3 class="service-title">Print Design</h3>
+        <p class="service-description">
+          Create impactful print materials that leave a lasting impression on your audience.
+        </p>
+        <div class="service-features">
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Brochures</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Business Cards</span>
+          </div>
+          <div class="service-feature">
+            <i class="fas fa-check"></i>
+            <span>Packaging Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Portfolio Section -->
+  <section class="portfolio" id="portfolio">
+    <h2 class="section-title" data-aos="fade-up">Featured Work</h2>
+    <div class="portfolio-filter" data-aos="fade-up" data-aos-delay="100">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="branding">Branding</button>
+      <button class="filter-btn" data-filter="web">Web Design</button>
+      <button class="filter-btn" data-filter="ui">UI/UX</button>
+      <button class="filter-btn" data-filter="marketing">Marketing</button>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-category="branding" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500" alt="Design Project 1" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Tech Startup Rebrand</h3>
+          <p class="portfolio-category">Brand Identity</p>
+        </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
+      </div>
+      <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=500" alt="Design Project 2" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">E-commerce Platform</h3>
+          <p class="portfolio-category">Web Design</p>
+        </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1558655146-d09347e92766?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
+      </div>
+      <div class="portfolio-item" data-category="ui" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500" alt="Design Project 3" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Mobile App Design</h3>
+          <p class="portfolio-category">UI/UX Design</p>
+        </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
+      </div>
+      <div class="portfolio-item" data-category="marketing" data-aos="fade-up" data-aos-delay="400">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500" alt="Design Project 4" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Digital Campaign</h3>
+          <p class="portfolio-category">Marketing</p>
+        </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
+      </div>
+      <div class="portfolio-item" data-category="branding" data-aos="fade-up" data-aos-delay="500">
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500" alt="Design Project 5" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Restaurant Branding</h3>
+          <p class="portfolio-category">Brand Identity</p>
+        </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
+      </div>
+      <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="600">
+        <img src="https://images.unsplash.com/photo-1522542550221-31fdadf757da?w=500" alt="Design Project 6" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Corporate Website</h3>
+          <p class="portfolio-category">Web Design</p>
+        </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1522542550221-31fdadf757da?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
+      </div>
+      <div class="portfolio-item" data-category="ui" data-aos="fade-up" data-aos-delay="700">
+        <img src="https://images.unsplash.com/photo-1559028006-44a36f563c3e?w=500" alt="Design Project 7" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Dashboard Design</h3>
+          <p class="portfolio-category">UI/UX Design</p>
+        </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1559028006-44a36f563c3e?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
+      </div>
+      <div class="portfolio-item" data-category="marketing" data-aos="fade-up" data-aos-delay="800">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500" alt="Design Project 8" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Social Media Campaign</h3>
+          <p class="portfolio-category">Marketing</p>
+        </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
+      </div>
+      <div class="portfolio-item" data-category="branding" data-aos="fade-up" data-aos-delay="900">
+        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=500" alt="Design Project 9" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Fashion Brand</h3>
+          <p class="portfolio-category">Brand Identity</p>
+        </div>
+        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1000')">
+          <i class="fas fa-expand"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" onclick="closeLightbox()">
+        <i class="fas fa-times"></i>
+      </button>
+      <img src="" alt="Portfolio Image" class="lightbox-img" id="lightboxImg">
+    </div>
+  </div>
+  
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing">
+    <h2 class="section-title" data-aos="fade-up">Our Pricing Plans</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="pricing-title">Starter</h3>
+        <div class="pricing-price">$2,500</div>
+        <div class="pricing-period">per project</div>
+        <ul class="pricing-features">
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Basic Brand Identity</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Logo Design</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Business Card Design</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>2 Revisions</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>2 Weeks Delivery</span>
+          </li>
+        </ul>
+        <button class="pricing-btn">Get Started</button>
+      </div>
+      <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="pricing-title">Professional</h3>
+        <div class="pricing-price">$5,000</div>
+        <div class="pricing-period">per project</div>
+        <ul class="pricing-features">
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Complete Brand Identity</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Logo & Brand Guidelines</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Website Design (5 pages)</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>5 Revisions</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>4 Weeks Delivery</span>
+          </li>
+        </ul>
+        <button class="pricing-btn">Get Started</button>
+      </div>
+      <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="pricing-title">Enterprise</h3>
+        <div class="pricing-price">$10,000+</div>
+        <div class="pricing-period">per project</div>
+        <ul class="pricing-features">
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Full Brand Strategy</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Complete Digital Package</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Custom Website & App</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Unlimited Revisions</span>
+          </li>
+          <li class="pricing-feature">
+            <i class="fas fa-check"></i>
+            <span>Custom Timeline</span>
+          </li>
+        </ul>
+        <button class="pricing-btn">Contact Us</button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="faq" id="faq">
+    <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>What is your design process?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Our design process follows a structured approach: Discovery → Research → Design → Development → Testing → Launch. We collaborate closely with clients at each stage to ensure the final product meets their expectations and business goals.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>How long does a typical project take?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Project timelines vary depending on scope and complexity. A basic brand identity project typically takes 2-3 weeks, while a complete website with custom design can take 4-8 weeks. We provide detailed timelines during the proposal phase.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>What files will I receive upon completion?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            You'll receive all necessary file formats for your project. For brand identity: vector files (AI, EPS, SVG), raster files (PNG, JPG), and brand guidelines. For websites: source files, CMS access, and documentation. We ensure you have everything needed for future use.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>Do you offer ongoing support?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Yes, we offer various support packages depending on your needs. From basic maintenance to comprehensive retainer agreements that include updates, security monitoring, and ongoing design improvements. We'll recommend the best option for your business.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>How do you handle revisions?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Each package includes a set number of revision rounds. We gather detailed feedback at each stage and implement changes efficiently. Additional revisions can be accommodated at our hourly rate. Clear communication ensures we get it right within the allocated revisions.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Blog Section -->
+  <section class="blog" id="blog">
+    <h2 class="section-title" data-aos="fade-up">Latest Insights</h2>
+    <div class="blog-grid">
+      <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500" alt="Blog Post 1" class="blog-img">
+        <div class="blog-content">
+          <div class="blog-date">October 15, 2023</div>
+          <h3 class="blog-title">The Future of Web Design</h3>
+          <p class="blog-excerpt">
+            Explore the latest trends and technologies shaping the future of web design, from AI integration to immersive experiences.
+          </p>
+          <a href="#" class="blog-link">
+            Read More <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500" alt="Blog Post 2" class="blog-img">
+        <div class="blog-content">
+          <div class="blog-date">October 8, 2023</div>
+          <h3 class="blog-title">Building a Strong Brand Identity</h3>
+          <p class="blog-excerpt">
+            Learn the essential elements of creating a memorable brand identity that resonates with your target audience.
+          </p>
+          <a href="#" class="blog-link">
+            Read More <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://images.unsplash.com/photo-1559028006-44a36f563c3e?w=500" alt="Blog Post 3" class="blog-img">
+        <div class="blog-content">
+          <div class="blog-date">October 1, 2023</div>
+          <h3 class="blog-title">UX Design Best Practices</h3>
+          <p class="blog-excerpt">
+            Discover proven UX design principles and techniques to create user-friendly digital experiences.
+          </p>
+          <a href="#" class="blog-link">
+            Read More <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Careers Section -->
+  <section class="careers" id="careers">
+    <h2 class="section-title" data-aos="fade-up">Join Our Team</h2>
+    <div class="careers-container">
+      <div class="job-listing" data-aos="fade-up" data-aos-delay="100">
+        <div class="job-header">
+          <h3 class="job-title">Senior UI/UX Designer</h3>
+          <span class="job-type">Full-time</span>
+        </div>
+        <div class="job-details">
+          <div class="job-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>New York, NY</span>
+          </div>
+          <div class="job-detail">
+            <i class="fas fa-dollar-sign"></i>
+            <span>$80,000 - $100,000</span>
+          </div>
+        </div>
+        <p class="job-description">
+          We're looking for an experienced UI/UX designer to join our creative team. You'll be responsible for creating intuitive and visually appealing designs for web and mobile applications.
+        </p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="job-listing" data-aos="fade-up" data-aos-delay="200">
+        <div class="job-header">
+          <h3 class="job-title">Frontend Developer</h3>
+          <span class="job-type">Full-time</span>
+        </div>
+        <div class="job-details">
+          <div class="job-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Remote</span>
+          </div>
+          <div class="job-detail">
+            <i class="fas fa-dollar-sign"></i>
+            <span>$70,000 - $90,000</span>
+          </div>
+        </div>
+        <p class="job-description">
+          Join our development team to build cutting-edge web applications. You'll work closely with designers to bring creative visions to life with clean, efficient code.
+        </p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="job-listing" data-aos="fade-up" data-aos-delay="300">
+        <div class="job-header">
+          <h3 class="job-title">Digital Marketing Specialist</h3>
+          <span class="job-type">Part-time</span>
+        </div>
+        <div class="job-details">
+          <div class="job-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>New York, NY</span>
+          </div>
+          <div class="job-detail">
+            <i class="fas fa-dollar-sign"></i>
+            <span>$40,000 - $50,000</span>
+          </div>
+        </div>
+        <p class="job-description">
+          Help our clients grow their online presence through strategic digital marketing campaigns. Experience with SEO, social media, and content marketing required.
+        </p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Us Section -->
+  <section class="about" id="about">
+    <div class="about-content">
+      <div class="about-text" data-aos="fade-right">
+        <h2>About Typixel</h2>
+        <p>
+          Founded in 2015, Typixel has grown from a small design studio into an award-winning creative agency known for pushing boundaries and delivering exceptional results. Our team of talented designers, developers, and strategists are passionate about creating digital experiences that make a difference.
+        </p>
+        <p>
+          We believe that great design is more than just aesthetics—it's about solving problems, telling stories, and connecting with people on an emotional level. Our client-centered approach ensures that every project we undertake is tailored to meet specific business goals while exceeding expectations.
+        </p>
+        <p>
+          Over the years, we've had the privilege of working with startups, Fortune 500 companies, and everything in between. Our diverse portfolio reflects our ability to adapt to different industries and deliver consistently outstanding results.
+        </p>
+        <div class="about-stats">
+          <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+            <div class="stat-number count" data-target="200">0</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+            <div class="stat-number count" data-target="150">0</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+            <div class="stat-number count" data-target="25">0</div>
+            <div class="stat-label">Awards Won</div>
+          </div>
+          <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+            <div class="stat-number count" data-target="8">0</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-image" data-aos="fade-left">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000" alt="Typixel Team">
+      </div>
+    </div>
+    
+    <div class="team-section">
+      <h2 class="section-title" data-aos="fade-up">Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+          <div class="member-avatar">
+            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200" alt="Team Member">
+          </div>
+          <h3 class="member-name">Alex Morgan</h3>
+          <p class="member-role">Creative Director</p>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+            <a href="#"><i class="fab fa-behance"></i></a>
+          </div>
+        </div>
+        <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+          <div class="member-avatar">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200" alt="Team Member">
+          </div>
+          <h3 class="member-name">Jordan Lee</h3>
+          <p class="member-role">Lead Designer</p>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+            <a href="#"><i class="fab fa-behance"></i></a>
+          </div>
+        </div>
+        <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+          <div class="member-avatar">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200" alt="Team Member">
+          </div>
+          <h3 class="member-name">Taylor Kim</h3>
+          <p class="member-role">UX Specialist</p>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+            <a href="#"><i class="fab fa-behance"></i></a>
+          </div>
+        </div>
+        <div class="team-member" data-aos="fade-up" data-aos-delay="400">
+          <div class="member-avatar">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200" alt="Team Member">
+          </div>
+          <h3 class="member-name">Casey Smith</h3>
+          <p class="member-role">Developer</p>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-codepen"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="testimonials">
+    <h2 class="section-title" data-aos="fade-up">Client Testimonials</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-quote-right quote-icon"></i>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">
+          Typixel transformed our brand identity completely. Their attention to detail and creative approach exceeded our expectations. The new design has significantly improved our market presence.
+        </p>
+        <div class="client-info">
+          <div class="client-avatar">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Client">
+          </div>
+          <div class="client-details">
+            <h4>Michael Chen</h4>
+            <p>CEO, Tech Innovations</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-quote-right quote-icon"></i>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">
+          Working with Typixel was a game-changer for our business. Their team understood our vision perfectly and delivered a website that not only looks stunning but also converts visitors into customers.
+        </p>
+        <div class="client-info">
+          <div class="client-avatar">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100" alt="Client">
+          </div>
+          <div class="client-details">
+            <h4>Sarah Johnson</h4>
+            <p>Marketing Director, Retail Pro</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+        <i class="fas fa-quote-right quote-icon"></i>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">
+          The mobile app designed by Typixel has revolutionized how our customers interact with our services. The user experience is seamless, and we've seen a 40% increase in user engagement since launch.
+        </p>
+        <div class="client-info">
+          <div class="client-avatar">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100" alt="Client">
+          </div>
+          <div class="client-details">
+            <h4>David Wilson</h4>
+            <p>Product Manager, HealthPlus</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="contact-content">
+      <div class="contact-info" data-aos="fade-right">
+        <h2>Get In Touch</h2>
+        <p>
+          Ready to start your next project? We'd love to hear from you. Fill out the form and our team will get back to you within 24 hours.
+        </p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Our Location</h4>
+              <p>123 Design Street, Creative District, New York, NY 10001</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Phone Number</h4>
+              <p>+1 (555) 123-4567</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Email Address</h4>
+              <p>hello@typixel.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Business Hours</h4>
+              <p>Monday - Friday: 9am - 6pm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form" data-aos="fade-left">
+        <form id="clientForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" class="form-control" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" class="form-control" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Typixel</h3>
+        <p>
+          Award-winning design studio creating exceptional digital experiences that transform brands and drive growth.
+        </p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-dribbble"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Services</h3>
+        <ul class="footer-links">
+          <li><a href="#">Brand Identity Design</a></li>
+          <li><a href="#">Web Design & Development</a></li>
+          <li><a href="#">UI/UX Design</a></li>
+          <li><a href="#">Digital Marketing</a></li>
+          <li><a href="#">Motion Graphics</a></li>
+          <li><a href="#">Print Design</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Newsletter</h3>
+        <p>
+          Subscribe to our newsletter for the latest design trends and insights.
+        </p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" class="form-control">
+          <button type="submit" class="submit-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2023 Typixel Studio. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Newsletter Popup -->
+  <div class="newsletter-popup" id="newsletterPopup">
+    <button class="popup-close" onclick="closeNewsletterPopup()">
+      <i class="fas fa-times"></i>
+    </button>
+    <h3 class="popup-title">Stay Updated</h3>
+    <p class="popup-description">
+      Subscribe to our newsletter and get the latest design insights and exclusive offers.
+    </p>
+    <form class="popup-form" onsubmit="subscribeNewsletter(event)">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+  
+  <!-- WhatsApp Direct -->
+  <a href="https://wa.me/1234567890?text=Hi!%20I'm%20interested%20in%20your%20design%20services" class="whatsapp-direct" target="_blank">
+    <div class="whatsapp-button">
+      <i class="fab fa-whatsapp"></i>
+    </div>
+  </a>
+  
+  <!-- AI Chatbot -->
+  <div class="chatbot-toggle" id="chatbotToggle">
+    <i class="fas fa-robot"></i>
+  </div>
+  <div class="ai-chatbot" id="aiChatbot">
+    <div class="chatbot-header">
+      <h3 class="chatbot-title">
+        <i class="fas fa-robot"></i>
+        AI Design Assistant
+      </h3>
+      <button class="chatbot-close" id="chatbotClose">×</button>
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages">
+      <div class="message bot">
+        <p>Hello! I'm Typixel's AI assistant. How can I help you with your design needs today?</p>
+      </div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatbotInput" placeholder="Type your message...">
+      <button onclick="sendMessage()">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+  
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+    
+    // Enhanced Loading Screen with Network Check
+    function checkNetworkAndLoad() {
+      const loadingScreen = document.getElementById('loadingScreen');
+      const loadingError = document.getElementById('loadingError');
+      const retryBtn = document.getElementById('retryBtn');
+      
+      // Check if online
+      if (navigator.onLine) {
+        // Simulate loading time
+        setTimeout(() => {
+          loadingScreen.style.opacity = '0';
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            // Initialize counting animation after loading
+            initCountingAnimation();
+          }, 500);
+        }, 3000);
+      } else {
+        // Show network error
+        loadingError.classList.add('show');
+        retryBtn.classList.add('show');
+        document.querySelector('.loading-spinner').style.display = 'none';
+        document.querySelector('.loading-text').textContent = 'Connection Error';
+      }
+    }
+    
+    // Retry button click handler
+    document.getElementById('retryBtn').addEventListener('click', () => {
+      document.getElementById('loadingError').classList.remove('show');
+      document.getElementById('retryBtn').classList.remove('show');
+      document.querySelector('.loading-spinner').style.display = 'block';
+      document.querySelector('.loading-text').textContent = 'Typixel Studio';
+      checkNetworkAndLoad();
+    });
+    
+    // Initialize on page load
+    window.addEventListener('load', checkNetworkAndLoad);
+    
+    // Online/Offline event listeners
+    window.addEventListener('online', () => {
+      if (document.getElementById('loadingScreen').style.display !== 'none') {
+        checkNetworkAndLoad();
+      }
+    });
+    
+    window.addEventListener('offline', () => {
+      // Could add offline notification here
+      console.log('You are offline');
+    });
+    
+    // Counting Animation for Statistics
+    function initCountingAnimation() {
+      const counters = document.querySelectorAll('.count');
+      const speed = 200; // The lower the faster
+      
+      const observerOptions = {
+        threshold: 0.7,
+        rootMargin: '0px 0px -100px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const increment = target / speed;
+            
+            if (count < target) {
+              counter.innerText = Math.ceil(count + increment);
+              setTimeout(() => updateCounter(counter, target, increment), 1);
+            } else {
+              counter.innerText = target;
+            }
+          }
+        });
+      }, observerOptions);
+      
+      counters.forEach(counter => {
+        observer.observe(counter);
+      });
+    }
+    
+    function updateCounter(counter, target, increment) {
+      const count = +counter.innerText;
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(() => updateCounter(counter, target, increment), 1);
+      } else {
+        counter.innerText = target;
+      }
+    }
+    
+    // Scroll Progress
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+      document.getElementById('progressBar').style.width = scrollPercent + '%';
+      
+      // Back to Top Button
+      if (scrollTop > 500) {
+        document.getElementById('backToTop').classList.add('visible');
+      } else {
+        document.getElementById('backToTop').classList.remove('visible');
+      }
+    });
+    
+    // Back to Top
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const icon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      if (body.classList.contains('light-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
+    });
+    
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+    
+    // Chatbot Toggle
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbot = document.getElementById('aiChatbot');
+    const chatbotClose = document.getElementById('chatbotClose');
+    chatbotToggle.addEventListener('click', () => {
+      chatbot.classList.add('active');
+      chatbotToggle.style.display = 'none';
+    });
+    chatbotClose.addEventListener('click', () => {
+      chatbot.classList.remove('active');
+      chatbotToggle.style.display = 'flex';
+    });
+    
+    // AI Chatbot Functionality
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const responses = {
+      'hello': 'Hello! How can I help you with your design project today?',
+      'services': 'We offer Brand Identity Design, Web Design & Development, UI/UX Design, Digital Marketing, Motion Graphics, and Print Design. Which service interests you?',
+      'pricing': 'Our pricing starts from $2,500 for brand identity projects. Web design projects start at $3,500. Would you like a custom quote?',
+      'portfolio': 'You can view our latest work in the portfolio section. We have projects in branding, web design, UI/UX, and marketing. Any specific type of project you\'re looking for?',
+      'contact': 'You can reach us at hello@typixel.com or call +1 (555) 123-4567. You can also use the WhatsApp button for direct contact!',
+      'timeline': 'Typical projects take 4-6 weeks. Rush options are available for urgent needs with an additional fee.',
+      'process': 'We follow a 4-step process: Discovery → Design → Development → Delivery. Every step includes client collaboration and feedback.',
+      'team': 'Our team consists of creative professionals with expertise in design, development, and marketing. Meet our team in the About section!',
+      'testimonials': 'We\'ve worked with over 150 clients and have received excellent feedback. Check out our testimonials section to see what our clients say about us.',
+      'careers': 'We\'re always looking for talented individuals to join our team. Check our careers section for current openings!',
+      'blog': 'Our blog features the latest insights on design, technology, and marketing. Subscribe to stay updated!',
+      'faq': 'We\'ve compiled answers to common questions in our FAQ section. What would you like to know?'
+    };
+    function sendMessage() {
+      const message = chatbotInput.value.trim();
+      if (!message) return;
+      
+      // Add user message
+      const userDiv = document.createElement('div');
+      userDiv.className = 'message user';
+      userDiv.innerHTML = `<p>${message}</p>`;
+      chatbotMessages.appendChild(userDiv);
+      
+      // Get AI response
+      const lowerMessage = message.toLowerCase();
+      let response = "I'd be happy to help! Could you tell me more about your project needs?";
+      
+      for (const [keyword, reply] of Object.entries(responses)) {
+        if (lowerMessage.includes(keyword)) {
+          response = reply;
+          break;
+        }
+      }
+      
+      // Add bot response after delay
+      setTimeout(() => {
+        const botDiv = document.createElement('div');
+        botDiv.className = 'message bot';
+        botDiv.innerHTML = `<p>${response}</p>`;
+        chatbotMessages.appendChild(botDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      }, 1000);
+      
+      chatbotInput.value = '';
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+    chatbotInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+    
+    // Portfolio Filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Filter items
+        const filter = btn.getAttribute('data-filter');
+        portfolioItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'scale(1)';
+            }, 10);
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+              item.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+    
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    
+    function openLightbox(src) {
+      lightboxImg.src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+    
+    // FAQ Toggle
+    function toggleFAQ(element) {
+      const faqItem = element.parentElement;
+      faqItem.classList.toggle('active');
+    }
+    
+    // Contact Form
+    const clientForm = document.getElementById('clientForm');
+    clientForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Get form values
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      // Here you would normally send the data to a server
+      // For this example, we'll just show a success message
+      
+      // Create success message
+      const successDiv = document.createElement('div');
+      successDiv.className = 'message bot';
+      successDiv.innerHTML = `<p>Thank you, ${firstName}! Your message has been sent successfully. We'll get back to you within 24 hours.</p>`;
+      chatbotMessages.appendChild(successDiv);
+      
+      // Show chatbot
+      chatbot.classList.add('active');
+      chatbotToggle.style.display = 'none';
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      
+      // Reset form
+      clientForm.reset();
+    });
+    
+    // Newsletter Form
+    const newsletterForm = document.querySelector('.newsletter-form');
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = newsletterForm.querySelector('input[type="email"]').value;
+      
+      // Here you would normally send the email to a server
+      // For this example, we'll just show a success message
+      
+      // Create success message
+      const successDiv = document.createElement('div');
+      successDiv.style.position = 'fixed';
+      successDiv.style.bottom = '30px';
+      successDiv.style.left = '50%';
+      successDiv.style.transform = 'translateX(-50%)';
+      successDiv.style.background = 'var(--success-color)';
+      successDiv.style.color = 'white';
+      successDiv.style.padding = '1rem 2rem';
+      successDiv.style.borderRadius = '50px';
+      successDiv.style.zIndex = '1000';
+      successDiv.textContent = 'Thank you for subscribing to our newsletter!';
+      document.body.appendChild(successDiv);
+      
+      // Remove success message after 3 seconds
+      setTimeout(() => {
+        successDiv.remove();
+      }, 3000);
+      
+      // Reset form
+      newsletterForm.reset();
+    });
+    
+    // Newsletter Popup
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('newsletterPopup').classList.add('show');
+      }, 5000);
+    });
+    
+    function closeNewsletterPopup() {
+      document.getElementById('newsletterPopup').classList.remove('show');
+    }
+    
+    function subscribeNewsletter(e) {
+      e.preventDefault();
+      const email = e.target.querySelector('input').value;
+      
+      // Here you would normally send the email to a server
+      
+      // Show success message
+      const popup = document.getElementById('newsletterPopup');
+      popup.innerHTML = `
+        <button class="popup-close" onclick="closeNewsletterPopup()">
+          <i class="fas fa-times"></i>
+        </button>
+        <h3 class="popup-title">Success!</h3>
+        <p class="popup-description">
+          Thank you for subscribing! You'll receive our latest updates and exclusive offers.
+        </p>
+      `;
+      
+      // Close popup after 3 seconds
+      setTimeout(() => {
+        closeNewsletterPopup();
+      }, 3000);
+    }
+    
+    // Parallax Effect
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallax = document.querySelector('.video-background');
+      const speed = scrolled * 0.5;
+      parallax.style.transform = `translateY(${speed}px)`;
     });
   </script>
 </body>
