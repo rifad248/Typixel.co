@@ -1744,6 +1744,43 @@
         right: auto;
       }
     }
+    
+    /* Formspree Success Message */
+    .success-message {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      margin-top: 1rem;
+      display: none;
+    }
+    
+    .success-message i {
+      font-size: 3rem;
+      color: var(--success-color);
+      margin-bottom: 1rem;
+    }
+    
+    .success-message h3 {
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .success-message p {
+      color: var(--text-secondary);
+    }
+    
+    /* Form submission state */
+    .form-submitting {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    
+    .form-submitting .submit-btn {
+      background: var(--text-secondary);
+    }
   </style>
 </head>
 <body>
@@ -2171,1155 +2208,1151 @@
   </section>
   
   <!-- FAQ Section -->
-  <section class="faq" id="faq">
-    <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
-    <div class="faq-container">
-      <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-          <span>What is your design process?</span>
-          <i class="fas fa-plus faq-icon"></i>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-content">
-            Our design process follows a structured approach: Discovery → Research → Design → Development → Testing → Launch. We collaborate closely with clients at each stage to ensure the final product meets their expectations and business goals.
-          </div>
-        </div>
-      </div>
-      <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-          <span>How long does a typical project take?</span>
-          <i class="fas fa-plus faq-icon"></i>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-content">
-            Project timelines vary depending on scope and complexity. A basic brand identity project typically takes 2-3 weeks, while a complete website with custom design can take 4-8 weeks. We provide detailed timelines during the proposal phase.
-          </div>
-        </div>
-      </div>
-      <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-          <span>What files will I receive upon completion?</span>
-          <i class="fas fa-plus faq-icon"></i>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-content">
-            You'll receive all necessary file formats for your project. For brand identity: vector files (AI, EPS, SVG), raster files (PNG, JPG), and brand guidelines. For websites: source files, CMS access, and documentation. We ensure you have everything needed for future use.
-          </div>
-        </div>
-      </div>
-      <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-          <span>Do you offer ongoing support?</span>
-          <i class="fas fa-plus faq-icon"></i>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-content">
-            Yes, we offer various support packages depending on your needs. From basic maintenance to comprehensive retainer agreements that include updates, security monitoring, and ongoing design improvements. We'll recommend the best option for your business.
-          </div>
-        </div>
-      </div>
-      <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-          <span>How do you handle revisions?</span>
-          <i class="fas fa-plus faq-icon"></i>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-content">
-            Each package includes a set number of revision rounds. We gather detailed feedback at each stage and implement changes efficiently. Additional revisions can be accommodated at our hourly rate. Clear communication ensures we get it right within the allocated revisions.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Blog Section -->
-  <section class="blog" id="blog">
-    <div class="blog-header">
-      <h2 class="section-title" data-aos="fade-up">Latest Insights</h2>
-      <div class="blog-search" data-aos="fade-up" data-aos-delay="100">
-        <i class="fas fa-search"></i>
-        <input type="text" placeholder="Search articles...">
-      </div>
-    </div>
-    <div class="blog-grid">
-      <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500" alt="Blog Post 1" class="blog-img">
-        <div class="blog-content">
-          <div class="blog-date">October 15, 2023</div>
-          <h3 class="blog-title">The Future of Web Design</h3>
-          <p class="blog-excerpt">
-            Explore the latest trends and technologies shaping the future of web design, from AI integration to immersive experiences.
-          </p>
-          <div class="blog-meta">
-            <div class="blog-reading-time">5 min read</div>
-            <a href="#" class="blog-link">
-              Read More <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500" alt="Blog Post 2" class="blog-img">
-        <div class="blog-content">
-          <div class="blog-date">October 8, 2023</div>
-          <h3 class="blog-title">Building a Strong Brand Identity</h3>
-          <p class="blog-excerpt">
-            Learn the essential elements of creating a memorable brand identity that resonates with your target audience.
-          </p>
-          <div class="blog-meta">
-            <div class="blog-reading-time">7 min read</div>
-            <a href="#" class="blog-link">
-              Read More <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
-        <img src="https://images.unsplash.com/photo-1559028006-44a36f563c3e?w=500" alt="Blog Post 3" class="blog-img">
-        <div class="blog-content">
-          <div class="blog-date">October 1, 2023</div>
-          <h3 class="blog-title">UX Design Best Practices</h3>
-          <p class="blog-excerpt">
-            Discover proven UX design principles and techniques to create user-friendly digital experiences.
-          </p>
-          <div class="blog-meta">
-            <div class="blog-reading-time">6 min read</div>
-            <a href="#" class="blog-link">
-              Read More <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Careers Section -->
-  <section class="careers" id="careers">
-    <h2 class="section-title" data-aos="fade-up">Join Our Team</h2>
-    <div class="careers-container">
-      <div class="job-listing" data-aos="fade-up" data-aos-delay="100">
-        <div class="job-header">
-          <h3 class="job-title">Senior UI/UX Designer</h3>
-          <span class="job-type">Full-time</span>
-        </div>
-        <div class="job-details">
-          <div class="job-detail">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>New York, NY</span>
-          </div>
-          <div class="job-detail">
-            <i class="fas fa-dollar-sign"></i>
-            <span>$80,000 - $100,000</span>
-          </div>
-        </div>
-        <p class="job-description">
-          We're looking for an experienced UI/UX designer to join our creative team. You'll be responsible for creating intuitive and visually appealing designs for web and mobile applications.
-        </p>
-        <button class="apply-btn">Apply Now</button>
-      </div>
-      <div class="job-listing" data-aos="fade-up" data-aos-delay="200">
-        <div class="job-header">
-          <h3 class="job-title">Frontend Developer</h3>
-          <span class="job-type">Full-time</span>
-        </div>
-        <div class="job-details">
-          <div class="job-detail">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Remote</span>
-          </div>
-          <div class="job-detail">
-            <i class="fas fa-dollar-sign"></i>
-            <span>$70,000 - $90,000</span>
-          </div>
-        </div>
-        <p class="job-description">
-          Join our development team to build cutting-edge web applications. You'll work closely with designers to bring creative visions to life with clean, efficient code.
-        </p>
-        <button class="apply-btn">Apply Now</button>
-      </div>
-      <div class="job-listing" data-aos="fade-up" data-aos-delay="300">
-        <div class="job-header">
-          <h3 class="job-title">Digital Marketing Specialist</h3>
-          <span class="job-type">Part-time</span>
-        </div>
-        <div class="job-details">
-          <div class="job-detail">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>New York, NY</span>
-          </div>
-          <div class="job-detail">
-            <i class="fas fa-dollar-sign"></i>
-            <span>$40,000 - $50,000</span>
-          </div>
-        </div>
-        <p class="job-description">
-          Help our clients grow their online presence through strategic digital marketing campaigns. Experience with SEO, social media, and content marketing required.
-        </p>
-        <button class="apply-btn">Apply Now</button>
-      </div>
-    </div>
-  </section>
-  
-  <!-- About Us Section -->
-  <section class="about" id="about">
-    <div class="about-content">
-      <div class="about-text" data-aos="fade-right">
-        <h2>About Typixel</h2>
-        <p>
-          Founded in 2015, Typixel has grown from a small design studio into an award-winning creative agency known for pushing boundaries and delivering exceptional results. Our team of talented designers, developers, and strategists are passionate about creating digital experiences that make a difference.
-        </p>
-        <p>
-          We believe that great design is more than just aesthetics—it's about solving problems, telling stories, and connecting with people on an emotional level. Our client-centered approach ensures that every project we undertake is tailored to meet specific business goals while exceeding expectations.
-        </p>
-        <p>
-          Over the years, we've had the privilege of working with startups, Fortune 500 companies, and everything in between. Our diverse portfolio reflects our ability to adapt to different industries and deliver consistently outstanding results.
-        </p>
-        <div class="about-stats">
-          <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
-            <div class="stat-number">200+</div>
-            <div class="stat-label">Projects Completed</div>
-          </div>
-          <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
-            <div class="stat-number">150+</div>
-            <div class="stat-label">Happy Clients</div>
-          </div>
-          <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
-            <div class="stat-number">25+</div>
-            <div class="stat-label">Awards Won</div>
-          </div>
-          <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
-            <div class="stat-number">8</div>
-            <div class="stat-label">Years Experience</div>
-          </div>
-        </div>
-      </div>
-      <div class="about-image" data-aos="fade-left">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000" alt="Typixel Team">
-      </div>
-    </div>
+  .faq {
+      padding: 8rem 5%;
+    }
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .faq-question {
+      padding: 1.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    .faq-question:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+    .faq-answer-content {
+      padding: 0 1.5rem 1.5rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
     
-    <!-- Interactive Timeline -->
-    <div class="timeline">
-      <div class="timeline-item" data-aos="fade-right">
-        <div class="timeline-content">
-          <div class="timeline-date">2015</div>
-          <h3 class="timeline-title">The Beginning</h3>
-          <p class="timeline-description">Typixel was founded with a vision to create exceptional digital experiences.</p>
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+      <div class="blog-header">
+        <h2 class="section-title" data-aos="fade-up">Latest Insights</h2>
+        <div class="blog-search" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search articles...">
         </div>
       </div>
-      <div class="timeline-item" data-aos="fade-left">
-        <div class="timeline-content">
-          <div class="timeline-date">2017</div>
-          <h3 class="timeline-title">First Award</h3>
-          <p class="timeline-description">We received our first design award for innovative brand identity.</p>
+      <div class="blog-grid">
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500" alt="Blog Post 1" class="blog-img">
+          <div class="blog-content">
+            <div class="blog-date">October 15, 2023</div>
+            <h3 class="blog-title">The Future of Web Design</h3>
+            <p class="blog-excerpt">
+              Explore the latest trends and technologies shaping the future of web design, from AI integration to immersive experiences.
+            </p>
+            <div class="blog-meta">
+              <div class="blog-reading-time">5 min read</div>
+              <a href="#" class="blog-link">
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500" alt="Blog Post 2" class="blog-img">
+          <div class="blog-content">
+            <div class="blog-date">October 8, 2023</div>
+            <h3 class="blog-title">Building a Strong Brand Identity</h3>
+            <p class="blog-excerpt">
+              Learn the essential elements of creating a memorable brand identity that resonates with your target audience.
+            </p>
+            <div class="blog-meta">
+              <div class="blog-reading-time">7 min read</div>
+              <a href="#" class="blog-link">
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+          <img src="https://images.unsplash.com/photo-1559028006-44a36f563c3e?w=500" alt="Blog Post 3" class="blog-img">
+          <div class="blog-content">
+            <div class="blog-date">October 1, 2023</div>
+            <h3 class="blog-title">UX Design Best Practices</h3>
+            <p class="blog-excerpt">
+              Discover proven UX design principles and techniques to create user-friendly digital experiences.
+            </p>
+            <div class="blog-meta">
+              <div class="blog-reading-time">6 min read</div>
+              <a href="#" class="blog-link">
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="timeline-item" data-aos="fade-right">
-        <div class="timeline-content">
-          <div class="timeline-date">2019</div>
-          <h3 class="timeline-title">Expansion</h3>
-          <p class="timeline-description">Expanded our team and moved to a new creative studio space.</p>
-        </div>
-      </div>
-      <div class="timeline-item" data-aos="fade-left">
-        <div class="timeline-content">
-          <div class="timeline-date">2021</div>
-          <h3 class="timeline-title">International Recognition</h3>
-          <p class="timeline-description">Our work was featured in international design publications.</p>
-        </div>
-      </div>
-      <div class="timeline-item" data-aos="fade-right">
-        <div class="timeline-content">
-          <div class="timeline-date">2023</div>
-          <h3 class="timeline-title">Present Day</h3>
-          <p class="timeline-description">Continuing to push boundaries and deliver exceptional results for our clients.</p>
-        </div>
-      </div>
-    </div>
+    </section>
     
-    <div class="team-section">
-      <h2 class="section-title" data-aos="fade-up">Meet Our Team</h2>
-      <div class="team-grid">
-        <div class="team-member" data-aos="fade-up" data-aos-delay="100">
-          <div class="member-avatar">
-            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200" alt="Team Member">
+    <!-- Careers Section -->
+    <section class="careers" id="careers">
+      <h2 class="section-title" data-aos="fade-up">Join Our Team</h2>
+      <div class="careers-container">
+        <div class="job-listing" data-aos="fade-up" data-aos-delay="100">
+          <div class="job-header">
+            <h3 class="job-title">Senior UI/UX Designer</h3>
+            <span class="job-type">Full-time</span>
           </div>
-          <h3 class="member-name">Alex Morgan</h3>
-          <p class="member-role">Creative Director</p>
-          <div class="member-social">
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-dribbble"></i></a>
-            <a href="#"><i class="fab fa-behance"></i></a>
-          </div>
-        </div>
-        <div class="team-member" data-aos="fade-up" data-aos-delay="200">
-          <div class="member-avatar">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200" alt="Team Member">
-          </div>
-          <h3 class="member-name">Jordan Lee</h3>
-          <p class="member-role">Lead Designer</p>
-          <div class="member-social">
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-dribbble"></i></a>
-            <a href="#"><i class="fab fa-behance"></i></a>
-          </div>
-        </div>
-        <div class="team-member" data-aos="fade-up" data-aos-delay="300">
-          <div class="member-avatar">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200" alt="Team Member">
-          </div>
-          <h3 class="member-name">Taylor Kim</h3>
-          <p class="member-role">UX Specialist</p>
-          <div class="member-social">
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-dribbble"></i></a>
-            <a href="#"><i class="fab fa-behance"></i></a>
-          </div>
-        </div>
-        <div class="team-member" data-aos="fade-up" data-aos-delay="400">
-          <div class="member-avatar">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200" alt="Team Member">
-          </div>
-          <h3 class="member-name">Casey Smith</h3>
-          <p class="member-role">Developer</p>
-          <div class="member-social">
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-codepen"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Testimonials Section -->
-  <section class="testimonials" id="testimonials">
-    <h2 class="section-title" data-aos="fade-up">Client Testimonials</h2>
-    
-    <!-- Swiper Testimonials -->
-    <div class="swiper testimonials-swiper" data-aos="fade-up" data-aos-delay="200">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="testimonial-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-text">
-              Typixel transformed our brand identity completely. Their attention to detail and creative approach exceeded our expectations. The new design has significantly improved our market presence.
-            </p>
-            <div class="client-info">
-              <div class="client-avatar">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Client">
-              </div>
-              <div class="client-details">
-                <h4>Michael Chen</h4>
-                <p>CEO, Tech Innovations</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="testimonial-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-text">
-              Working with Typixel was a game-changer for our business. Their team understood our vision perfectly and delivered a website that not only looks stunning but also converts visitors into customers.
-            </p>
-            <div class="client-info">
-              <div class="client-avatar">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100" alt="Client">
-              </div>
-              <div class="client-details">
-                <h4>Sarah Johnson</h4>
-                <p>Marketing Director, Retail Pro</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="testimonial-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-text">
-              The mobile app designed by Typixel has revolutionized how our customers interact with our services. The user experience is seamless, and we've seen a 40% increase in user engagement since launch.
-            </p>
-            <div class="client-info">
-              <div class="client-avatar">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100" alt="Client">
-              </div>
-              <div class="client-details">
-                <h4>David Wilson</h4>
-                <p>Product Manager, HealthPlus</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
-  
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <div class="contact-content">
-      <div class="contact-info" data-aos="fade-right">
-        <h2>Get In Touch</h2>
-        <p>
-          Ready to start your next project? We'd love to hear from you. Fill out the form and our team will get back to you within 24 hours.
-        </p>
-        <div class="contact-details">
-          <div class="contact-item">
-            <div class="contact-icon">
+          <div class="job-details">
+            <div class="job-detail">
               <i class="fas fa-map-marker-alt"></i>
+              <span>New York, NY</span>
             </div>
-            <div class="contact-text">
-              <h4>Our Location</h4>
-              <p>123 Design Street, Creative District, New York, NY 10001</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-phone-alt"></i>
-            </div>
-            <div class="contact-text">
-              <h4>Phone Number</h4>
-              <p>+1 (555) 123-4567</p>
+            <div class="job-detail">
+              <i class="fas fa-dollar-sign"></i>
+              <span>$80,000 - $100,000</span>
             </div>
           </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
+          <p class="job-description">
+            We're looking for an experienced UI/UX designer to join our creative team. You'll be responsible for creating intuitive and visually appealing designs for web and mobile applications.
+          </p>
+          <button class="apply-btn">Apply Now</button>
+        </div>
+        <div class="job-listing" data-aos="fade-up" data-aos-delay="200">
+          <div class="job-header">
+            <h3 class="job-title">Frontend Developer</h3>
+            <span class="job-type">Full-time</span>
+          </div>
+          <div class="job-details">
+            <div class="job-detail">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Remote</span>
             </div>
-            <div class="contact-text">
-              <h4>Email Address</h4>
-              <p>hello@typixel.com</p>
+            <div class="job-detail">
+              <i class="fas fa-dollar-sign"></i>
+              <span>$70,000 - $90,000</span>
             </div>
           </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-clock"></i>
+          <p class="job-description">
+            Join our development team to build cutting-edge web applications. You'll work closely with designers to bring creative visions to life with clean, efficient code.
+          </p>
+          <button class="apply-btn">Apply Now</button>
+        </div>
+        <div class="job-listing" data-aos="fade-up" data-aos-delay="300">
+          <div class="job-header">
+            <h3 class="job-title">Digital Marketing Specialist</h3>
+            <span class="job-type">Part-time</span>
+          </div>
+          <div class="job-details">
+            <div class="job-detail">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>New York, NY</span>
             </div>
-            <div class="contact-text">
-              <h4>Business Hours</h4>
-              <p>Monday - Friday: 9am - 6pm</p>
+            <div class="job-detail">
+              <i class="fas fa-dollar-sign"></i>
+              <span>$40,000 - $50,000</span>
+            </div>
+          </div>
+          <p class="job-description">
+            Help our clients grow their online presence through strategic digital marketing campaigns. Experience with SEO, social media, and content marketing required.
+          </p>
+          <button class="apply-btn">Apply Now</button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- About Us Section -->
+    <section class="about" id="about">
+      <div class="about-content">
+        <div class="about-text" data-aos="fade-right">
+          <h2>About Typixel</h2>
+          <p>
+            Founded in 2015, Typixel has grown from a small design studio into an award-winning creative agency known for pushing boundaries and delivering exceptional results. Our team of talented designers, developers, and strategists are passionate about creating digital experiences that make a difference.
+          </p>
+          <p>
+            We believe that great design is more than just aesthetics—it's about solving problems, telling stories, and connecting with people on an emotional level. Our client-centered approach ensures that every project we undertake is tailored to meet specific business goals while exceeding expectations.
+          </p>
+          <p>
+            Over the years, we've had the privilege of working with startups, Fortune 500 companies, and everything in between. Our diverse portfolio reflects our ability to adapt to different industries and deliver consistently outstanding results.
+          </p>
+          <div class="about-stats">
+            <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+              <div class="stat-number">200+</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+              <div class="stat-number">150+</div>
+              <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+              <div class="stat-number">25+</div>
+              <div class="stat-label">Awards Won</div>
+            </div>
+            <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+              <div class="stat-number">8</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-image" data-aos="fade-left">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000" alt="Typixel Team">
+        </div>
+      </div>
+      
+      <!-- Interactive Timeline -->
+      <div class="timeline">
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-content">
+            <div class="timeline-date">2015</div>
+            <h3 class="timeline-title">The Beginning</h3>
+            <p class="timeline-description">Typixel was founded with a vision to create exceptional digital experiences.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-left">
+          <div class="timeline-content">
+            <div class="timeline-date">2017</div>
+            <h3 class="timeline-title">First Award</h3>
+            <p class="timeline-description">We received our first design award for innovative brand identity.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-content">
+            <div class="timeline-date">2019</div>
+            <h3 class="timeline-title">Expansion</h3>
+            <p class="timeline-description">Expanded our team and moved to a new creative studio space.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-left">
+          <div class="timeline-content">
+            <div class="timeline-date">2021</div>
+            <h3 class="timeline-title">International Recognition</h3>
+            <p class="timeline-description">Our work was featured in international design publications.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-content">
+            <div class="timeline-date">2023</div>
+            <h3 class="timeline-title">Present Day</h3>
+            <p class="timeline-description">Continuing to push boundaries and deliver exceptional results for our clients.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="team-section">
+        <h2 class="section-title" data-aos="fade-up">Meet Our Team</h2>
+        <div class="team-grid">
+          <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+            <div class="member-avatar">
+              <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200" alt="Team Member">
+            </div>
+            <h3 class="member-name">Alex Morgan</h3>
+            <p class="member-role">Creative Director</p>
+            <div class="member-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-dribbble"></i></a>
+              <a href="#"><i class="fab fa-behance"></i></a>
+            </div>
+          </div>
+          <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+            <div class="member-avatar">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200" alt="Team Member">
+            </div>
+            <h3 class="member-name">Jordan Lee</h3>
+            <p class="member-role">Lead Designer</p>
+            <div class="member-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-dribbble"></i></a>
+              <a href="#"><i class="fab fa-behance"></i></a>
+            </div>
+          </div>
+          <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+            <div class="member-avatar">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200" alt="Team Member">
+            </div>
+            <h3 class="member-name">Taylor Kim</h3>
+            <p class="member-role">UX Specialist</p>
+            <div class="member-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-dribbble"></i></a>
+              <a href="#"><i class="fab fa-behance"></i></a>
+            </div>
+          </div>
+          <div class="team-member" data-aos="fade-up" data-aos-delay="400">
+            <div class="member-avatar">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200" alt="Team Member">
+            </div>
+            <h3 class="member-name">Casey Smith</h3>
+            <p class="member-role">Developer</p>
+            <div class="member-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-codepen"></i></a>
             </div>
           </div>
         </div>
       </div>
-      <div class="contact-form" data-aos="fade-left">
-        <form id="clientForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" class="form-control" required>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+      <h2 class="section-title" data-aos="fade-up">Client Testimonials</h2>
+      
+      <!-- Swiper Testimonials -->
+      <div class="swiper testimonials-swiper" data-aos="fade-up" data-aos-delay="200">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <i class="fas fa-quote-right quote-icon"></i>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                Typixel transformed our brand identity completely. Their attention to detail and creative approach exceeded our expectations. The new design has significantly improved our market presence.
+              </p>
+              <div class="client-info">
+                <div class="client-avatar">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Client">
+                </div>
+                <div class="client-details">
+                  <h4>Michael Chen</h4>
+                  <p>CEO, Tech Innovations</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" class="form-control" required>
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <i class="fas fa-quote-right quote-icon"></i>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                Working with Typixel was a game-changer for our business. Their team understood our vision perfectly and delivered a website that not only looks stunning but also converts visitors into customers.
+              </p>
+              <div class="client-info">
+                <div class="client-avatar">
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100" alt="Client">
+                </div>
+                <div class="client-details">
+                  <h4>Sarah Johnson</h4>
+                  <p>Marketing Director, Retail Pro</p>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" class="form-control">
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <i class="fas fa-quote-right quote-icon"></i>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                The mobile app designed by Typixel has revolutionized how our customers interact with our services. The user experience is seamless, and we've seen a 40% increase in user engagement since launch.
+              </p>
+              <div class="client-info">
+                <div class="client-avatar">
+                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100" alt="Client">
+                </div>
+                <div class="client-details">
+                  <h4>David Wilson</h4>
+                  <p>Product Manager, HealthPlus</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea id="message" class="form-control" required></textarea>
-          </div>
-          <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-column">
-        <h3>Typixel</h3>
-        <p>
-          Award-winning design studio creating exceptional digital experiences that transform brands and drive growth.
-        </p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-dribbble"></i></a>
         </div>
+        <div class="swiper-pagination"></div>
       </div>
-      <div class="footer-column">
-        <h3>Services</h3>
-        <ul class="footer-links">
-          <li><a href="#">Brand Identity Design</a></li>
-          <li><a href="#">Web Design & Development</a></li>
-          <li><a href="#">UI/UX Design</a></li>
-          <li><a href="#">Digital Marketing</a></li>
-          <li><a href="#">Motion Graphics</a></li>
-          <li><a href="#">Print Design</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h3>Company</h3>
-        <ul class="footer-links">
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Our Team</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h3>Newsletter</h3>
-        <p>
-          Subscribe to our newsletter for the latest design trends and insights.
-        </p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Your email address" class="form-control">
-          <button type="submit" class="submit-btn">Subscribe</button>
-        </form>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2023 Typixel Studio. All rights reserved.</p>
-    </div>
-  </footer>
-  
-  <!-- Newsletter Popup -->
-  <div class="newsletter-popup" id="newsletterPopup">
-    <button class="popup-close" onclick="closeNewsletterPopup()">
-      <i class="fas fa-times"></i>
-    </button>
-    <h3 class="popup-title">Stay Updated</h3>
-    <p class="popup-description">
-      Subscribe to our newsletter and get the latest design insights and exclusive offers.
-    </p>
-    <form class="popup-form" onsubmit="subscribeNewsletter(event)">
-      <input type="email" placeholder="Your email address" required>
-      <button type="submit">Subscribe</button>
-    </form>
-  </div>
-  
-  <!-- WhatsApp Direct -->
-  <a href="https://wa.me/1234567890?text=Hi!%20I'm%20interested%20in%20your%20design%20services" class="whatsapp-direct" target="_blank">
-    <div class="whatsapp-button">
-      <i class="fab fa-whatsapp"></i>
-    </div>
-  </a>
-  
-  <!-- AI Chatbot -->
-  <div class="chatbot-toggle" id="chatbotToggle">
-    <i class="fas fa-robot"></i>
-  </div>
-  <div class="ai-chatbot" id="aiChatbot">
-    <div class="chatbot-header">
-      <h3 class="chatbot-title">
-        <i class="fas fa-robot"></i>
-        AI Design Assistant
-      </h3>
-      <button class="chatbot-close" id="chatbotClose">×</button>
-    </div>
-    <div class="chatbot-messages" id="chatbotMessages">
-      <div class="message bot">
-        <p>Hello! I'm Typixel's AI assistant. How can I help you with your design needs today?</p>
-      </div>
-    </div>
-    <div class="chatbot-input">
-      <input type="text" id="chatbotInput" placeholder="Type your message...">
-      <button onclick="sendMessage()">
-        <i class="fas fa-paper-plane"></i>
-      </button>
-    </div>
-  </div>
-  
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <script>
-    // Initialize AOS
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 100
-    });
+    </section>
     
-    // Initialize Swiper for Portfolio
-    const portfolioSwiper = new Swiper('.portfolio-swiper', {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 3,
-        },
-      },
-    });
-    
-    // Initialize Swiper for Testimonials
-    const testimonialsSwiper = new Swiper('.testimonials-swiper', {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 3,
-        },
-      },
-    });
-    
-    // Loading Screen
-    window.addEventListener('load', function() {
-      let progress = 0;
-      const loadingInterval = setInterval(() => {
-        progress += 5;
-        document.getElementById('loadingProgressBar').style.width = progress + '%';
-        
-        if (progress >= 100) {
-          clearInterval(loadingInterval);
-          setTimeout(() => {
-            document.getElementById('loadingScreen').style.opacity = '0';
-            setTimeout(() => {
-              document.getElementById('loadingScreen').style.display = 'none';
-            }, 500);
-          }, 500);
-        }
-      }, 100);
-    });
-    
-    // Custom Cursor
-    const cursor = document.querySelector('.cursor');
-    const follower = document.querySelector('.cursor-follower');
-    
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-      
-      setTimeout(() => {
-        follower.style.left = e.clientX - 10 + 'px';
-        follower.style.top = e.clientY - 10 + 'px';
-      }, 100);
-    });
-    
-    // Cursor grow effect
-    document.querySelectorAll('a, button, .service-card, .portfolio-item, .pricing-card, .blog-card, .job-listing, .team-member').forEach(element => {
-      element.addEventListener('mouseenter', () => {
-        cursor.classList.add('cursor-grow');
-      });
-      
-      element.addEventListener('mouseleave', () => {
-        cursor.classList.remove('cursor-grow');
-      });
-    });
-    
-    // 3D Particles Background
-    function initParticles() {
-      const canvas = document.getElementById('particles-canvas');
-      const ctx = canvas.getContext('2d');
-      
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      
-      const particles = [];
-      const particleCount = 100;
-      
-      class Particle {
-        constructor() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.size = Math.random() * 2 + 1;
-          this.speedX = Math.random() * 1 - 0.5;
-          this.speedY = Math.random() * 1 - 0.5;
-          this.color = `hsl(${Math.random() * 60 + 200}, 70%, 60%)`;
-        }
-        
-        update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-          
-          if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-          if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-        }
-        
-        draw() {
-          ctx.fillStyle = this.color;
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-      
-      function createParticles() {
-        for (let i = 0; i < particleCount; i++) {
-          particles.push(new Particle());
-        }
-      }
-      
-      function connectParticles() {
-        for (let a = 0; a < particles.length; a++) {
-          for (let b = a; b < particles.length; b++) {
-            const distance = Math.sqrt(
-              Math.pow(particles[a].x - particles[b].x, 2) +
-              Math.pow(particles[a].y - particles[b].y, 2)
-            );
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="contact-content">
+        <div class="contact-info" data-aos="fade-right">
+          <h2>Get In Touch</h2>
+          <p>
+            Ready to start your next project? We'd love to hear from you. Fill out the form and our team will get back to you within 24 hours.
+          </p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Our Location</h4>
+                <p>123 Design Street, Creative District, New York, NY 10001</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Phone Number</h4>
+                <p>+1 (555) 123-4567</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Email Address</h4>
+                <p>hello@typixel.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Business Hours</h4>
+                <p>Monday - Friday: 9am - 6pm</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form" data-aos="fade-left">
+          <!-- Formspree Form -->
+          <form id="clientForm" action="https://formspree.io/f/xovldjnq" method="POST">
+            <!-- Hidden fields for Formspree -->
+            <input type="hidden" name="_subject" value="New Contact Form Submission from Typixel Studio">
+            <input type="hidden" name="_cc" value="{{email}}">
             
-            if (distance < 100) {
-              ctx.strokeStyle = `rgba(99, 102, 241, ${1 - distance / 100})`;
-              ctx.lineWidth = 0.5;
-              ctx.beginPath();
-              ctx.moveTo(particles[a].x, particles[a].y);
-              ctx.lineTo(particles[b].x, particles[b].y);
-              ctx.stroke();
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" class="form-control" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <input type="text" id="subject" name="subject" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message *</label>
+              <textarea id="message" name="message" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+          
+          <!-- Success Message (Hidden by default) -->
+          <div id="successMessage" class="success-message">
+            <i class="fas fa-check-circle"></i>
+            <h3>Thank You!</h3>
+            <p>Your message has been sent successfully. We'll get back to you within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Typixel</h3>
+          <p>
+            Award-winning design studio creating exceptional digital experiences that transform brands and drive growth.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="#">Brand Identity Design</a></li>
+            <li><a href="#">Web Design & Development</a></li>
+            <li><a href="#">UI/UX Design</a></li>
+            <li><a href="#">Digital Marketing</a></li>
+            <li><a href="#">Motion Graphics</a></li>
+            <li><a href="#">Print Design</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter for the latest design trends and insights.
+          </p>
+          <form class="newsletter-form" action="https://formspree.io/f/xovldjnq" method="POST">
+            <input type="email" name="email" placeholder="Your email address" class="form-control" required>
+            <input type="hidden" name="_subject" value="Newsletter Subscription">
+            <button type="submit" class="submit-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Typixel Studio. All rights reserved.</p>
+      </div>
+    </footer>
+    
+    <!-- Newsletter Popup -->
+    <div class="newsletter-popup" id="newsletterPopup">
+      <button class="popup-close" onclick="closeNewsletterPopup()">
+        <i class="fas fa-times"></i>
+      </button>
+      <h3 class="popup-title">Stay Updated</h3>
+      <p class="popup-description">
+        Subscribe to our newsletter and get the latest design insights and exclusive offers.
+      </p>
+      <form class="popup-form" action="https://formspree.io/f/xovldjnq" method="POST" onsubmit="subscribeNewsletter(event)">
+        <input type="email" name="email" placeholder="Your email address" required>
+        <input type="hidden" name="_subject" value="Newsletter Subscription from Popup">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    
+    <!-- WhatsApp Direct -->
+    <a href="https://wa.me/1234567890?text=Hi!%20I'm%20interested%20in%20your%20design%20services" class="whatsapp-direct" target="_blank">
+      <div class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i>
+      </div>
+    </a>
+    
+    <!-- AI Chatbot -->
+    <div class="chatbot-toggle" id="chatbotToggle">
+      <i class="fas fa-robot"></i>
+    </div>
+    <div class="ai-chatbot" id="aiChatbot">
+      <div class="chatbot-header">
+        <h3 class="chatbot-title">
+          <i class="fas fa-robot"></i>
+          AI Design Assistant
+        </h3>
+        <button class="chatbot-close" id="chatbotClose">×</button>
+      </div>
+      <div class="chatbot-messages" id="chatbotMessages">
+        <div class="message bot">
+          <p>Hello! I'm Typixel's AI assistant. How can I help you with your design needs today?</p>
+        </div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatbotInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+      });
+      
+      // Initialize Swiper for Portfolio
+      const portfolioSwiper = new Swiper('.portfolio-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
+      
+      // Initialize Swiper for Testimonials
+      const testimonialsSwiper = new Swiper('.testimonials-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
+      
+      // Loading Screen
+      window.addEventListener('load', function() {
+        let progress = 0;
+        const loadingInterval = setInterval(() => {
+          progress += 5;
+          document.getElementById('loadingProgressBar').style.width = progress + '%';
+          
+          if (progress >= 100) {
+            clearInterval(loadingInterval);
+            setTimeout(() => {
+              document.getElementById('loadingScreen').style.opacity = '0';
+              setTimeout(() => {
+                document.getElementById('loadingScreen').style.display = 'none';
+              }, 500);
+            }, 500);
+          }
+        }, 100);
+      });
+      
+      // Custom Cursor
+      const cursor = document.querySelector('.cursor');
+      const follower = document.querySelector('.cursor-follower');
+      
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        
+        setTimeout(() => {
+          follower.style.left = e.clientX - 10 + 'px';
+          follower.style.top = e.clientY - 10 + 'px';
+        }, 100);
+      });
+      
+      // Cursor grow effect
+      document.querySelectorAll('a, button, .service-card, .portfolio-item, .pricing-card, .blog-card, .job-listing, .team-member').forEach(element => {
+        element.addEventListener('mouseenter', () => {
+          cursor.classList.add('cursor-grow');
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          cursor.classList.remove('cursor-grow');
+        });
+      });
+      
+      // 3D Particles Background
+      function initParticles() {
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const particles = [];
+        const particleCount = 100;
+        
+        class Particle {
+          constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 1;
+            this.speedX = Math.random() * 1 - 0.5;
+            this.speedY = Math.random() * 1 - 0.5;
+            this.color = `hsl(${Math.random() * 60 + 200}, 70%, 60%)`;
+          }
+          
+          update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            
+            if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+          }
+          
+          draw() {
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+        
+        function createParticles() {
+          for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+          }
+        }
+        
+        function connectParticles() {
+          for (let a = 0; a < particles.length; a++) {
+            for (let b = a; b < particles.length; b++) {
+              const distance = Math.sqrt(
+                Math.pow(particles[a].x - particles[b].x, 2) +
+                Math.pow(particles[a].y - particles[b].y, 2)
+              );
+              
+              if (distance < 100) {
+                ctx.strokeStyle = `rgba(99, 102, 241, ${1 - distance / 100})`;
+                ctx.lineWidth = 0.5;
+                ctx.beginPath();
+                ctx.moveTo(particles[a].x, particles[a].y);
+                ctx.lineTo(particles[b].x, particles[b].y);
+                ctx.stroke();
+              }
             }
           }
         }
-      }
-      
-      function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        for (let i = 0; i < particles.length; i++) {
-          particles[i].update();
-          particles[i].draw();
-        }
-        
-        connectParticles();
-        requestAnimationFrame(animateParticles);
-      }
-      
-      createParticles();
-      animateParticles();
-      
-      window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      });
-    }
-    
-    initParticles();
-    
-    // Scroll Progress
-    window.addEventListener('scroll', () => {
-      const scrollTop = document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercent = (scrollTop / scrollHeight) * 100;
-      document.getElementById('progressBar').style.width = scrollPercent + '%';
-      
-      // Back to Top Button
-      if (scrollTop > 500) {
-        document.getElementById('backToTop').classList.add('visible');
-      } else {
-        document.getElementById('backToTop').classList.remove('visible');
-      }
-    });
-    
-    // Back to Top
-    document.getElementById('backToTop').addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-    
-    // Theme Toggle
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    const icon = themeToggle.querySelector('i');
-    
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('light-mode');
-      if (body.classList.contains('light-mode')) {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-      } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-      }
-    });
-    
-    // Smooth Scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-    
-    // Chatbot Toggle
-    const chatbotToggle = document.getElementById('chatbotToggle');
-    const chatbot = document.getElementById('aiChatbot');
-    const chatbotClose = document.getElementById('chatbotClose');
-    chatbotToggle.addEventListener('click', () => {
-      chatbot.classList.add('active');
-      chatbotToggle.style.display = 'none';
-    });
-    chatbotClose.addEventListener('click', () => {
-      chatbot.classList.remove('active');
-      chatbotToggle.style.display = 'flex';
-    });
-    
-    // AI Chatbot Functionality
-    const chatbotMessages = document.getElementById('chatbotMessages');
-    const chatbotInput = document.getElementById('chatbotInput');
-    const responses = {
-      'hello': 'Hello! How can I help you with your design project today?',
-      'services': 'We offer Brand Identity Design, Web Design & Development, UI/UX Design, Digital Marketing, Motion Graphics, and Print Design. Which service interests you?',
-      'pricing': 'Our pricing starts from $2,500 for brand identity projects. Web design projects start at $3,500. Would you like a custom quote?',
-      'portfolio': 'You can view our latest work in the portfolio section. We have projects in branding, web design, UI/UX, and marketing. Any specific type of project you\'re looking for?',
-      'contact': 'You can reach us at hello@typixel.com or call +1 (555) 123-4567. You can also use the WhatsApp button for direct contact!',
-      'timeline': 'Typical projects take 4-6 weeks. Rush options are available for urgent needs with an additional fee.',
-      'process': 'We follow a 4-step process: Discovery → Design → Development → Delivery. Every step includes client collaboration and feedback.',
-      'team': 'Our team consists of creative professionals with expertise in design, development, and marketing. Meet our team in the About section!',
-      'testimonials': 'We\'ve worked with over 150 clients and have received excellent feedback. Check out our testimonials section to see what our clients say about us.',
-      'careers': 'We\'re always looking for talented individuals to join our team. Check our careers section for current openings!',
-      'blog': 'Our blog features the latest insights on design, technology, and marketing. Subscribe to stay updated!',
-      'faq': 'We\'ve compiled answers to common questions in our FAQ section. What would you like to know?'
-    };
-    function sendMessage() {
-      const message = chatbotInput.value.trim();
-      if (!message) return;
-      
-      // Add user message
-      const userDiv = document.createElement('div');
-      userDiv.className = 'message user';
-      userDiv.innerHTML = `<p>${message}</p>`;
-      chatbotMessages.appendChild(userDiv);
-      
-      // Get AI response
-      const lowerMessage = message.toLowerCase();
-      let response = "I'd be happy to help! Could you tell me more about your project needs?";
-      
-      for (const [keyword, reply] of Object.entries(responses)) {
-        if (lowerMessage.includes(keyword)) {
-          response = reply;
-          break;
-        }
-      }
-      
-      // Add bot response after delay
-      setTimeout(() => {
-        const botDiv = document.createElement('div');
-        botDiv.className = 'message bot';
-        botDiv.innerHTML = `<p>${response}</p>`;
-        chatbotMessages.appendChild(botDiv);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-      }, 1000);
-      
-      chatbotInput.value = '';
-      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    }
-    chatbotInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        sendMessage();
-      }
-    });
-    
-    // Portfolio Filter
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Update active button
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        // Filter slides
-        const filter = btn.getAttribute('data-filter');
-        const slides = document.querySelectorAll('.swiper-slide');
-        
-        slides.forEach(slide => {
-          if (filter === 'all' || slide.getAttribute('data-category') === filter) {
-            slide.style.display = 'block';
-          } else {
-            slide.style.display = 'none';
+        function animateParticles() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          
+          for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
           }
+          
+          connectParticles();
+          requestAnimationFrame(animateParticles);
+        }
+        
+        createParticles();
+        animateParticles();
+        
+        window.addEventListener('resize', () => {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
         });
-        
-        // Update swiper
-        portfolioSwiper.update();
-      });
-    });
-    
-    // Lightbox
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    
-    function openLightbox(src) {
-      lightboxImg.src = src;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-    
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        closeLightbox();
       }
-    });
-    
-    // FAQ Toggle
-    function toggleFAQ(element) {
-      const faqItem = element.parentElement;
-      faqItem.classList.toggle('active');
-    }
-    
-    // Pricing Toggle
-    const toggleOptions = document.querySelectorAll('.toggle-option');
-    toggleOptions.forEach(option => {
-      option.addEventListener('click', () => {
-        toggleOptions.forEach(opt => opt.classList.remove('active'));
-        option.classList.add('active');
+      
+      initParticles();
+      
+      // Scroll Progress
+      window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+        document.getElementById('progressBar').style.width = scrollPercent + '%';
         
-        const period = option.getAttribute('data-period');
-        const prices = document.querySelectorAll('.pricing-price');
-        
-        prices.forEach(price => {
-          if (period === 'yearly') {
-            price.textContent = price.getAttribute('data-yearly');
-          } else {
-            price.textContent = price.getAttribute('data-monthly');
+        // Back to Top Button
+        if (scrollTop > 500) {
+          document.getElementById('backToTop').classList.add('visible');
+        } else {
+          document.getElementById('backToTop').classList.remove('visible');
+        }
+      });
+      
+      // Back to Top
+      document.getElementById('backToTop').addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Theme Toggle
+      const themeToggle = document.getElementById('themeToggle');
+      const body = document.body;
+      const icon = themeToggle.querySelector('i');
+      
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+        if (body.classList.contains('light-mode')) {
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+        } else {
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+        }
+      });
+      
+      // Smooth Scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
       });
-    });
-    
-    // Contact Form
-    const clientForm = document.getElementById('clientForm');
-    clientForm.addEventListener('submit', (e) => {
-      e.preventDefault();
       
-      // Get form values
-      const firstName = document.getElementById('firstName').value;
-      const lastName = document.getElementById('lastName').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-      
-      // Here you would normally send the data to a server
-      // For this example, we'll just show a success message
-      
-      // Create success message
-      const successDiv = document.createElement('div');
-      successDiv.className = 'message bot';
-      successDiv.innerHTML = `<p>Thank you, ${firstName}! Your message has been sent successfully. We'll get back to you within 24 hours.</p>`;
-      chatbotMessages.appendChild(successDiv);
-      
-      // Show chatbot
-      chatbot.classList.add('active');
-      chatbotToggle.style.display = 'none';
-      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-      
-      // Reset form
-      clientForm.reset();
-    });
-    
-    // Newsletter Form
-    const newsletterForm = document.querySelector('.newsletter-form');
-    newsletterForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = newsletterForm.querySelector('input[type="email"]').value;
-      
-      // Here you would normally send the email to a server
-      // For this example, we'll just show a success message
-      
-      // Create success message
-      const successDiv = document.createElement('div');
-      successDiv.style.position = 'fixed';
-      successDiv.style.bottom = '30px';
-      successDiv.style.left = '50%';
-      successDiv.style.transform = 'translateX(-50%)';
-      successDiv.style.background = 'var(--success-color)';
-      successDiv.style.color = 'white';
-      successDiv.style.padding = '1rem 2rem';
-      successDiv.style.borderRadius = '50px';
-      successDiv.style.zIndex = '1000';
-      successDiv.textContent = 'Thank you for subscribing to our newsletter!';
-      document.body.appendChild(successDiv);
-      
-      // Remove success message after 3 seconds
-      setTimeout(() => {
-        successDiv.remove();
-      }, 3000);
-      
-      // Reset form
-      newsletterForm.reset();
-    });
-    
-    // Newsletter Popup
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('newsletterPopup').classList.add('show');
-      }, 5000);
-    });
-    
-    function closeNewsletterPopup() {
-      document.getElementById('newsletterPopup').classList.remove('show');
-    }
-    
-    function subscribeNewsletter(e) {
-      e.preventDefault();
-      const email = e.target.querySelector('input').value;
-      
-      // Here you would normally send the email to a server
-      
-      // Show success message
-      const popup = document.getElementById('newsletterPopup');
-      popup.innerHTML = `
-        <button class="popup-close" onclick="closeNewsletterPopup()">
-          <i class="fas fa-times"></i>
-        </button>
-        <h3 class="popup-title">Success!</h3>
-        <p class="popup-description">
-          Thank you for subscribing! You'll receive our latest updates and exclusive offers.
-        </p>
-      `;
-      
-      // Close popup after 3 seconds
-      setTimeout(() => {
-        closeNewsletterPopup();
-      }, 3000);
-    }
-    
-    // Parallax Effect
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const parallax = document.querySelector('.video-background');
-      const speed = scrolled * 0.5;
-      parallax.style.transform = `translateY(${speed}px)`;
-    });
-    
-    // Mobile Menu Toggle
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    mobileMenuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-  </script>
-</body>
-</html>
-<!-- Include EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script type="text/javascript">
-  (function () {
-    // Initialize EmailJS with your public key
-    emailjs.init("ijyXznLqsE1mDSqkk"); // ✅ Your Public Key
-  })();
-</script>
-
-<script>
-  // Contact Form Submission with EmailJS
-  const clientForm = document.getElementById('clientForm');
-  clientForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // Get form values
-    const firstName = document.getElementById('firstName').value.trim();
-    const lastName = document.getElementById('lastName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const subject = document.getElementById('subject').value.trim();
-    const message = document.getElementById('message').value.trim();
-
-    // Validate required fields
-    if (!firstName || !email || !message) {
-      alert("Please fill in all required fields.");
-      return;
-    }
-
-    // Prepare data for EmailJS
-    const templateParams = {
-      first_name: firstName,
-      last_name: lastName,
-      email: email,
-      phone: phone,
-      subject: subject,
-      message: message,
-    };
-
-    // Send via EmailJS
-    emailjs.send('service_7k1hcfb', 'template_a1b2c3d', templateParams)
-      .then(function () {
-        // Success: Show thank-you message in chatbot
-        const chatbotMessages = document.getElementById('chatbotMessages');
-        const successDiv = document.createElement('div');
-        successDiv.className = 'message bot';
-        successDiv.innerHTML = `<p>Thank you, ${firstName}! Your message has been sent successfully. We'll get back to you within 24 hours.</p>`;
-        chatbotMessages.appendChild(successDiv);
-
-        // Auto-open chatbot to show response
-        const chatbot = document.getElementById('chatbot');
-        const chatbotToggle = document.querySelector('.chatbot-toggle');
+      // Chatbot Toggle
+      const chatbotToggle = document.getElementById('chatbotToggle');
+      const chatbot = document.getElementById('aiChatbot');
+      const chatbotClose = document.getElementById('chatbotClose');
+      chatbotToggle.addEventListener('click', () => {
         chatbot.classList.add('active');
         chatbotToggle.style.display = 'none';
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-
-        // Reset form
-        clientForm.reset();
-      }, function (error) {
-        console.error('EmailJS Error:', error);
-        alert('Oops! Something went wrong. Please try again or contact us directly.');
       });
-  });
-</script>
+      chatbotClose.addEventListener('click', () => {
+        chatbot.classList.remove('active');
+        chatbotToggle.style.display = 'flex';
+      });
+      
+      // AI Chatbot Functionality
+      const chatbotMessages = document.getElementById('chatbotMessages');
+      const chatbotInput = document.getElementById('chatbotInput');
+      const responses = {
+        'hello': 'Hello! How can I help you with your design project today?',
+        'services': 'We offer Brand Identity Design, Web Design & Development, UI/UX Design, Digital Marketing, Motion Graphics, and Print Design. Which service interests you?',
+        'pricing': 'Our pricing starts from $2,500 for brand identity projects. Web design projects start at $3,500. Would you like a custom quote?',
+        'portfolio': 'You can view our latest work in the portfolio section. We have projects in branding, web design, UI/UX, and marketing. Any specific type of project you\'re looking for?',
+        'contact': 'You can reach us at hello@typixel.com or call +1 (555) 123-4567. You can also use the WhatsApp button for direct contact!',
+        'timeline': 'Typical projects take 4-6 weeks. Rush options are available for urgent needs with an additional fee.',
+        'process': 'We follow a 4-step process: Discovery → Design → Development → Delivery. Every step includes client collaboration and feedback.',
+        'team': 'Our team consists of creative professionals with expertise in design, development, and marketing. Meet our team in the About section!',
+        'testimonials': 'We\'ve worked with over 150 clients and have received excellent feedback. Check out our testimonials section to see what our clients say about us.',
+        'careers': 'We\'re always looking for talented individuals to join our team. Check our careers section for current openings!',
+        'blog': 'Our blog features the latest insights on design, technology, and marketing. Subscribe to stay updated!',
+        'faq': 'We\'ve compiled answers to common questions in our FAQ section. What would you like to know?'
+      };
+      function sendMessage() {
+        const message = chatbotInput.value.trim();
+        if (!message) return;
+        
+        // Add user message
+        const userDiv = document.createElement('div');
+        userDiv.className = 'message user';
+        userDiv.innerHTML = `<p>${message}</p>`;
+        chatbotMessages.appendChild(userDiv);
+        
+        // Get AI response
+        const lowerMessage = message.toLowerCase();
+        let response = "I'd be happy to help! Could you tell me more about your project needs?";
+        
+        for (const [keyword, reply] of Object.entries(responses)) {
+          if (lowerMessage.includes(keyword)) {
+            response = reply;
+            break;
+          }
+        }
+        
+        // Add bot response after delay
+        setTimeout(() => {
+          const botDiv = document.createElement('div');
+          botDiv.className = 'message bot';
+          botDiv.innerHTML = `<p>${response}</p>`;
+          chatbotMessages.appendChild(botDiv);
+          chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }, 1000);
+        
+        chatbotInput.value = '';
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      }
+      chatbotInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          sendMessage();
+        }
+      });
+      
+      // Portfolio Filter
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active button
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          // Filter slides
+          const filter = btn.getAttribute('data-filter');
+          const slides = document.querySelectorAll('.swiper-slide');
+          
+          slides.forEach(slide => {
+            if (filter === 'all' || slide.getAttribute('data-category') === filter) {
+              slide.style.display = 'block';
+            } else {
+              slide.style.display = 'none';
+            }
+          });
+          
+          // Update swiper
+          portfolioSwiper.update();
+        });
+      });
+      
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      
+      function openLightbox(src) {
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+      
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+      
+      // FAQ Toggle
+      function toggleFAQ(element) {
+        const faqItem = element.parentElement;
+        faqItem.classList.toggle('active');
+      }
+      
+      // Pricing Toggle
+      const toggleOptions = document.querySelectorAll('.toggle-option');
+      toggleOptions.forEach(option => {
+        option.addEventListener('click', () => {
+          toggleOptions.forEach(opt => opt.classList.remove('active'));
+          option.classList.add('active');
+          
+          const period = option.getAttribute('data-period');
+          const prices = document.querySelectorAll('.pricing-price');
+          
+          prices.forEach(price => {
+            if (period === 'yearly') {
+              price.textContent = price.getAttribute('data-yearly');
+            } else {
+              price.textContent = price.getAttribute('data-monthly');
+            }
+          });
+        });
+      });
+      
+      // Formspree Form Integration
+      const clientForm = document.getElementById('clientForm');
+      const successMessage = document.getElementById('successMessage');
+      
+      clientForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Add submitting state
+        clientForm.classList.add('form-submitting');
+        const submitBtn = clientForm.querySelector('.submit-btn');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        
+        // Get form data
+        const formData = new FormData(clientForm);
+        
+        try {
+          // Submit to Formspree
+          const response = await fetch(clientForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            // Hide form and show success message
+            clientForm.style.display = 'none';
+            successMessage.style.display = 'block';
+            
+            // Show success message in chatbot
+            const firstName = formData.get('firstName');
+            const chatbotMessages = document.getElementById('chatbotMessages');
+            const successDiv = document.createElement('div');
+            successDiv.className = 'message bot';
+            successDiv.innerHTML = `<p>Thank you, ${firstName}! Your message has been sent successfully. We'll get back to you within 24 hours.</p>`;
+            chatbotMessages.appendChild(successDiv);
+            
+            // Show chatbot
+            const chatbot = document.getElementById('aiChatbot');
+            const chatbotToggle = document.getElementById('chatbotToggle');
+            chatbot.classList.add('active');
+            chatbotToggle.style.display = 'none';
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            
+            // Reset form after 5 seconds
+            setTimeout(() => {
+              clientForm.reset();
+              clientForm.style.display = 'block';
+              successMessage.style.display = 'none';
+              clientForm.classList.remove('form-submitting');
+              submitBtn.innerHTML = originalBtnText;
+            }, 5000);
+            
+          } else {
+            throw new Error('Form submission failed');
+          }
+          
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Oops! Something went wrong. Please try again or contact us directly at hello@typixel.com');
+          
+          // Reset form state
+          clientForm.classList.remove('form-submitting');
+          submitBtn.innerHTML = originalBtnText;
+        }
+      });
+      
+      // Newsletter Form
+      const newsletterForm = document.querySelector('.newsletter-form');
+      newsletterForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalBtnText = submitBtn.innerHTML;
+        
+        // Add submitting state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+        submitBtn.disabled = true;
+        
+        try {
+          const response = await fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this),
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            // Show success message
+            const successDiv = document.createElement('div');
+            successDiv.style.position = 'fixed';
+            successDiv.style.bottom = '30px';
+            successDiv.style.left = '50%';
+            successDiv.style.transform = 'translateX(-50%)';
+            successDiv.style.background = 'var(--success-color)';
+            successDiv.style.color = 'white';
+            successDiv.style.padding = '1rem 2rem';
+            successDiv.style.borderRadius = '50px';
+            successDiv.style.zIndex = '1000';
+            successDiv.innerHTML = '<i class="fas fa-check"></i> Thank you for subscribing!';
+            document.body.appendChild(successDiv);
+            
+            // Remove success message after 3 seconds
+            setTimeout(() => {
+              successDiv.remove();
+            }, 3000);
+            
+            // Reset form
+            this.reset();
+          } else {
+            throw new Error('Newsletter subscription failed');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Oops! Something went wrong. Please try again later.');
+        } finally {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        }
+      });
+      
+      // Newsletter Popup
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.getElementById('newsletterPopup').classList.add('show');
+        }, 5000);
+      });
+      
+      function closeNewsletterPopup() {
+        document.getElementById('newsletterPopup').classList.remove('show');
+      }
+      
+      function subscribeNewsletter(e) {
+        e.preventDefault();
+        const email = e.target.querySelector('input').value;
+        
+        // Show success message
+        const popup = document.getElementById('newsletterPopup');
+        popup.innerHTML = `
+          <button class="popup-close" onclick="closeNewsletterPopup()">
+            <i class="fas fa-times"></i>
+          </button>
+          <h3 class="popup-title">Success!</h3>
+          <p class="popup-description">
+            Thank you for subscribing! You'll receive our latest updates and exclusive offers.
+          </p>
+        `;
+        
+        // Close popup after 3 seconds
+        setTimeout(() => {
+          closeNewsletterPopup();
+        }, 3000);
+      }
+      
+      // Parallax Effect
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelector('.video-background');
+        const speed = scrolled * 0.5;
+        parallax.style.transform = `translateY(${speed}px)`;
+      });
+      
+      // Mobile Menu Toggle
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const navLinks = document.querySelector('.nav-links');
+      
+      mobileMenuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    </script>
 </body>
 </html>
