@@ -7,6 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
   <style>
     :root {
       --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
@@ -42,11 +44,42 @@
       overflow-x: hidden;
       line-height: 1.6;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: none;
     }
     
     body.light-mode {
       background: var(--light-bg);
       color: var(--light-text);
+    }
+    
+    /* Custom Cursor */
+    .cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(99, 102, 241, 0.5);
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s ease;
+      mix-blend-mode: difference;
+    }
+    
+    .cursor-follower {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(99, 102, 241, 0.1);
+      pointer-events: none;
+      z-index: 9998;
+      transition: transform 0.3s ease;
+      mix-blend-mode: difference;
+    }
+    
+    .cursor-grow {
+      transform: scale(3);
+      background: rgba(99, 102, 241, 0.3);
     }
     
     /* Scroll Progress Indicator */
@@ -153,6 +186,16 @@
       object-fit: cover;
     }
     
+    /* 3D Particles Background */
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    
     /* Ultra Professional Navigation */
     header {
       position: fixed;
@@ -225,6 +268,16 @@
     .cta-button:hover {
       transform: translateY(-3px);
       box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6);
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
     }
     
     /* Hero Section Ultra Professional */
@@ -549,29 +602,19 @@
       background: var(--primary-gradient);
       border-color: transparent;
     }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
+    
+    /* Swiper Portfolio */
+    .portfolio-swiper {
+      width: 100%;
+      height: 500px;
+      margin-bottom: 3rem;
     }
-    .portfolio-item {
-      position: relative;
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
       border-radius: 20px;
       overflow: hidden;
-      height: 300px;
-      cursor: pointer;
-      transition: all 0.4s ease;
-    }
-    .portfolio-item:hover {
-      transform: scale(1.05);
-    }
-    .portfolio-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
+      position: relative;
     }
     .portfolio-overlay {
       position: absolute;
@@ -587,7 +630,7 @@
       opacity: 0;
       transition: opacity 0.4s ease;
     }
-    .portfolio-item:hover .portfolio-overlay {
+    .swiper-slide:hover .portfolio-overlay {
       opacity: 1;
     }
     .portfolio-title {
@@ -615,7 +658,7 @@
       opacity: 0;
       transition: all 0.3s ease;
     }
-    .portfolio-item:hover .portfolio-link {
+    .swiper-slide:hover .portfolio-link {
       opacity: 1;
     }
     
@@ -667,6 +710,30 @@
     .pricing {
       padding: 8rem 5%;
       background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(217, 70, 239, 0.05) 100%);
+    }
+    .pricing-toggle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .toggle-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 50px;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+    }
+    .toggle-option {
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .toggle-option.active {
+      background: var(--primary-gradient);
+      color: white;
     }
     .pricing-grid {
       display: grid;
@@ -812,6 +879,34 @@
       padding: 8rem 5%;
       background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
     }
+    .blog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .blog-search {
+      display: flex;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 50px;
+      padding: 0.75rem 1.5rem;
+      width: 300px;
+    }
+    .blog-search input {
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      width: 100%;
+      outline: none;
+    }
+    .blog-search i {
+      color: var(--text-secondary);
+      margin-right: 0.5rem;
+    }
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -852,6 +947,16 @@
       color: var(--text-secondary);
       margin-bottom: 1.5rem;
       line-height: 1.7;
+    }
+    .blog-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+    .blog-reading-time {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
     }
     .blog-link {
       color: #6366f1;
@@ -1088,6 +1193,8 @@
       padding: 2rem;
       text-align: center;
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
     .team-member:hover {
       transform: translateY(-10px);
@@ -1144,12 +1251,10 @@
     .testimonials {
       padding: 8rem 5%;
     }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
+    .testimonials-swiper {
+      width: 100%;
+      height: 400px;
+      margin-top: 3rem;
     }
     .testimonial-card {
       background: var(--card-bg);
@@ -1158,10 +1263,7 @@
       padding: 2.5rem;
       position: relative;
       transition: all 0.3s ease;
-    }
-    .testimonial-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      height: 100%;
     }
     .quote-icon {
       position: absolute;
@@ -1384,6 +1486,82 @@
       color: var(--text-secondary);
     }
     
+    /* Interactive Timeline */
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+      margin: 4rem 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: var(--primary-gradient);
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      width: 50%;
+    }
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      padding-right: 3rem;
+      text-align: right;
+    }
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      padding-left: 3rem;
+    }
+    .timeline-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .timeline-item:nth-child(odd) .timeline-content::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -10px;
+      width: 20px;
+      height: 20px;
+      background: var(--primary-gradient);
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+    .timeline-item:nth-child(even) .timeline-content::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -10px;
+      width: 20px;
+      height: 20px;
+      background: var(--primary-gradient);
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+    .timeline-date {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .timeline-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .timeline-description {
+      color: var(--text-secondary);
+    }
+    
     /* Floating Elements */
     .floating-elements {
       position: absolute;
@@ -1463,6 +1641,20 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .loading-progress {
+      width: 200px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      margin: 1rem auto;
+      overflow: hidden;
+    }
+    .loading-progress-bar {
+      height: 100%;
+      background: var(--primary-gradient);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
@@ -1498,14 +1690,16 @@
         display: none;
       }
       
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
       .hero-buttons {
         flex-direction: column;
         align-items: center;
       }
       
       .services-grid,
-      .portfolio-grid,
-      .testimonials-grid,
       .about-content,
       .contact-content,
       .pricing-grid,
@@ -1532,17 +1726,44 @@
         left: 5%;
         right: 5%;
       }
+      
+      .timeline::before {
+        left: 30px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 60px !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-content::after,
+      .timeline-item:nth-child(even) .timeline-content::after {
+        left: 20px;
+        right: auto;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+  
   <!-- Loading Screen -->
   <div class="loading-screen" id="loadingScreen">
     <div class="loading-content">
       <div class="loading-spinner"></div>
       <div class="loading-text">Typixel Studio</div>
+      <div class="loading-progress">
+        <div class="loading-progress-bar" id="loadingProgressBar"></div>
+      </div>
     </div>
   </div>
+  
+  <!-- 3D Particles Background -->
+  <canvas id="particles-canvas"></canvas>
   
   <!-- Scroll Progress Indicator -->
   <div class="scroll-progress">
@@ -1584,6 +1805,9 @@
         <a href="#careers">Careers</a>
         <a href="#contact">Contact</a>
       </nav>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
       <a href="#contact" class="cta-button">Start Project</a>
     </div>
   </header>
@@ -1774,97 +1998,68 @@
       <button class="filter-btn" data-filter="ui">UI/UX</button>
       <button class="filter-btn" data-filter="marketing">Marketing</button>
     </div>
-    <div class="portfolio-grid">
-      <div class="portfolio-item" data-category="branding" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500" alt="Design Project 1" class="portfolio-img">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">Tech Startup Rebrand</h3>
-          <p class="portfolio-category">Brand Identity</p>
+    
+    <!-- Swiper Portfolio -->
+    <div class="swiper portfolio-swiper" data-aos="fade-up" data-aos-delay="200">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" data-category="branding" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800')">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Tech Startup Rebrand</h3>
+            <p class="portfolio-category">Brand Identity</p>
+          </div>
+          <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200')">
+            <i class="fas fa-expand"></i>
+          </a>
         </div>
-        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1000')">
-          <i class="fas fa-expand"></i>
-        </a>
-      </div>
-      <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="200">
-        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=500" alt="Design Project 2" class="portfolio-img">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">E-commerce Platform</h3>
-          <p class="portfolio-category">Web Design</p>
+        <div class="swiper-slide" data-category="web" style="background-image: url('https://images.unsplash.com/photo-1558655146-d09347e92766?w=800')">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">E-commerce Platform</h3>
+            <p class="portfolio-category">Web Design</p>
+          </div>
+          <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1558655146-d09347e92766?w=1200')">
+            <i class="fas fa-expand"></i>
+          </a>
         </div>
-        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1558655146-d09347e92766?w=1000')">
-          <i class="fas fa-expand"></i>
-        </a>
-      </div>
-      <div class="portfolio-item" data-category="ui" data-aos="fade-up" data-aos-delay="300">
-        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500" alt="Design Project 3" class="portfolio-img">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">Mobile App Design</h3>
-          <p class="portfolio-category">UI/UX Design</p>
+        <div class="swiper-slide" data-category="ui" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=800')">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Mobile App Design</h3>
+            <p class="portfolio-category">UI/UX Design</p>
+          </div>
+          <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200')">
+            <i class="fas fa-expand"></i>
+          </a>
         </div>
-        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1000')">
-          <i class="fas fa-expand"></i>
-        </a>
-      </div>
-      <div class="portfolio-item" data-category="marketing" data-aos="fade-up" data-aos-delay="400">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500" alt="Design Project 4" class="portfolio-img">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">Digital Campaign</h3>
-          <p class="portfolio-category">Marketing</p>
+        <div class="swiper-slide" data-category="marketing" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800')">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Digital Campaign</h3>
+            <p class="portfolio-category">Marketing</p>
+          </div>
+          <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200')">
+            <i class="fas fa-expand"></i>
+          </a>
         </div>
-        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000')">
-          <i class="fas fa-expand"></i>
-        </a>
-      </div>
-      <div class="portfolio-item" data-category="branding" data-aos="fade-up" data-aos-delay="500">
-        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500" alt="Design Project 5" class="portfolio-img">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">Restaurant Branding</h3>
-          <p class="portfolio-category">Brand Identity</p>
+        <div class="swiper-slide" data-category="branding" style="background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800')">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Restaurant Branding</h3>
+            <p class="portfolio-category">Brand Identity</p>
+          </div>
+          <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200')">
+            <i class="fas fa-expand"></i>
+          </a>
         </div>
-        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1000')">
-          <i class="fas fa-expand"></i>
-        </a>
-      </div>
-      <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="600">
-        <img src="https://images.unsplash.com/photo-1522542550221-31fdadf757da?w=500" alt="Design Project 6" class="portfolio-img">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">Corporate Website</h3>
-          <p class="portfolio-category">Web Design</p>
+        <div class="swiper-slide" data-category="web" style="background-image: url('https://images.unsplash.com/photo-1522542550221-31fdadf757da?w=800')">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Corporate Website</h3>
+            <p class="portfolio-category">Web Design</p>
+          </div>
+          <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1522542550221-31fdadf757da?w=1200')">
+            <i class="fas fa-expand"></i>
+          </a>
         </div>
-        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1522542550221-31fdadf757da?w=1000')">
-          <i class="fas fa-expand"></i>
-        </a>
       </div>
-      <div class="portfolio-item" data-category="ui" data-aos="fade-up" data-aos-delay="700">
-        <img src="https://images.unsplash.com/photo-1559028006-44a36f563c3e?w=500" alt="Design Project 7" class="portfolio-img">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">Dashboard Design</h3>
-          <p class="portfolio-category">UI/UX Design</p>
-        </div>
-        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1559028006-44a36f563c3e?w=1000')">
-          <i class="fas fa-expand"></i>
-        </a>
-      </div>
-      <div class="portfolio-item" data-category="marketing" data-aos="fade-up" data-aos-delay="800">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500" alt="Design Project 8" class="portfolio-img">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">Social Media Campaign</h3>
-          <p class="portfolio-category">Marketing</p>
-        </div>
-        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1000')">
-          <i class="fas fa-expand"></i>
-        </a>
-      </div>
-      <div class="portfolio-item" data-category="branding" data-aos="fade-up" data-aos-delay="900">
-        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=500" alt="Design Project 9" class="portfolio-img">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">Fashion Brand</h3>
-          <p class="portfolio-category">Brand Identity</p>
-        </div>
-        <a href="#" class="portfolio-link" onclick="openLightbox('https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1000')">
-          <i class="fas fa-expand"></i>
-        </a>
-      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
   </section>
   
@@ -1881,10 +2076,16 @@
   <!-- Pricing Section -->
   <section class="pricing" id="pricing">
     <h2 class="section-title" data-aos="fade-up">Our Pricing Plans</h2>
+    <div class="pricing-toggle" data-aos="fade-up" data-aos-delay="100">
+      <div class="toggle-container">
+        <div class="toggle-option active" data-period="monthly">Monthly</div>
+        <div class="toggle-option" data-period="yearly">Yearly</div>
+      </div>
+    </div>
     <div class="pricing-grid">
-      <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
         <h3 class="pricing-title">Starter</h3>
-        <div class="pricing-price">$2,500</div>
+        <div class="pricing-price" data-monthly="$2,500" data-yearly="$24,000">$2,500</div>
         <div class="pricing-period">per project</div>
         <ul class="pricing-features">
           <li class="pricing-feature">
@@ -1910,9 +2111,9 @@
         </ul>
         <button class="pricing-btn">Get Started</button>
       </div>
-      <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="200">
+      <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="300">
         <h3 class="pricing-title">Professional</h3>
-        <div class="pricing-price">$5,000</div>
+        <div class="pricing-price" data-monthly="$5,000" data-yearly="$48,000">$5,000</div>
         <div class="pricing-period">per project</div>
         <ul class="pricing-features">
           <li class="pricing-feature">
@@ -1938,9 +2139,9 @@
         </ul>
         <button class="pricing-btn">Get Started</button>
       </div>
-      <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="pricing-card" data-aos="fade-up" data-aos-delay="400">
         <h3 class="pricing-title">Enterprise</h3>
-        <div class="pricing-price">$10,000+</div>
+        <div class="pricing-price" data-monthly="$10,000+" data-yearly="$100,000+">$10,000+</div>
         <div class="pricing-period">per project</div>
         <ul class="pricing-features">
           <li class="pricing-feature">
@@ -2033,7 +2234,13 @@
   
   <!-- Blog Section -->
   <section class="blog" id="blog">
-    <h2 class="section-title" data-aos="fade-up">Latest Insights</h2>
+    <div class="blog-header">
+      <h2 class="section-title" data-aos="fade-up">Latest Insights</h2>
+      <div class="blog-search" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search articles...">
+      </div>
+    </div>
     <div class="blog-grid">
       <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500" alt="Blog Post 1" class="blog-img">
@@ -2043,9 +2250,12 @@
           <p class="blog-excerpt">
             Explore the latest trends and technologies shaping the future of web design, from AI integration to immersive experiences.
           </p>
-          <a href="#" class="blog-link">
-            Read More <i class="fas fa-arrow-right"></i>
-          </a>
+          <div class="blog-meta">
+            <div class="blog-reading-time">5 min read</div>
+            <a href="#" class="blog-link">
+              Read More <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
       </div>
       <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
@@ -2056,9 +2266,12 @@
           <p class="blog-excerpt">
             Learn the essential elements of creating a memorable brand identity that resonates with your target audience.
           </p>
-          <a href="#" class="blog-link">
-            Read More <i class="fas fa-arrow-right"></i>
-          </a>
+          <div class="blog-meta">
+            <div class="blog-reading-time">7 min read</div>
+            <a href="#" class="blog-link">
+              Read More <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
       </div>
       <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
@@ -2069,9 +2282,12 @@
           <p class="blog-excerpt">
             Discover proven UX design principles and techniques to create user-friendly digital experiences.
           </p>
-          <a href="#" class="blog-link">
-            Read More <i class="fas fa-arrow-right"></i>
-          </a>
+          <div class="blog-meta">
+            <div class="blog-reading-time">6 min read</div>
+            <a href="#" class="blog-link">
+              Read More <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -2182,6 +2398,45 @@
       </div>
     </div>
     
+    <!-- Interactive Timeline -->
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-right">
+        <div class="timeline-content">
+          <div class="timeline-date">2015</div>
+          <h3 class="timeline-title">The Beginning</h3>
+          <p class="timeline-description">Typixel was founded with a vision to create exceptional digital experiences.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-left">
+        <div class="timeline-content">
+          <div class="timeline-date">2017</div>
+          <h3 class="timeline-title">First Award</h3>
+          <p class="timeline-description">We received our first design award for innovative brand identity.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-right">
+        <div class="timeline-content">
+          <div class="timeline-date">2019</div>
+          <h3 class="timeline-title">Expansion</h3>
+          <p class="timeline-description">Expanded our team and moved to a new creative studio space.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-left">
+        <div class="timeline-content">
+          <div class="timeline-date">2021</div>
+          <h3 class="timeline-title">International Recognition</h3>
+          <p class="timeline-description">Our work was featured in international design publications.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-right">
+        <div class="timeline-content">
+          <div class="timeline-date">2023</div>
+          <h3 class="timeline-title">Present Day</h3>
+          <p class="timeline-description">Continuing to push boundaries and deliver exceptional results for our clients.</p>
+        </div>
+      </div>
+    </div>
+    
     <div class="team-section">
       <h2 class="section-title" data-aos="fade-up">Meet Our Team</h2>
       <div class="team-grid">
@@ -2240,73 +2495,84 @@
   <!-- Testimonials Section -->
   <section class="testimonials" id="testimonials">
     <h2 class="section-title" data-aos="fade-up">Client Testimonials</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-        <i class="fas fa-quote-right quote-icon"></i>
-        <div class="rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <p class="testimonial-text">
-          Typixel transformed our brand identity completely. Their attention to detail and creative approach exceeded our expectations. The new design has significantly improved our market presence.
-        </p>
-        <div class="client-info">
-          <div class="client-avatar">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Client">
+    
+    <!-- Swiper Testimonials -->
+    <div class="swiper testimonials-swiper" data-aos="fade-up" data-aos-delay="200">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <i class="fas fa-quote-right quote-icon"></i>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              Typixel transformed our brand identity completely. Their attention to detail and creative approach exceeded our expectations. The new design has significantly improved our market presence.
+            </p>
+            <div class="client-info">
+              <div class="client-avatar">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Client">
+              </div>
+              <div class="client-details">
+                <h4>Michael Chen</h4>
+                <p>CEO, Tech Innovations</p>
+              </div>
+            </div>
           </div>
-          <div class="client-details">
-            <h4>Michael Chen</h4>
-            <p>CEO, Tech Innovations</p>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <i class="fas fa-quote-right quote-icon"></i>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              Working with Typixel was a game-changer for our business. Their team understood our vision perfectly and delivered a website that not only looks stunning but also converts visitors into customers.
+            </p>
+            <div class="client-info">
+              <div class="client-avatar">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100" alt="Client">
+              </div>
+              <div class="client-details">
+                <h4>Sarah Johnson</h4>
+                <p>Marketing Director, Retail Pro</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <i class="fas fa-quote-right quote-icon"></i>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              The mobile app designed by Typixel has revolutionized how our customers interact with our services. The user experience is seamless, and we've seen a 40% increase in user engagement since launch.
+            </p>
+            <div class="client-info">
+              <div class="client-avatar">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100" alt="Client">
+              </div>
+              <div class="client-details">
+                <h4>David Wilson</h4>
+                <p>Product Manager, HealthPlus</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-        <i class="fas fa-quote-right quote-icon"></i>
-        <div class="rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <p class="testimonial-text">
-          Working with Typixel was a game-changer for our business. Their team understood our vision perfectly and delivered a website that not only looks stunning but also converts visitors into customers.
-        </p>
-        <div class="client-info">
-          <div class="client-avatar">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100" alt="Client">
-          </div>
-          <div class="client-details">
-            <h4>Sarah Johnson</h4>
-            <p>Marketing Director, Retail Pro</p>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-        <i class="fas fa-quote-right quote-icon"></i>
-        <div class="rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <p class="testimonial-text">
-          The mobile app designed by Typixel has revolutionized how our customers interact with our services. The user experience is seamless, and we've seen a 40% increase in user engagement since launch.
-        </p>
-        <div class="client-info">
-          <div class="client-avatar">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100" alt="Client">
-          </div>
-          <div class="client-details">
-            <h4>David Wilson</h4>
-            <p>Product Manager, HealthPlus</p>
-          </div>
-        </div>
-      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </section>
   
@@ -2495,6 +2761,7 @@
   </div>
   
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script>
     // Initialize AOS
     AOS.init({
@@ -2503,15 +2770,185 @@
       offset: 100
     });
     
+    // Initialize Swiper for Portfolio
+    const portfolioSwiper = new Swiper('.portfolio-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+    
+    // Initialize Swiper for Testimonials
+    const testimonialsSwiper = new Swiper('.testimonials-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+    
     // Loading Screen
     window.addEventListener('load', function() {
-      setTimeout(() => {
-        document.getElementById('loadingScreen').style.opacity = '0';
-        setTimeout(() => {
-          document.getElementById('loadingScreen').style.display = 'none';
-        }, 500);
-      }, 2000);
+      let progress = 0;
+      const loadingInterval = setInterval(() => {
+        progress += 5;
+        document.getElementById('loadingProgressBar').style.width = progress + '%';
+        
+        if (progress >= 100) {
+          clearInterval(loadingInterval);
+          setTimeout(() => {
+            document.getElementById('loadingScreen').style.opacity = '0';
+            setTimeout(() => {
+              document.getElementById('loadingScreen').style.display = 'none';
+            }, 500);
+          }, 500);
+        }
+      }, 100);
     });
+    
+    // Custom Cursor
+    const cursor = document.querySelector('.cursor');
+    const follower = document.querySelector('.cursor-follower');
+    
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      
+      setTimeout(() => {
+        follower.style.left = e.clientX - 10 + 'px';
+        follower.style.top = e.clientY - 10 + 'px';
+      }, 100);
+    });
+    
+    // Cursor grow effect
+    document.querySelectorAll('a, button, .service-card, .portfolio-item, .pricing-card, .blog-card, .job-listing, .team-member').forEach(element => {
+      element.addEventListener('mouseenter', () => {
+        cursor.classList.add('cursor-grow');
+      });
+      
+      element.addEventListener('mouseleave', () => {
+        cursor.classList.remove('cursor-grow');
+      });
+    });
+    
+    // 3D Particles Background
+    function initParticles() {
+      const canvas = document.getElementById('particles-canvas');
+      const ctx = canvas.getContext('2d');
+      
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      const particles = [];
+      const particleCount = 100;
+      
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 2 + 1;
+          this.speedX = Math.random() * 1 - 0.5;
+          this.speedY = Math.random() * 1 - 0.5;
+          this.color = `hsl(${Math.random() * 60 + 200}, 70%, 60%)`;
+        }
+        
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          
+          if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        }
+        
+        draw() {
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      
+      function createParticles() {
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+      
+      function connectParticles() {
+        for (let a = 0; a < particles.length; a++) {
+          for (let b = a; b < particles.length; b++) {
+            const distance = Math.sqrt(
+              Math.pow(particles[a].x - particles[b].x, 2) +
+              Math.pow(particles[a].y - particles[b].y, 2)
+            );
+            
+            if (distance < 100) {
+              ctx.strokeStyle = `rgba(99, 102, 241, ${1 - distance / 100})`;
+              ctx.lineWidth = 0.5;
+              ctx.beginPath();
+              ctx.moveTo(particles[a].x, particles[a].y);
+              ctx.lineTo(particles[b].x, particles[b].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+      
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+        }
+        
+        connectParticles();
+        requestAnimationFrame(animateParticles);
+      }
+      
+      createParticles();
+      animateParticles();
+      
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    }
+    
+    initParticles();
     
     // Scroll Progress
     window.addEventListener('scroll', () => {
@@ -2634,31 +3071,26 @@
     
     // Portfolio Filter
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         // Update active button
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         
-        // Filter items
+        // Filter slides
         const filter = btn.getAttribute('data-filter');
-        portfolioItems.forEach(item => {
-          if (filter === 'all' || item.getAttribute('data-category') === filter) {
-            item.style.display = 'block';
-            setTimeout(() => {
-              item.style.opacity = '1';
-              item.style.transform = 'scale(1)';
-            }, 10);
+        const slides = document.querySelectorAll('.swiper-slide');
+        
+        slides.forEach(slide => {
+          if (filter === 'all' || slide.getAttribute('data-category') === filter) {
+            slide.style.display = 'block';
           } else {
-            item.style.opacity = '0';
-            item.style.transform = 'scale(0.8)';
-            setTimeout(() => {
-              item.style.display = 'none';
-            }, 300);
+            slide.style.display = 'none';
           }
         });
+        
+        // Update swiper
+        portfolioSwiper.update();
       });
     });
     
@@ -2688,6 +3120,26 @@
       const faqItem = element.parentElement;
       faqItem.classList.toggle('active');
     }
+    
+    // Pricing Toggle
+    const toggleOptions = document.querySelectorAll('.toggle-option');
+    toggleOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        toggleOptions.forEach(opt => opt.classList.remove('active'));
+        option.classList.add('active');
+        
+        const period = option.getAttribute('data-period');
+        const prices = document.querySelectorAll('.pricing-price');
+        
+        prices.forEach(price => {
+          if (period === 'yearly') {
+            price.textContent = price.getAttribute('data-yearly');
+          } else {
+            price.textContent = price.getAttribute('data-monthly');
+          }
+        });
+      });
+    });
     
     // Contact Form
     const clientForm = document.getElementById('clientForm');
@@ -2794,6 +3246,80 @@
       const speed = scrolled * 0.5;
       parallax.style.transform = `translateY(${speed}px)`;
     });
+    
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
   </script>
+</body>
+</html>
+<!-- Include EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function () {
+    // Initialize EmailJS with your public key
+    emailjs.init("ijyXznLqsE1mDSqkk"); // ✅ Your Public Key
+  })();
+</script>
+
+<script>
+  // Contact Form Submission with EmailJS
+  const clientForm = document.getElementById('clientForm');
+  clientForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Get form values
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    // Validate required fields
+    if (!firstName || !email || !message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    // Prepare data for EmailJS
+    const templateParams = {
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      phone: phone,
+      subject: subject,
+      message: message,
+    };
+
+    // Send via EmailJS
+    emailjs.send('service_7k1hcfb', 'template_a1b2c3d', templateParams)
+      .then(function () {
+        // Success: Show thank-you message in chatbot
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const successDiv = document.createElement('div');
+        successDiv.className = 'message bot';
+        successDiv.innerHTML = `<p>Thank you, ${firstName}! Your message has been sent successfully. We'll get back to you within 24 hours.</p>`;
+        chatbotMessages.appendChild(successDiv);
+
+        // Auto-open chatbot to show response
+        const chatbot = document.getElementById('chatbot');
+        const chatbotToggle = document.querySelector('.chatbot-toggle');
+        chatbot.classList.add('active');
+        chatbotToggle.style.display = 'none';
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+        // Reset form
+        clientForm.reset();
+      }, function (error) {
+        console.error('EmailJS Error:', error);
+        alert('Oops! Something went wrong. Please try again or contact us directly.');
+      });
+  });
+</script>
 </body>
 </html>
