@@ -415,31 +415,19 @@
             animation: fadeIn 1.5s forwards 1s;
         }
 
-        .sphere {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-blue-green));
-            position: relative;
-            animation: rotate 20s infinite linear;
-            box-shadow: 0 0 50px rgba(139, 195, 74, 0.3);
+        .hero-logo {
+            width: 80%;
+            height: auto;
+            max-height: 80%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(139, 195, 74, 0.4));
+            animation: float 6s ease-in-out infinite;
         }
 
-        .sphere::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: rotate 15s infinite linear reverse;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
 
         @keyframes fadeInUp {
@@ -1542,9 +1530,8 @@
                 margin-top: 50px;
             }
             
-            .sphere {
-                width: 200px;
-                height: 200px;
+            .hero-logo {
+                width: 70%;
             }
             
             .services,
@@ -1706,7 +1693,7 @@
             </div>
         </div>
         <div class="hero-image">
-            <div class="sphere"></div>
+            <img src="https://z-cdn-media.chatglm.cn/files/d6ac8840-3c75-4553-9fbe-0769e75e9acb_552435611_17858920911505650_1464688557598200235_n.png?auth_key=1792815400-b9265ca7194145f5b226fbfaa930cf5b-0-9f64e82160c13b5204a186b97090e026" alt="Typixel.co Logo" class="hero-logo">
         </div>
     </section>
 
