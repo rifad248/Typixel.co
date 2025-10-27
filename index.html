@@ -143,6 +143,27 @@
             color: var(--accent-color);
         }
 
+        .store-btn {
+            background: linear-gradient(45deg, var(--accent-color), #ffcc80);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            margin-right: 15px;
+        }
+
+        .store-btn:hover {
+            background: linear-gradient(45deg, #ffcc80, var(--accent-color));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 152, 0, 0.2);
+        }
+
         .cta-button {
             background: linear-gradient(45deg, var(--accent-green), var(--accent-light-green));
             color: white;
@@ -999,6 +1020,253 @@
             box-shadow: 0 10px 20px rgba(139, 195, 74, 0.2);
         }
 
+        /* Careers Section */
+        .careers {
+            padding: 100px 50px;
+            background-color: var(--secondary-color);
+        }
+
+        .careers-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .careers-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .careers-intro h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-green);
+        }
+
+        .careers-intro p {
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .careers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .career-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 30px;
+            transition: var(--transition);
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .career-card:hover {
+            transform: translateY(-10px);
+            background-color: rgba(255, 255, 255, 0.07);
+        }
+
+        .career-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-light-green);
+        }
+
+        .career-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .career-card .skills {
+            margin-bottom: 20px;
+        }
+
+        .career-card .skills h4 {
+            color: var(--accent-green);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .career-card .skills p {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .career-card .contact {
+            display: flex;
+            align-items: center;
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-top: 15px;
+        }
+
+        .career-card .contact i {
+            margin-right: 8px;
+        }
+
+        .apply-btn {
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-light-green));
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            margin-top: 15px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .apply-btn:hover {
+            background: linear-gradient(45deg, var(--accent-light-green), var(--accent-green));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(139, 195, 74, 0.2);
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 100px 50px;
+            background-color: #0d2818;
+        }
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .blog-intro h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-green);
+        }
+
+        .blog-intro p {
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .blog-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-darker);
+        }
+
+        .blog-category {
+            color: var(--accent-green);
+            font-weight: 500;
+        }
+
+        .blog-date {
+            display: flex;
+            align-items: center;
+        }
+
+        .blog-date i {
+            margin-right: 5px;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent-light-green);
+        }
+
+        .blog-excerpt {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .blog-full-content {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .blog-full-content.show {
+            display: block;
+        }
+
+        .read-more {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            color: var(--accent-light-green);
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
         /* Footer */
         footer {
             background-color: #0d2818;
@@ -1539,7 +1807,9 @@
             .about,
             .team,
             .testimonials,
-            .contact {
+            .contact,
+            .careers,
+            .blog {
                 padding: 80px 20px;
             }
             
@@ -1598,6 +1868,11 @@
                 grid-template-columns: 1fr;
             }
             
+            .careers-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .review-form-container {
                 padding: 30px 20px;
             }
@@ -1635,6 +1910,7 @@
             <div class="cart-icon">
                 <i class="fas fa-shopping-bag"></i>
             </div>
+            <button class="store-btn" id="storeBtn">Store</button>
             <button class="cta-button" id="startProjectBtn">Start A Project</button>
         </div>
     </header>
@@ -1660,7 +1936,7 @@
                 <li><a href="#careers"><i class="fas fa-briefcase"></i> Careers</a></li>
                 <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
                 <li><a href="https://www.instagram.com/_typixel.co_/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-                <li><a href="https://wa.me/919072891142?text=Hello%20Typixel.co%20team%2C%20I'm%20interested%20in%20your%20graphic%20design%20work.%20Could%20you%20please%20share%20more%20details%3F"" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                <li><a href="https://wa.me/919072891142?text=Hello%20Typixel.co%20team%2C%20I'm%20interested%20in%20your%20graphic%20design%20work.%20Could%20you%20please%20share%20more%20details%3F" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
             </ul>
         </div>
         <div class="side-menu-contact">
@@ -1957,6 +2233,123 @@
         </div>
     </section>
 
+    <!-- Careers Section -->
+    <section class="careers" id="careers">
+        <div class="careers-container">
+            <div class="section-header">
+                <h2>Join Our Team</h2>
+                <p>We're always looking for talented individuals to join our creative team. Explore our current openings and find your perfect role.</p>
+            </div>
+            <div class="careers-grid">
+                <div class="career-card">
+                    <h3>Graphic Designer (Intern / Junior)</h3>
+                    <p>We're looking for a creative graphic designer who can turn ideas into eye-catching visuals. You'll work on posters, branding, and social media designs.</p>
+                    <div class="skills">
+                        <h4>Skills:</h4>
+                        <p>Adobe Photoshop, Illustrator, Canva</p>
+                    </div>
+                    <div class="contact">
+                        <i class="fab fa-whatsapp"></i> Submit your portfolio to +919072891142
+                    </div>
+                    <a href="https://wa.me/919072891142?text=Hello%2C%20I'm%20interested%20in%20the%20Graphic%20Designer%20position.%20I'd%20like%20to%20submit%20my%20portfolio." class="apply-btn">Apply Now</a>
+                </div>
+                <div class="career-card">
+                    <h3>Branding & Identity Designer</h3>
+                    <p>Help shape brand identities from concept to final design. You'll create logos, color systems, and visual styles that define a brand's voice.</p>
+                    <div class="skills">
+                        <h4>Skills:</h4>
+                        <p>Logo Design, Brand Strategy, Typography</p>
+                    </div>
+                    <div class="contact">
+                        <i class="fab fa-whatsapp"></i> Submit your portfolio to +919072891142
+                    </div>
+                    <a href="https://wa.me/919072891142?text=Hello%2C%20I'm%20interested%20in%20the%20Branding%20%26%20Identity%20Designer%20position.%20I'd%20like%20to%20submit%20my%20portfolio." class="apply-btn">Apply Now</a>
+                </div>
+                <div class="career-card">
+                    <h3>Video Editor / Motion Designer</h3>
+                    <p>We're searching for a visual storyteller with a strong sense of rhythm and style. You'll create engaging videos and animations for digital platforms.</p>
+                    <div class="skills">
+                        <h4>Skills:</h4>
+                        <p>Adobe Premiere Pro, After Effects, CapCut</p>
+                    </div>
+                    <div class="contact">
+                        <i class="fab fa-whatsapp"></i> Submit your portfolio to +919072891142
+                    </div>
+                    <a href="https://wa.me/919072891142?text=Hello%2C%20I'm%20interested%20in%20the%20Video%20Editor%20%2F%20Motion%20Designer%20position.%20I'd%20like%20to%20submit%20my%20portfolio." class="apply-btn">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="blog-container">
+            <div class="section-header">
+                <h2>Latest Blog Posts</h2>
+                <p>Stay updated with the latest trends, insights, and news from the world of digital design and marketing.</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Blog Post 1">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Design</span>
+                            <span class="blog-date"><i class="far fa-calendar"></i> June 15, 2023</span>
+                        </div>
+                        <h3>The Power of Minimal Design</h3>
+                        <div class="blog-excerpt">
+                            Minimal design is not about doing less because it's easy—it's about making every element count...
+                        </div>
+                        <div class="blog-full-content">
+                            Minimal design is not about doing less because it's easy—it's about making every element count. By focusing on simplicity, balance, and clarity, minimal design allows your message to shine without distractions. At Typixel.co, we create visuals that communicate clearly, leaving a lasting impression with fewer, more meaningful elements. Whether it's a logo, poster, or digital campaign, minimal design is timeless and powerful.
+                        </div>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1559028006-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Blog Post 2">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Branding</span>
+                            <span class="blog-date"><i class="far fa-calendar"></i> May 28, 2023</span>
+                        </div>
+                        <h3>How Branding Shapes Perception</h3>
+                        <div class="blog-excerpt">
+                            Branding is more than just a logo or color palette. It's the story your business tells at first glance...
+                        </div>
+                        <div class="blog-full-content">
+                            Branding is more than just a logo or color palette. It's the story your business tells at first glance. Strong branding builds trust, evokes emotion, and creates a memorable identity. At Typixel.co, we focus on creating cohesive visual identities that speak for your brand before you even say a word. Every font, color, and visual element is chosen with your audience in mind to make your brand unforgettable.
+                        </div>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Blog Post 3">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Digital</span>
+                            <span class="blog-date"><i class="far fa-calendar"></i> May 10, 2023</span>
+                        </div>
+                        <h3>Designing for the Digital Age</h3>
+                        <div class="blog-excerpt">
+                            The digital world moves fast, and good design has to keep up. From social media graphics to web visuals...
+                        </div>
+                        <div class="blog-full-content">
+                            The digital world moves fast, and good design has to keep up. From social media graphics to web visuals and video content, every piece must be visually engaging and instantly understandable. At Typixel.co, we combine creativity with strategy to ensure your designs don't just look good—they connect with people. Adapting to trends while keeping your brand consistent is the key to staying relevant in a constantly evolving digital landscape.
+                        </div>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="contact-container">
@@ -2051,6 +2444,8 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#blog">Blog</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -2487,6 +2882,45 @@
             budgetOptions.forEach(opt => opt.classList.remove('selected'));
         });
 
+        // Store button functionality
+        const storeBtn = document.getElementById('storeBtn');
+        storeBtn.addEventListener('click', function() {
+            showNotification("Our store is coming soon! Stay tuned for amazing design products.");
+        });
+
+        // Blog "Read More" functionality
+        const readMoreLinks = document.querySelectorAll('.read-more');
+        readMoreLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const blogCard = this.closest('.blog-card');
+                const excerpt = blogCard.querySelector('.blog-excerpt');
+                const fullContent = blogCard.querySelector('.blog-full-content');
+                
+                if (fullContent.classList.contains('show')) {
+                    // Show less
+                    fullContent.classList.remove('show');
+                    excerpt.style.display = 'block';
+                    this.innerHTML = 'Read More <i class="fas fa-arrow-right"></i>';
+                } else {
+                    // Show more
+                    excerpt.style.display = 'none';
+                    fullContent.classList.add('show');
+                    this.innerHTML = 'Read Less <i class="fas fa-arrow-up"></i>';
+                }
+            });
+        });
+
+        // Apply button functionality
+        const applyButtons = document.querySelectorAll('.apply-btn');
+        applyButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                showNotification("Thank you for your interest! We'll contact you soon.");
+            });
+        });
+
         // Notification
         const notification = document.getElementById('notification');
         const notificationMessage = document.getElementById('notificationMessage');
@@ -2586,8 +3020,24 @@
             member.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(member);
         });
+
+        // Add animation to career cards when they come into view
+        const careerCards = document.querySelectorAll('.career-card');
+        careerCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add animation to blog cards when they come into view
+        const blogCards = document.querySelectorAll('.blog-card');
+        blogCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
     </script>
 </body>
 </html>
-
-
