@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typixel.co - Creative Digital Agency</title>
+    <title>Typixel.co - Creative Digital Agency | Graphic Design & Branding</title>
+    <meta name="description" content="Typixel.co is a creative digital agency specializing in graphic design, branding, UI/UX, and video editing. We help businesses create stunning visual identities that captivate audiences.">
+    <meta name="keywords" content="graphic design, branding, logo design, UI/UX, video editing, digital agency, Kerala, Malappuram">
+    <meta name="author" content="Typixel.co">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Typixel.co - Creative Digital Agency">
+    <meta property="og:description" content="We create stunning digital experiences that captivate your audience and elevate your brand to new heights.">
+    <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/d6ac8840-3c75-4553-9fbe-0769e75e9acb_552435611_17858920911505650_1464688557598200235_n.png?auth_key=1792815400-b9265ca7194145f5b226fbfaa930cf5b-0-9f64e82160c13b5204a186b97090e026">
+    <meta property="og:url" content="https://typixel.co">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Typixel.co - Creative Digital Agency">
+    <meta name="twitter:description" content="We create stunning digital experiences that captivate your audience and elevate your brand to new heights.">
+    <meta name="twitter:image" content="https://z-cdn-media.chatglm.cn/files/d6ac8840-3c75-4553-9fbe-0769e75e9acb_552435611_17858920911505650_1464688557598200235_n.png?auth_key=1792815400-b9265ca7194145f5b226fbfaa930cf5b-0-9f64e82160c13b5204a186b97090e026">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -1752,6 +1769,301 @@
             font-size: 1rem;
         }
 
+        /* WhatsApp Chat Widget */
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .whatsapp-chat-widget {
+            background-color: white;
+            border-radius: 10px;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
+            transform: scale(0);
+            opacity: 0;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .whatsapp-chat-widget.active {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .whatsapp-chat-header {
+            background-color: #25d366;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .whatsapp-chat-header-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .whatsapp-chat-header-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+
+        .whatsapp-chat-header-name {
+            font-weight: 600;
+        }
+
+        .whatsapp-chat-header-status {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .whatsapp-chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .whatsapp-chat-body {
+            flex: 1;
+            padding: 15px;
+            background-color: #e5ddd5;
+            background-image: url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg');
+            overflow-y: auto;
+        }
+
+        .whatsapp-chat-message {
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-width: 80%;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.3s;
+        }
+
+        .whatsapp-chat-message.bot {
+            align-self: flex-start;
+            border-bottom-left-radius: 0;
+        }
+
+        .whatsapp-chat-message.user {
+            align-self: flex-end;
+            background-color: #dcf8c6;
+            border-bottom-right-radius: 0;
+        }
+
+        .whatsapp-chat-input {
+            display: flex;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        .whatsapp-chat-input input {
+            flex: 1;
+            border: none;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: white;
+            margin-right: 10px;
+        }
+
+        .whatsapp-chat-input button {
+            background-color: #25d366;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .whatsapp-chat-button {
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .whatsapp-chat-button:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-chat-button i {
+            animation: pulse 2s infinite;
+        }
+
+        /* Case Study Modal */
+        .case-study-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .case-study-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .case-study-modal-content {
+            background: linear-gradient(180deg, var(--secondary-color), #0d2818);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: scale(0.8);
+            transition: var(--transition);
+        }
+
+        .case-study-modal.active .case-study-modal-content {
+            transform: scale(1);
+        }
+
+        .case-study-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .case-study-modal-close:hover {
+            color: var(--accent-color);
+        }
+
+        .case-study-header {
+            margin-bottom: 30px;
+        }
+
+        .case-study-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-green);
+        }
+
+        .case-study-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .case-study-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .case-study-description h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-light-green);
+        }
+
+        .case-study-description p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .case-study-details {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .case-study-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent-light-green);
+        }
+
+        .case-study-details-item {
+            margin-bottom: 15px;
+        }
+
+        .case-study-details-item h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--accent-green);
+        }
+
+        .case-study-details-item p {
+            color: var(--text-light);
+        }
+
+        .case-study-cta {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .case-study-cta a {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-light-green));
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .case-study-cta a:hover {
+            background: linear-gradient(45deg, var(--accent-light-green), var(--accent-green));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(139, 195, 74, 0.2);
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .hero h1 {
@@ -1768,6 +2080,10 @@
             }
             
             .reviews-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .case-study-content {
                 grid-template-columns: 1fr;
             }
         }
@@ -1845,6 +2161,16 @@
                 flex-direction: column;
                 gap: 10px;
             }
+            
+            .whatsapp-chat-widget {
+                width: 280px;
+                height: 350px;
+            }
+            
+            .case-study-modal-content {
+                width: 95%;
+                padding: 20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1884,6 +2210,11 @@
             
             .project-modal-content {
                 padding: 20px;
+            }
+            
+            .whatsapp-chat-widget {
+                width: 250px;
+                height: 300px;
             }
         }
     </style>
@@ -1961,10 +2292,10 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Creative Digital Agency</h1>
-            <p>We create stunning digital experiences that captivate your audience and elevate your brand to new heights.</p>
+            <h1>Hi, I'm Rifad – a graphic designer specialising in branding & UI-UX</h1>
+            <p>I create stunning visual experiences that help businesses connect with their audience and achieve their goals. Let's bring your vision to life.</p>
             <div class="hero-buttons">
-                <a href="#portfolio" class="primary-btn">View Our Work</a>
+                <a href="#portfolio" class="primary-btn">View Portfolio</a>
                 <a href="#contact" class="secondary-btn">Get In Touch</a>
             </div>
         </div>
@@ -2039,52 +2370,68 @@
             <button class="filter-btn" data-filter="video editing">Video Editing</button>
         </div>
         <div class="portfolio-grid">
-            <div class="portfolio-item" data-category="web">
-                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Project 1">
+            <div class="portfolio-item" data-category="branding">
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Brand Identity for TechStart">
                 <div class="portfolio-overlay">
-                    <h3>Corporate Website</h3>
-                    <p>Web Design</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-arrow-right"></i></a>
+                    <h3>Brand Identity for TechStart</h3>
+                    <p>Branding</p>
+                    <a href="#" class="portfolio-link view-case-study" data-project="techstart"><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="portfolio-item" data-category="app">
-                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Project 2">
+            <div class="portfolio-item" data-category="poster">
+                <img src="https://images.unsplash.com/photo-1559028006-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Event Poster for Music Festival">
                 <div class="portfolio-overlay">
-                    <h3>Mobile Banking App</h3>
-                    <p>App Development</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-arrow-right"></i></a>
+                    <h3>Event Poster for Music Festival</h3>
+                    <p>Poster Design</p>
+                    <a href="#" class="portfolio-link view-case-study" data-project="music-festival"><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="portfolio-item" data-category="branding">
-                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Project 3">
+                <img src="https://images.unsplash.com/photo-1557804506-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Logo Design for GreenLife Co.">
                 <div class="portfolio-overlay">
-                    <h3>Brand Identity</h3>
+                    <h3>Logo Design for GreenLife Co.</h3>
                     <p>Branding</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="marketing">
-                <img src="https://images.unsplash.com/photo-1557804506-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Project 4">
-                <div class="portfolio-overlay">
-                    <h3>Digital Campaign</h3>
-                    <p>Marketing</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="portfolio-link view-case-study" data-project="greenlife"><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="portfolio-item" data-category="web">
-                <img src="https://images.unsplash.com/photo-1559028006-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Project 5">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="E-commerce Website for FashionHub">
                 <div class="portfolio-overlay">
-                    <h3>E-commerce Platform</h3>
+                    <h3>E-commerce Website for FashionHub</h3>
                     <p>Web Design</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="portfolio-link view-case-study" data-project="fashionhub"><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="portfolio-item" data-category="app">
-                <img src="https://images.unsplash.com/photo-1551739440-5dd934d3a94a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Project 6">
+            <div class="portfolio-item" data-category="video editing">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Promotional Video for TechStart">
                 <div class="portfolio-overlay">
-                    <h3>Fitness Tracker App</h3>
-                    <p>App Development</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-arrow-right"></i></a>
+                    <h3>Promotional Video for TechStart</h3>
+                    <p>Video Editing</p>
+                    <a href="#" class="portfolio-link view-case-study" data-project="promo-video"><i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="poster">
+                <img src="https://images.unsplash.com/photo-1551739440-5dd934d3a94a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Product Launch Poster">
+                <div class="portfolio-overlay">
+                    <h3>Product Launch Poster</h3>
+                    <p>Poster Design</p>
+                    <a href="#" class="portfolio-link view-case-study" data-project="product-launch"><i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="branding">
+                <img src="https://images.unsplash.com/photo-1559028006-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Business Card Design for Startup">
+                <div class="portfolio-overlay">
+                    <h3>Business Card Design for Startup</h3>
+                    <p>Branding</p>
+                    <a href="#" class="portfolio-link view-case-study" data-project="business-card"><i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="web">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mobile Banking App UI">
+                <div class="portfolio-overlay">
+                    <h3>Mobile Banking App UI</h3>
+                    <p>Web Design</p>
+                    <a href="#" class="portfolio-link view-case-study" data-project="banking-app"><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -2093,26 +2440,27 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="about-content">
-            <h2>About Typixel.co</h2>
-            <p>We are a creative digital agency passionate about crafting exceptional digital experiences. With a team of talented designers, developers, and marketers, we help businesses transform their online presence and achieve their goals.</p>
-            <p>Founded in 2015, we have worked with clients across various industries, delivering innovative solutions that drive growth and engagement. Our approach combines creativity, technology, and strategy to create digital experiences that stand out.</p>
+            <h2>About Me</h2>
+            <p>I'm Rifad, a passionate graphic designer with over 5 years of experience in creating compelling visual identities. My journey in design began with a fascination for how colors, shapes, and typography can evoke emotions and tell stories.</p>
+            <p>My design philosophy is centered around simplicity, functionality, and creating meaningful connections between brands and their audience. I believe that great design not only looks beautiful but also serves a purpose - whether it's to inform, persuade, or inspire.</p>
+            <p>When I'm not designing, you can find me exploring new design trends, experimenting with new techniques, or seeking inspiration from nature and everyday life. I'm committed to continuous learning and staying updated with the latest design tools and technologies.</p>
             <div class="about-stats">
                 <div class="stat-item">
-                    <h3>150+</h3>
+                    <h3>50+</h3>
                     <p>Projects Completed</p>
                 </div>
                 <div class="stat-item">
-                    <h3>90%</h3>
-                    <p>Client Satisfaction</p>
+                    <h3>30+</h3>
+                    <p>Happy Clients</p>
                 </div>
                 <div class="stat-item">
-                    <h3>12</h3>
-                    <p>Team Members</p>
+                    <h3>5+</h3>
+                    <p>Years Experience</p>
                 </div>
             </div>
         </div>
         <div class="about-image">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About Typixel">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About Rifad">
         </div>
     </section>
 
@@ -2190,7 +2538,7 @@
         </div>
         <div class="testimonials-container">
             <div class="testimonial-item active">
-                <p class="testimonial-text">"Working with Typixel.co was an absolute pleasure. They transformed our outdated website into a modern, user-friendly platform that has significantly increased our conversion rates. Their attention to detail and creative approach exceeded our expectations."</p>
+                <p class="testimonial-text">"Working with Rifad was an absolute pleasure. He transformed our outdated brand identity into a modern, cohesive visual language that perfectly represents our company values. His attention to detail and creative approach exceeded our expectations."</p>
                 <div class="testimonial-author">
                     <div class="author-image">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Client">
@@ -2202,26 +2550,26 @@
                 </div>
             </div>
             <div class="testimonial-item">
-                <p class="testimonial-text">"The team at Typixel.co delivered an exceptional mobile app for our business. Not only is it visually stunning, but it's also incredibly intuitive and functional. Their professionalism and expertise throughout the project were outstanding."</p>
+                <p class="testimonial-text">"Rifad designed an exceptional logo and brand identity for our startup. Not only is it visually stunning, but it's also incredibly meaningful and perfectly captures our mission. His professionalism and expertise throughout the project were outstanding."</p>
                 <div class="testimonial-author">
                     <div class="author-image">
                         <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Client">
                     </div>
                     <div class="author-info">
                         <h4>Lisa Thompson</h4>
-                        <p>Marketing Director, FashionHub</p>
+                        <p>Founder, FashionHub</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-item">
-                <p class="testimonial-text">"Typixel.co helped us completely rebrand our company, and the results have been phenomenal. From our new logo to our website and marketing materials, everything is cohesive and perfectly represents our brand values. Highly recommended!"</p>
+                <p class="testimonial-text">"The promotional video that Rifad created for our product launch was phenomenal. He took our raw footage and transformed it into a compelling story that resonated with our audience. The video significantly boosted our engagement and sales. Highly recommended!"</p>
                 <div class="testimonial-author">
                     <div class="author-image">
                         <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Client">
                     </div>
                     <div class="author-info">
                         <h4>Robert Garcia</h4>
-                        <p>Founder, GreenLife Co.</p>
+                        <p>Marketing Director, GreenLife Co.</p>
                     </div>
                 </div>
             </div>
@@ -2355,7 +2703,7 @@
         <div class="contact-container">
             <div class="contact-info">
                 <h2>Get In Touch</h2>
-                <p>Have a project in mind or want to learn more about our services? We'd love to hear from you. Fill out the form and our team will get back to you as soon as possible.</p>
+                <p>Have a project in mind or want to learn more about our services? I'd love to hear from you. Fill out the form and I'll get back to you as soon as possible.</p>
                 <div class="contact-item">
                     <div class="contact-icon">
                         <i class="fas fa-map-marker-alt"></i>
@@ -2405,16 +2753,16 @@
             <div class="contact-form">
                 <form id="contactForm">
                     <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
+                        <input type="text" id="contactName" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
+                        <input type="email" id="contactEmail" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Subject">
+                        <input type="text" id="contactSubject" placeholder="Subject">
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Your Message" required></textarea>
+                        <textarea id="contactMessage" placeholder="Your Message" required></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
@@ -2427,7 +2775,7 @@
         <div class="footer-content">
             <div class="footer-column">
                 <h3>Typixel.co</h3>
-                <p>We are a creative digital agency dedicated to crafting exceptional digital experiences that help businesses grow and succeed.</p>
+                <p>I'm a passionate graphic designer dedicated to crafting exceptional visual experiences that help businesses grow and succeed.</p>
                 <div class="social-links">
                     <a href="https://www.instagram.com/_typixel.co_/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/919072891142?text=Hello%20Typixel.co%20team%2C%20I'm%20interested%20in%20your%20graphic%20design%20work.%20Could%20you%20please%20share%20more%20details%3F" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -2451,11 +2799,11 @@
             <div class="footer-column">
                 <h3>Services</h3>
                 <ul class="footer-links">
-                    <li><a href="#web-design">Web Design</a></li>
-                    <li><a href="#app-development">App Development</a></li>
-                    <li><a href="#ui-ux">UI/UX Design</a></li>
-                    <li><a href="#digital-marketing">Digital Marketing</a></li>
-                    <li><a href="#seo">SEO Optimization</a></li>
+                    <li><a href="#logo-design">Logo Design</a></li>
+                    <li><a href="#branding">Branding</a></li>
+                    <li><a href="#poster-design">Poster Design</a></li>
+                    <li><a href="#business-cards">Business Cards</a></li>
+                    <li><a href="#video-editing">Video Editing</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -2523,7 +2871,7 @@
             </button>
         </div>
         <div class="review-box-content" id="reviewBoxContent">
-            Exceptional service from start to finish. The team at Typixel.co understood our vision perfectly and delivered a website that exceeded our expectations.
+            Working with Rifad was an absolute pleasure. He transformed our outdated brand identity into a modern, cohesive visual language that perfectly represents our company values.
         </div>
         <div class="review-box-author">
             <div class="review-box-author-name">James Anderson</div>
@@ -2544,7 +2892,7 @@
                 <i class="fas fa-times"></i>
             </button>
             <h2>Start Your Project</h2>
-            <p>Tell us about your project and we'll get back to you with a customized solution.</p>
+            <p>Tell me about your project and I'll get back to you with a customized solution.</p>
             <form class="project-modal-form" id="projectModalForm">
                 <div class="form-group">
                     <label for="project-name">Your Name</label>
@@ -2610,11 +2958,94 @@
                 </div>
                 <div class="form-group">
                     <label for="project-details">Project Details</label>
-                    <textarea id="project-details" placeholder="Tell us about your project requirements" required></textarea>
+                    <textarea id="project-details" placeholder="Tell me about your project requirements" required></textarea>
                 </div>
                 <button type="submit" class="project-modal-submit">Submit Project Request</button>
             </form>
         </div>
+    </div>
+
+    <!-- Case Study Modal -->
+    <div class="case-study-modal" id="caseStudyModal">
+        <div class="case-study-modal-content">
+            <button class="case-study-modal-close" id="caseStudyModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="case-study-header">
+                <h2 id="caseStudyTitle">Project Title</h2>
+                <p id="caseStudySubtitle">Project Subtitle</p>
+            </div>
+            <img id="caseStudyImage" src="" alt="Project Image" class="case-study-image">
+            <div class="case-study-content">
+                <div class="case-study-description">
+                    <h3>Project Overview</h3>
+                    <p id="caseStudyOverview">Project overview text will be displayed here.</p>
+                    
+                    <h3>Challenge</h3>
+                    <p id="caseStudyChallenge">Challenge text will be displayed here.</p>
+                    
+                    <h3>Solution</h3>
+                    <p id="caseStudySolution">Solution text will be displayed here.</p>
+                    
+                    <h3>Results</h3>
+                    <p id="caseStudyResults">Results text will be displayed here.</p>
+                </div>
+                <div class="case-study-details">
+                    <h3>Project Details</h3>
+                    <div class="case-study-details-item">
+                        <h4>Client</h4>
+                        <p id="caseStudyClient">Client name</p>
+                    </div>
+                    <div class="case-study-details-item">
+                        <h4>Category</h4>
+                        <p id="caseStudyCategory">Project category</p>
+                    </div>
+                    <div class="case-study-details-item">
+                        <h4>Tools Used</h4>
+                        <p id="caseStudyTools">Tools used</p>
+                    </div>
+                    <div class="case-study-details-item">
+                        <h4>Duration</h4>
+                        <p id="caseStudyDuration">Project duration</p>
+                    </div>
+                </div>
+            </div>
+            <div class="case-study-cta">
+                <a href="#contact" class="primary-btn">Start Your Project</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Chat Widget -->
+    <div class="whatsapp-chat" id="whatsappChat">
+        <div class="whatsapp-chat-widget" id="whatsappChatWidget">
+            <div class="whatsapp-chat-header">
+                <div class="whatsapp-chat-header-info">
+                    <img src="https://z-cdn-media.chatglm.cn/files/d6ac8840-3c75-4553-9fbe-0769e75e9acb_552435611_17858920911505650_1464688557598200235_n.png?auth_key=1792815400-b9265ca7194145f5b226fbfaa930cf5b-0-9f64e82160c13b5204a186b97090e026" alt="Typixel.co" class="whatsapp-chat-header-avatar">
+                    <div>
+                        <div class="whatsapp-chat-header-name">Rifad - Typixel.co</div>
+                        <div class="whatsapp-chat-header-status">Typically replies instantly</div>
+                    </div>
+                </div>
+                <button class="whatsapp-chat-close" id="whatsappChatClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="whatsapp-chat-body" id="whatsappChatBody">
+                <div class="whatsapp-chat-message bot">
+                    Hi there! 👋 I'm Rifad, a graphic designer specializing in branding & UI-UX. How can I help you today?
+                </div>
+            </div>
+            <div class="whatsapp-chat-input">
+                <input type="text" id="whatsappChatInput" placeholder="Type a message...">
+                <button id="whatsappChatSend">
+                    <i class="fab fa-whatsapp"></i>
+                </button>
+            </div>
+        </div>
+        <button class="whatsapp-chat-button" id="whatsappChatButton">
+            <i class="fab fa-whatsapp"></i>
+        </button>
     </div>
 
     <!-- Notification -->
@@ -2626,25 +3057,133 @@
     </div>
 
     <script>
+        // Case study data
+        const caseStudies = {
+            techstart: {
+                title: "Brand Identity for TechStart",
+                subtitle: "Complete brand identity design for a tech startup",
+                image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                overview: "TechStart approached me to create a complete brand identity that would reflect their innovative approach to technology solutions. They needed a cohesive visual language that would work across all touchpoints, from digital platforms to print materials.",
+                challenge: "The challenge was to create a brand identity that would stand out in the crowded tech startup space while conveying professionalism, innovation, and trustworthiness. The client wanted something modern but not overly complex.",
+                solution: "I developed a clean, minimalist logo with a tech-inspired color palette of blues and greens. The design incorporated elements that suggest connectivity and forward movement. I also created a comprehensive brand guideline document, business cards, letterheads, and social media templates.",
+                tools: "Adobe Illustrator, Adobe Photoshop, Figma",
+                client: "TechStart Inc.",
+                category: "Branding",
+                duration: "3 weeks",
+                results: "The new brand identity helped TechStart secure funding from investors and increased their brand recognition by 40% within the first quarter of launch. The client reported that the cohesive visual language made them appear more established and professional to potential clients."
+            },
+            "music-festival": {
+                title: "Event Poster for Music Festival",
+                subtitle: "Promotional poster design for annual music festival",
+                image: "https://images.unsplash.com/photo-1559028006-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                overview: "I was commissioned to design a promotional poster for an annual music festival featuring both local and international artists. The poster needed to capture the energy and diversity of the event while providing essential information in a visually appealing way.",
+                challenge: "The challenge was to create a design that would appeal to a diverse audience with varying musical tastes while standing out in a crowded promotional space. The poster needed to work both in print and digital formats.",
+                solution: "I created a vibrant, dynamic design using bold typography and colorful illustrations that represent different music genres. The layout was carefully structured to highlight the headlining acts while maintaining visual hierarchy for all performers. I also designed social media versions of the poster for digital promotion.",
+                tools: "Adobe Photoshop, Adobe Illustrator",
+                client: "Music Festival Organizers",
+                category: "Poster Design",
+                duration: "1 week",
+                results: "The poster design received overwhelmingly positive feedback on social media, with shares increasing by 60% compared to the previous year. Ticket sales were 25% higher than the previous year, which the organizers attributed in part to the more engaging promotional materials."
+            },
+            greenlife: {
+                title: "Logo Design for GreenLife Co.",
+                subtitle: "Eco-friendly brand logo design",
+                image: "https://images.unsplash.com/photo-1557804506-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                overview: "GreenLife Co., a sustainable products company, needed a logo that would communicate their commitment to environmental responsibility while appealing to modern consumers. The logo needed to work across various product packaging and marketing materials.",
+                challenge: "The challenge was to create a logo that felt natural and eco-friendly without being cliché. The client wanted something that would stand out in the growing sustainable products market while conveying trust and quality.",
+                solution: "I designed a minimalist logo incorporating a leaf motif within a circular shape to represent sustainability and continuity. The color palette used earthy greens and browns to reinforce the natural theme. I also created variations of the logo for different applications, including a simplified version for small product labels.",
+                tools: "Adobe Illustrator, Adobe Photoshop",
+                client: "GreenLife Co.",
+                category: "Branding",
+                duration: "2 weeks",
+                results: "The new logo helped GreenLife Co. secure placement in several premium retail locations. Customer feedback indicated that the logo effectively communicated the brand's values, with 85% of surveyed customers recognizing the company as eco-friendly based on the logo alone."
+            },
+            fashionhub: {
+                title: "E-commerce Website for FashionHub",
+                subtitle: "Complete e-commerce website design and development",
+                image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                overview: "FashionHub, a boutique clothing retailer, needed an e-commerce website that would showcase their products effectively while providing a seamless shopping experience. The design needed to reflect their brand's aesthetic while prioritizing usability and conversion.",
+                challenge: "The challenge was to create a visually appealing website that would load quickly and work seamlessly across all devices. The client also needed a backend system that would allow them to easily update products and manage inventory.",
+                solution: "I designed a clean, minimalist website with a focus on high-quality product imagery. The user interface was optimized for easy navigation and a smooth checkout process. I developed the site using a responsive framework to ensure it worked perfectly on mobile devices. The backend was built using a user-friendly CMS that allowed the client to manage their inventory easily.",
+                tools: "Figma, HTML, CSS, JavaScript, Shopify",
+                client: "FashionHub",
+                category: "Web Design",
+                duration: "6 weeks",
+                results: "The new e-commerce site increased online sales by 45% in the first quarter after launch. The bounce rate decreased by 30%, and the average session length increased by 2 minutes. The client reported that the intuitive backend system reduced the time spent on inventory management by 50%."
+            },
+            "promo-video": {
+                title: "Promotional Video for TechStart",
+                subtitle: "Corporate promotional video production and editing",
+                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                overview: "TechStart needed a promotional video to showcase their new product launch at an industry conference. The video needed to be engaging, informative, and professional while maintaining the company's brand identity.",
+                challenge: "The challenge was to create a video that would effectively communicate complex technical information in an accessible way. The video needed to be visually engaging while maintaining a professional tone appropriate for a B2B audience.",
+                solution: "I produced and edited a 3-minute promotional video combining product demonstrations, customer testimonials, and animated graphics to explain the product's features. The video used a consistent color scheme and typography that aligned with TechStart's brand identity. I also created shorter versions for social media promotion.",
+                tools: "Adobe Premiere Pro, Adobe After Effects, Audition",
+                client: "TechStart Inc.",
+                category: "Video Editing",
+                duration: "2 weeks",
+                results: "The promotional video was viewed over 10,000 times during the conference and received positive feedback from attendees. TechStart reported a 35% increase in booth traffic compared to previous years, and they secured 20 qualified leads directly from the video presentation."
+            },
+            "product-launch": {
+                title: "Product Launch Poster",
+                subtitle: "Promotional poster for new product launch",
+                image: "https://images.unsplash.com/photo-1551739440-5dd934d3a94a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                overview: "I was tasked with creating a series of promotional posters for the launch of a new consumer electronics product. The posters needed to generate excitement and clearly communicate the product's key features.",
+                challenge: "The challenge was to create posters that would stand out in a crowded retail environment while conveying multiple product benefits without appearing cluttered. The design needed to work across different sizes and formats.",
+                solution: "I designed a series of posters with a consistent visual theme but varying focal points to highlight different product features. The design used bold colors and dynamic imagery to grab attention, with clear typography for product information. I also created digital versions for online promotion.",
+                tools: "Adobe Photoshop, Adobe Illustrator",
+                client: "Consumer Electronics Company",
+                category: "Poster Design",
+                duration: "1 week",
+                results: "The poster campaign contributed to a successful product launch, with sales exceeding projections by 20% in the first month. Retail partners reported that the posters effectively drove customer inquiries and helped differentiate the product from competitors."
+            },
+            "business-card": {
+                title: "Business Card Design for Startup",
+                subtitle: "Professional business card design for tech startup",
+                image: "https://images.unsplash.com/photo-1559028006-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                overview: "A tech startup needed business cards that would make a strong first impression while reflecting their innovative approach. The design needed to be professional yet creative, with space for essential contact information.",
+                challenge: "The challenge was to create a business card that would stand out without being overly trendy or unprofessional. The design needed to work with the company's existing brand identity while adding a unique touch.",
+                solution: "I designed a minimalist business card with a subtle embossed logo and a modern color palette. The front featured the logo and company name, while the back included contact details with a clean, organized layout. I used high-quality cardstock with a matte finish to enhance the premium feel.",
+                tools: "Adobe Illustrator, Adobe Photoshop",
+                client: "Tech Startup",
+                category: "Branding",
+                duration: "3 days",
+                results: "The client reported receiving numerous compliments on their business cards at networking events. The distinctive design helped them stand out and led to several follow-up conversations with potential investors and partners."
+            },
+            "banking-app": {
+                title: "Mobile Banking App UI",
+                subtitle: "User interface design for mobile banking application",
+                image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                overview: "I was commissioned to design the user interface for a new mobile banking application. The design needed to be secure, intuitive, and accessible while maintaining a professional appearance appropriate for a financial institution.",
+                challenge: "The challenge was to create an interface that would simplify complex banking operations while maintaining the highest standards of security and accessibility. The design needed to work across different devices and screen sizes.",
+                solution: "I designed a clean, intuitive interface with a focus on user journey optimization. The design used a clear visual hierarchy, consistent navigation patterns, and appropriate use of color to indicate different states and actions. I created detailed wireframes and interactive prototypes to test and refine the user experience.",
+                tools: "Figma, Adobe XD, Adobe Illustrator",
+                client: "Financial Technology Company",
+                category: "Web Design",
+                duration: "4 weeks",
+                results: "The mobile banking app received positive feedback from beta testers, who praised its intuitive interface and ease of use. The client reported that the design helped reduce customer support inquiries by 25% compared to their previous application."
+            }
+        };
+
         // Sample reviews data
         const reviews = [
             {
                 name: "James Anderson",
                 company: "TechStart Inc.",
                 rating: 5,
-                text: "Exceptional service from start to finish. The team at Typixel.co understood our vision perfectly and delivered a website that exceeded our expectations. Their attention to detail and creative approach is unmatched."
+                text: "Working with Rifad was an absolute pleasure. He transformed our outdated brand identity into a modern, cohesive visual language that perfectly represents our company values."
             },
             {
                 name: "Lisa Thompson",
                 company: "FashionHub",
                 rating: 5,
-                text: "Working with Typixel.co was a game-changer for our business. The mobile app they developed for us has significantly improved customer engagement and streamlined our operations. Highly recommend their services!"
+                text: "Rifad designed an exceptional logo and brand identity for our startup. Not only is it visually stunning, but it's also incredibly meaningful and perfectly captures our mission."
             },
             {
                 name: "Robert Garcia",
                 company: "GreenLife Co.",
                 rating: 4,
-                text: "The branding and website redesign by Typixel.co transformed our online presence. Their team was professional, creative, and responsive throughout the project."
+                text: "The promotional video that Rifad created for our product launch was phenomenal. He took our raw footage and transformed it into a compelling story that resonated with our audience."
             }
         ];
 
@@ -2655,15 +3194,15 @@
             setTimeout(function() {
                 document.querySelector('.preloader').classList.add('hidden');
                 
-                // Show review modal after preloader
+                // Show WhatsApp chat after 5 seconds
                 setTimeout(function() {
-                    document.getElementById('reviewModal').classList.add('active');
-                }, 1000);
+                    document.getElementById('whatsappChat').style.display = 'flex';
+                }, 5000);
                 
-                // Show review box after 5 seconds
+                // Show review box after 7 seconds
                 setTimeout(function() {
                     showReviewBox();
-                }, 5000);
+                }, 7000);
             }, 1500);
         });
 
@@ -2870,7 +3409,7 @@
             e.preventDefault();
             
             // Show notification
-            showNotification("Thank you for your project request! We'll get back to you soon.");
+            showNotification("Thank you for your project request! I'll get back to you soon.");
             
             // Close modal
             projectModal.classList.remove('active');
@@ -2917,8 +3456,96 @@
         applyButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
-                showNotification("Thank you for your interest! We'll contact you soon.");
+                showNotification("Thank you for your interest! I'll contact you soon.");
             });
+        });
+
+        // WhatsApp Chat Widget
+        const whatsappChatButton = document.getElementById('whatsappChatButton');
+        const whatsappChatWidget = document.getElementById('whatsappChatWidget');
+        const whatsappChatClose = document.getElementById('whatsappChatClose');
+        const whatsappChatInput = document.getElementById('whatsappChatInput');
+        const whatsappChatSend = document.getElementById('whatsappChatSend');
+        const whatsappChatBody = document.getElementById('whatsappChatBody');
+
+        whatsappChatButton.addEventListener('click', function() {
+            whatsappChatWidget.classList.add('active');
+        });
+
+        whatsappChatClose.addEventListener('click', function() {
+            whatsappChatWidget.classList.remove('active');
+        });
+
+        function sendMessage() {
+            const message = whatsappChatInput.value.trim();
+            if (message) {
+                // Add user message to chat
+                const userMessage = document.createElement('div');
+                userMessage.className = 'whatsapp-chat-message user';
+                userMessage.textContent = message;
+                whatsappChatBody.appendChild(userMessage);
+                
+                // Clear input
+                whatsappChatInput.value = '';
+                
+                // Scroll to bottom
+                whatsappChatBody.scrollTop = whatsappChatBody.scrollHeight;
+                
+                // Simulate bot response
+                setTimeout(() => {
+                    const botMessage = document.createElement('div');
+                    botMessage.className = 'whatsapp-chat-message bot';
+                    botMessage.textContent = "Thank you for your message! I'll get back to you as soon as possible. In the meantime, feel free to check out my portfolio or services.";
+                    whatsappChatBody.appendChild(botMessage);
+                    
+                    // Scroll to bottom
+                    whatsappChatBody.scrollTop = whatsappChatBody.scrollHeight;
+                }, 1000);
+            }
+        }
+
+        whatsappChatSend.addEventListener('click', sendMessage);
+        
+        whatsappChatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Case Study Modal
+        const caseStudyModal = document.getElementById('caseStudyModal');
+        const caseStudyModalClose = document.getElementById('caseStudyModalClose');
+        const viewCaseStudyButtons = document.querySelectorAll('.view-case-study');
+
+        viewCaseStudyButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const projectId = this.getAttribute('data-project');
+                const caseStudy = caseStudies[projectId];
+                
+                if (caseStudy) {
+                    // Populate case study modal with data
+                    document.getElementById('caseStudyTitle').textContent = caseStudy.title;
+                    document.getElementById('caseStudySubtitle').textContent = caseStudy.subtitle;
+                    document.getElementById('caseStudyImage').src = caseStudy.image;
+                    document.getElementById('caseStudyOverview').textContent = caseStudy.overview;
+                    document.getElementById('caseStudyChallenge').textContent = caseStudy.challenge;
+                    document.getElementById('caseStudySolution').textContent = caseStudy.solution;
+                    document.getElementById('caseStudyResults').textContent = caseStudy.results;
+                    document.getElementById('caseStudyClient').textContent = caseStudy.client;
+                    document.getElementById('caseStudyCategory').textContent = caseStudy.category;
+                    document.getElementById('caseStudyTools').textContent = caseStudy.tools;
+                    document.getElementById('caseStudyDuration').textContent = caseStudy.duration;
+                    
+                    // Show modal
+                    caseStudyModal.classList.add('active');
+                }
+            });
+        });
+
+        caseStudyModalClose.addEventListener('click', function() {
+            caseStudyModal.classList.remove('active');
         });
 
         // Notification
@@ -2940,14 +3567,23 @@
             notification.classList.remove('show');
         });
 
-        // Form submission
+        // Form submission with Gmail SMTP (simulated)
         const contactForm = document.getElementById('contactForm');
 
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Get form values
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const subject = document.getElementById('contactSubject').value;
+            const message = document.getElementById('contactMessage').value;
+            
+            // In a real implementation, you would send this data to a server-side script
+            // that uses Gmail SMTP to send the email
+            
             // Show notification
-            showNotification("Thank you for considering Typixel.co");
+            showNotification("Thank you for your message! I'll get back to you within 24 hours.");
             
             // Reset form
             this.reset();
