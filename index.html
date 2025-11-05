@@ -5,37 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typixel.co - Creative Digital Agency | Graphic Design & Branding</title>
     <meta name="description" content="Typixel.co is a creative digital agency specializing in graphic design, branding, UI/UX, and video editing. We help businesses create stunning visual identities that captivate audiences.">
-    <meta name="keywords" content="graphic design, branding, logo design, UI/UX, video editing, digital agency, Kerala, Malappuram">
-    <meta name="author" content="Typixel.co">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Typixel.co - Creative Digital Agency">
-    <meta property="og:description" content="We create stunning digital experiences that captivate your audience and elevate your brand to new heights.">
-    <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/d6ac8840-3c75-4553-9fbe-0769e75e9acb_552435611_17858920911505650_1464688557598200235_n.png?auth_key=1792815400-b9265ca7194145f5b226fbfaa930cf5b-0-9f64e82160c13b5204a186b97090e026">
-    <meta property="og:url" content="https://typixel.co">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Typixel.co - Creative Digital Agency">
-    <meta name="twitter:description" content="We create stunning digital experiences that captivate your audience and elevate your brand to new heights.">
-    <meta name="twitter:image" content="https://z-cdn-media.chatglm.cn/files/d6ac8840-3c75-4553-9fbe-0769e75e9acb_552435611_17858920911505650_1464688557598200235_n.png?auth_key=1792815400-b9265ca7194145f5b226fbfaa930cf5b-0-9f64e82160c13b5204a186b97090e026">
-    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #ffffff;
-            --secondary-color: #1e3a2a;
-            --accent-color: #ff9800;
-            --accent-green: #8bc34a;
-            --accent-light-green: #c5e1a5;
-            --accent-blue-green: #4db6ac;
-            --text-light: #e0e0e0;
-            --text-darker: #b0b0b0;
+            --secondary-color: #1a1a1a;
+            --accent-color: #c0c0c0;
+            --accent-dark: #4a4a4a;
+            --accent-light: #d4d4d4;
+            --accent-medium: #7a7a7a;
+            --text-light: #e8e8e8;
+            --text-darker: #a8a8a8;
             --bg-light: #f5f5f5;
             --bg-medium: #e0e0e0;
-            --bg-dark: #424242;
+            --bg-dark: #2a2a2a;
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
@@ -88,7 +72,7 @@
         }
 
         .preloader-text {
-            color: var(--accent-green);
+            color: var(--accent-color);
             font-size: 1.2rem;
             font-weight: 600;
             letter-spacing: 1px;
@@ -121,10 +105,10 @@
         }
 
         header.scrolled {
-            background-color: rgba(30, 58, 42, 0.95);
+            background-color: rgba(26, 26, 26, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 50px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
 
         .logo {
@@ -133,7 +117,7 @@
             font-weight: 600;
             font-size: 1.5rem;
             letter-spacing: 1px;
-            color: var(--accent-green);
+            color: var(--accent-color);
         }
 
         .logo img {
@@ -161,7 +145,7 @@
         }
 
         .store-btn {
-            background: linear-gradient(45deg, var(--accent-color), #ffcc80);
+            background: linear-gradient(45deg, var(--accent-medium), var(--accent-light));
             color: white;
             border: none;
             padding: 12px 24px;
@@ -176,14 +160,14 @@
         }
 
         .store-btn:hover {
-            background: linear-gradient(45deg, #ffcc80, var(--accent-color));
+            background: linear-gradient(45deg, var(--accent-light), var(--accent-medium));
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 152, 0, 0.2);
+            box-shadow: 0 10px 20px rgba(192, 192, 192, 0.3);
         }
 
         .cta-button {
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-light-green));
-            color: white;
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-light));
+            color: var(--secondary-color);
             border: none;
             padding: 12px 24px;
             border-radius: 30px;
@@ -196,9 +180,9 @@
         }
 
         .cta-button:hover {
-            background: linear-gradient(45deg, var(--accent-light-green), var(--accent-green));
+            background: linear-gradient(45deg, var(--accent-light), var(--accent-color));
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(139, 195, 74, 0.2);
+            box-shadow: 0 10px 20px rgba(192, 192, 192, 0.3);
         }
 
         /* Side Menu Toggle */
@@ -218,13 +202,13 @@
             left: -350px;
             width: 350px;
             height: 100%;
-            background: linear-gradient(180deg, var(--secondary-color), #0d2818);
+            background: linear-gradient(180deg, var(--secondary-color), var(--bg-dark));
             backdrop-filter: blur(10px);
             z-index: 1001;
             padding: 80px 30px 30px;
             transition: var(--transition);
             overflow-y: auto;
-            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
         }
 
         .side-menu.active {
@@ -249,7 +233,7 @@
         .side-menu-header h2 {
             font-size: 2rem;
             margin-bottom: 10px;
-            color: var(--accent-green);
+            color: var(--accent-color);
         }
 
         .side-menu-header p {
@@ -281,8 +265,8 @@
         }
 
         .side-menu-nav ul li a:hover {
-            background-color: rgba(139, 195, 74, 0.2);
-            color: var(--accent-green);
+            background-color: rgba(192, 192, 192, 0.2);
+            color: var(--accent-color);
             padding-left: 20px;
         }
 
@@ -301,7 +285,7 @@
         .side-menu-contact h3 {
             font-size: 1.2rem;
             margin-bottom: 15px;
-            color: var(--accent-green);
+            color: var(--accent-color);
         }
 
         .side-menu-contact p {
@@ -335,7 +319,8 @@
         }
 
         .side-menu-social a:hover {
-            background-color: var(--accent-green);
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
             transform: translateY(-5px);
         }
 
@@ -366,7 +351,7 @@
             padding: 0 50px;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--secondary-color), #0d2818);
+            background: linear-gradient(135deg, var(--secondary-color), var(--bg-dark));
         }
 
         .hero-content {
@@ -382,7 +367,7 @@
             opacity: 0;
             transform: translateY(50px);
             animation: fadeInUp 1s forwards 0.5s;
-            background: linear-gradient(45deg, var(--accent-green), var(--primary-color));
+            background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -417,25 +402,25 @@
         }
 
         .primary-btn {
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-light-green));
-            color: white;
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-light));
+            color: var(--secondary-color);
             border: none;
         }
 
         .primary-btn:hover {
-            background: linear-gradient(45deg, var(--accent-light-green), var(--accent-green));
+            background: linear-gradient(45deg, var(--accent-light), var(--accent-color));
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(139, 195, 74, 0.2);
+            box-shadow: 0 10px 20px rgba(192, 192, 192, 0.3);
         }
 
         .secondary-btn {
             background-color: transparent;
             color: var(--primary-color);
-            border: 2px solid var(--accent-green);
+            border: 2px solid var(--accent-color);
         }
 
         .secondary-btn:hover {
-            background-color: var(--accent-green);
+            background-color: var(--accent-color);
             color: var(--secondary-color);
         }
 
@@ -458,7 +443,7 @@
             height: auto;
             max-height: 80%;
             object-fit: contain;
-            filter: drop-shadow(0 0 15px rgba(139, 195, 74, 0.4));
+            filter: drop-shadow(0 0 15px rgba(192, 192, 192, 0.4));
             animation: float 6s ease-in-out infinite;
         }
 
@@ -482,7 +467,7 @@
         /* Services Section */
         .services {
             padding: 100px 50px;
-            background-color: #0d2818;
+            background-color: var(--bg-dark);
         }
 
         .section-header {
@@ -495,7 +480,7 @@
             margin-bottom: 20px;
             position: relative;
             display: inline-block;
-            color: var(--accent-green);
+            color: var(--accent-color);
         }
 
         .section-header h2::after {
@@ -506,7 +491,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-light-green));
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
         }
 
         .section-header p {
@@ -537,7 +522,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-light-green));
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
             transform: translateX(-100%);
             transition: var(--transition);
         }
@@ -553,14 +538,14 @@
 
         .service-icon {
             font-size: 2.5rem;
-            color: var(--accent-green);
+            color: var(--accent-color);
             margin-bottom: 20px;
         }
 
         .service-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: var(--accent-light-green);
+            color: var(--accent-light);
         }
 
         .service-card p {
@@ -600,12 +585,11 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-light-green));
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
             transition: var(--transition);
         }
 
-        .filter-btn.active::after,
-        .filter-btn:hover::after {
+        .filter-btn.active::after, .filter-btn:hover::after {
             width: 100%;
         }
 
@@ -621,13 +605,13 @@
             border-radius: 10px;
             height: 300px;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: var(--transition);
         }
 
         .portfolio-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
         }
 
         .portfolio-item img {
@@ -643,7 +627,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(30, 58, 42, 0.9), transparent);
+            background: linear-gradient(to top, rgba(26, 26, 26, 0.95), transparent);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -665,7 +649,7 @@
             margin-bottom: 10px;
             transform: translateY(20px);
             transition: var(--transition);
-            color: var(--accent-green);
+            color: var(--accent-color);
         }
 
         .portfolio-item:hover .portfolio-overlay h3 {
@@ -689,12 +673,12 @@
             right: 20px;
             width: 40px;
             height: 40px;
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-light-green));
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-light));
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
+            color: var(--secondary-color);
             transform: scale(0);
             transition: var(--transition);
         }
@@ -706,7 +690,7 @@
         /* About Section */
         .about {
             padding: 100px 50px;
-            background-color: #0d2818;
+            background-color: var(--bg-dark);
             display: flex;
             align-items: center;
         }
@@ -719,13 +703,77 @@
         .about-content h2 {
             font-size: 3rem;
             margin-bottom: 20px;
-            color: var(--accent-green);
+            color: var(--accent-color);
         }
 
-        .about-content p {
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 30px;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-color), var(--accent-light));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 70px;
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--accent-medium), var(--accent-light));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 1rem;
+            z-index: 1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-content {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: rotate(45deg);
+        }
+
+        .timeline-item:hover .timeline-content {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .timeline-content p {
             color: var(--text-light);
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin: 0;
         }
 
         .about-stats {
@@ -739,7 +787,7 @@
 
         .stat-item h3 {
             font-size: 2.5rem;
-            color: var(--accent-green);
+            color: var(--accent-color);
             margin-bottom: 5px;
         }
 
@@ -767,526 +815,14 @@
             left: -20px;
             width: 100%;
             height: 100%;
-            border: 2px solid var(--accent-green);
+            border: 2px solid var(--accent-color);
             border-radius: 10px;
             z-index: -1;
         }
 
-        /* Team Section */
-        .team {
-            padding: 100px 50px;
-            background-color: var(--secondary-color);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .team-member {
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-        }
-
-        .member-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 20px;
-            position: relative;
-        }
-
-        .member-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .team-member:hover .member-image img {
-            transform: scale(1.1);
-        }
-
-        .member-social {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(to top, rgba(139, 195, 74, 0.9), transparent);
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            padding-bottom: 20px;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .team-member:hover .member-social {
-            opacity: 1;
-        }
-
-        .member-social a {
-            color: white;
-            margin: 0 10px;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .member-social a:hover {
-            transform: translateY(-5px);
-        }
-
-        .member-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-            color: var(--accent-light-green);
-        }
-
-        .member-info p {
-            color: var(--text-light);
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 100px 50px;
-            background-color: #0d2818;
-        }
-
-        .testimonials-container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .testimonial-item {
-            text-align: center;
-            padding: 30px;
-            background-color: rgba(255, 255, 255, 0.03);
-            border-radius: 10px;
-            display: none;
-        }
-
-        .testimonial-item.active {
-            display: block;
-            animation: fadeIn 0.5s;
-        }
-
-        .testimonial-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            font-style: italic;
-            color: var(--text-light);
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .author-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 20px;
-        }
-
-        .author-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--accent-green);
-        }
-
-        .author-info p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .testimonial-controls {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-
-        .testimonial-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.3);
-            margin: 0 5px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .testimonial-dot.active {
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-light-green));
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 50px;
-            background-color: #0d2818;
-        }
-
-        .contact-container {
-            display: flex;
-            gap: 50px;
-        }
-
-        .contact-info {
-            flex: 1;
-        }
-
-        .contact-info h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--accent-green);
-        }
-
-        .contact-info p {
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: rgba(139, 195, 74, 0.2);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 20px;
-            color: var(--accent-green);
-            font-size: 1.2rem;
-        }
-
-        .contact-form {
-            flex: 1;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            color: var(--primary-color);
-            font-family: 'Poppins', sans-serif;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--accent-green);
-            background-color: rgba(255, 255, 255, 0.08);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-light-green));
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-        }
-
-        .submit-btn:hover {
-            background: linear-gradient(45deg, var(--accent-light-green), var(--accent-green));
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(139, 195, 74, 0.2);
-        }
-
-        /* Careers Section */
-        .careers {
-            padding: 100px 50px;
-            background-color: var(--secondary-color);
-        }
-
-        .careers-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .careers-intro {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .careers-intro h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--accent-green);
-        }
-
-        .careers-intro p {
-            color: var(--text-light);
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .careers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .career-card {
-            background-color: rgba(255, 255, 255, 0.03);
-            border-radius: 10px;
-            padding: 30px;
-            transition: var(--transition);
-            border-left: 4px solid var(--accent-green);
-        }
-
-        .career-card:hover {
-            transform: translateY(-10px);
-            background-color: rgba(255, 255, 255, 0.07);
-        }
-
-        .career-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--accent-light-green);
-        }
-
-        .career-card p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .career-card .skills {
-            margin-bottom: 20px;
-        }
-
-        .career-card .skills h4 {
-            color: var(--accent-green);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .career-card .skills p {
-            color: var(--text-light);
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-
-        .career-card .contact {
-            display: flex;
-            align-items: center;
-            color: var(--accent-color);
-            font-weight: 500;
-            margin-top: 15px;
-        }
-
-        .career-card .contact i {
-            margin-right: 8px;
-        }
-
-        .apply-btn {
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-light-green));
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.8rem;
-            margin-top: 15px;
-            display: inline-block;
-            text-decoration: none;
-        }
-
-        .apply-btn:hover {
-            background: linear-gradient(45deg, var(--accent-light-green), var(--accent-green));
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(139, 195, 74, 0.2);
-        }
-
-        /* Blog Section */
-        .blog {
-            padding: 100px 50px;
-            background-color: #0d2818;
-        }
-
-        .blog-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .blog-intro {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .blog-intro h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--accent-green);
-        }
-
-        .blog-intro p {
-            color: var(--text-light);
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .blog-card {
-            background-color: rgba(255, 255, 255, 0.03);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .blog-image {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .blog-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .blog-card:hover .blog-image img {
-            transform: scale(1.1);
-        }
-
-        .blog-content {
-            padding: 25px;
-        }
-
-        .blog-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: var(--text-darker);
-        }
-
-        .blog-category {
-            color: var(--accent-green);
-            font-weight: 500;
-        }
-
-        .blog-date {
-            display: flex;
-            align-items: center;
-        }
-
-        .blog-date i {
-            margin-right: 5px;
-        }
-
-        .blog-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--accent-light-green);
-        }
-
-        .blog-excerpt {
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .blog-full-content {
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            display: none;
-        }
-
-        .blog-full-content.show {
-            display: block;
-        }
-
-        .read-more {
-            color: var(--accent-green);
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            transition: var(--transition);
-        }
-
-        .read-more:hover {
-            color: var(--accent-light-green);
-        }
-
-        .read-more i {
-            margin-left: 5px;
-            transition: var(--transition);
-        }
-
-        .read-more:hover i {
-            transform: translateX(5px);
-        }
-
         /* Footer */
         footer {
-            background-color: #0d2818;
+            background-color: var(--bg-dark);
             padding: 70px 50px 30px;
         }
 
@@ -1301,7 +837,7 @@
             font-size: 1.3rem;
             margin-bottom: 20px;
             position: relative;
-            color: var(--accent-green);
+            color: var(--accent-color);
         }
 
         .footer-column h3::after {
@@ -1311,7 +847,7 @@
             left: 0;
             width: 50px;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-light-green));
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
         }
 
         .footer-column p {
@@ -1335,7 +871,7 @@
         }
 
         .footer-links a:hover {
-            color: var(--accent-green);
+            color: var(--accent-color);
             padding-left: 5px;
         }
 
@@ -1358,7 +894,8 @@
         }
 
         .social-links a:hover {
-            background-color: var(--accent-green);
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
             transform: translateY(-5px);
         }
 
@@ -1369,722 +906,17 @@
             color: var(--text-light);
         }
 
-        /* Review Popup Modal */
-        .review-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-
-        .review-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .review-modal-content {
-            background: linear-gradient(180deg, var(--secondary-color), #0d2818);
-            border-radius: 10px;
-            width: 90%;
-            max-width: 500px;
-            padding: 30px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transform: scale(0.8);
-            transition: var(--transition);
-        }
-
-        .review-modal.active .review-modal-content {
-            transform: scale(1);
-        }
-
-        .review-modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .review-modal-close:hover {
-            color: var(--accent-color);
-        }
-
-        .review-modal h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--accent-green);
-            text-align: center;
-        }
-
-        .review-modal-form .form-group {
-            margin-bottom: 15px;
-        }
-
-        .review-modal-form label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--text-light);
-        }
-
-        .review-modal-form input,
-        .review-modal-form textarea {
-            width: 100%;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            color: var(--primary-color);
-            font-family: 'Poppins', sans-serif;
-            transition: var(--transition);
-        }
-
-        .review-modal-form input:focus,
-        .review-modal-form textarea:focus {
-            outline: none;
-            border-color: var(--accent-green);
-            background-color: rgba(255, 255, 255, 0.08);
-        }
-
-        .review-modal-form textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .review-modal-rating {
-            display: flex;
-            gap: 5px;
-            margin-bottom: 15px;
-        }
-
-        .review-modal-rating input {
-            display: none;
-        }
-
-        .review-modal-rating label {
-            font-size: 1.5rem;
-            color: var(--text-light);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .review-modal-rating input:checked ~ label,
-        .review-modal-rating label:hover,
-        .review-modal-rating label:hover ~ label {
-            color: var(--accent-color);
-        }
-
-        .review-modal-submit {
-            width: 100%;
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-light-green));
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-        }
-
-        .review-modal-submit:hover {
-            background: linear-gradient(45deg, var(--accent-light-green), var(--accent-green));
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(139, 195, 74, 0.2);
-        }
-
-        /* Review Box */
-        .review-box {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 300px;
-            background: linear-gradient(180deg, var(--secondary-color), #0d2818);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            transform: translateY(150%);
-            transition: transform 0.5s ease;
-        }
-
-        .review-box.show {
-            transform: translateY(0);
-        }
-
-        .review-box-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .review-box-title {
-            font-size: 1.2rem;
-            color: var(--accent-green);
-            font-weight: 600;
-        }
-
-        .review-box-close {
-            background: none;
-            border: none;
-            color: var(--text-light);
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .review-box-content {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            line-height: 1.4;
-            margin-bottom: 10px;
-            max-height: 100px;
-            overflow-y: auto;
-        }
-
-        .review-box-author {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-
-        .review-box-author-name {
-            font-weight: 600;
-            color: var(--accent-light-green);
-            margin-right: 10px;
-        }
-
-        .review-box-rating {
-            color: var(--accent-color);
-        }
-
-        /* Project Modal */
-        .project-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-
-        .project-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .project-modal-content {
-            background: linear-gradient(180deg, var(--secondary-color), #0d2818);
-            border-radius: 10px;
-            width: 90%;
-            max-width: 600px;
-            padding: 40px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transform: scale(0.8);
-            transition: var(--transition);
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .project-modal.active .project-modal-content {
-            transform: scale(1);
-        }
-
-        .project-modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .project-modal-close:hover {
-            color: var(--accent-color);
-        }
-
-        .project-modal h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--accent-green);
-            text-align: center;
-        }
-
-        .project-modal p {
-            color: var(--text-light);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .project-modal-form .form-group {
-            margin-bottom: 20px;
-        }
-
-        .project-modal-form label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        .project-modal-form input,
-        .project-modal-form textarea,
-        .project-modal-form select {
-            width: 100%;
-            padding: 12px 15px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            color: var(--primary-color);
-            font-family: 'Poppins', sans-serif;
-            transition: var(--transition);
-        }
-
-        .project-modal-form input:focus,
-        .project-modal-form textarea:focus,
-        .project-modal-form select:focus {
-            outline: none;
-            border-color: var(--accent-green);
-            background-color: rgba(255, 255, 255, 0.08);
-        }
-
-        .project-modal-form textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .project-budget {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .budget-option {
-            flex: 1;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            text-align: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .budget-option:hover {
-            background-color: rgba(139, 195, 74, 0.1);
-            border-color: var(--accent-green);
-        }
-
-        .budget-option.selected {
-            background-color: rgba(139, 195, 74, 0.2);
-            border-color: var(--accent-green);
-        }
-
-        .budget-option h4 {
-            color: var(--accent-green);
-            margin-bottom: 5px;
-        }
-
-        .budget-option p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        .project-modal-submit {
-            width: 100%;
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-light-green));
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-        }
-
-        .project-modal-submit:hover {
-            background: linear-gradient(45deg, var(--accent-light-green), var(--accent-green));
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(139, 195, 74, 0.2);
-        }
-
-        /* Notification */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-light-green));
-            color: white;
-            padding: 15px 25px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 3000;
-            transform: translateX(150%);
-            transition: transform 0.5s ease;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .notification.show {
-            transform: translateX(0);
-        }
-
-        .notification-close {
-            background: none;
-            border: none;
-            color: white;
-            margin-left: 15px;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        /* WhatsApp Chat Widget */
-        .whatsapp-chat {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-
-        .whatsapp-chat-widget {
-            background-color: white;
-            border-radius: 10px;
-            width: 300px;
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            margin-bottom: 15px;
-            transform: scale(0);
-            opacity: 0;
-            transition: var(--transition);
-            overflow: hidden;
-        }
-
-        .whatsapp-chat-widget.active {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .whatsapp-chat-header {
-            background-color: #25d366;
-            color: white;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .whatsapp-chat-header-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .whatsapp-chat-header-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-            object-fit: cover;
-        }
-
-        .whatsapp-chat-header-name {
-            font-weight: 600;
-        }
-
-        .whatsapp-chat-header-status {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-
-        .whatsapp-chat-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-
-        .whatsapp-chat-body {
-            flex: 1;
-            padding: 15px;
-            background-color: #e5ddd5;
-            background-image: url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg');
-            overflow-y: auto;
-        }
-
-        .whatsapp-chat-message {
-            background-color: white;
-            padding: 10px 15px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            max-width: 80%;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 0.3s;
-        }
-
-        .whatsapp-chat-message.bot {
-            align-self: flex-start;
-            border-bottom-left-radius: 0;
-        }
-
-        .whatsapp-chat-message.user {
-            align-self: flex-end;
-            background-color: #dcf8c6;
-            border-bottom-right-radius: 0;
-        }
-
-        .whatsapp-chat-input {
-            display: flex;
-            padding: 10px;
-            background-color: #f0f0f0;
-        }
-
-        .whatsapp-chat-input input {
-            flex: 1;
-            border: none;
-            padding: 10px;
-            border-radius: 20px;
-            background-color: white;
-            margin-right: 10px;
-        }
-
-        .whatsapp-chat-input button {
-            background-color: #25d366;
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .whatsapp-chat-button {
-            width: 60px;
-            height: 60px;
-            background-color: #25d366;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-            transition: var(--transition);
-        }
-
-        .whatsapp-chat-button:hover {
-            transform: scale(1.1);
-        }
-
-        .whatsapp-chat-button i {
-            animation: pulse 2s infinite;
-        }
-
-        /* Case Study Modal */
-        .case-study-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-
-        .case-study-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .case-study-modal-content {
-            background: linear-gradient(180deg, var(--secondary-color), #0d2818);
-            border-radius: 10px;
-            width: 90%;
-            max-width: 900px;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 40px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transform: scale(0.8);
-            transition: var(--transition);
-        }
-
-        .case-study-modal.active .case-study-modal-content {
-            transform: scale(1);
-        }
-
-        .case-study-modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .case-study-modal-close:hover {
-            color: var(--accent-color);
-        }
-
-        .case-study-header {
-            margin-bottom: 30px;
-        }
-
-        .case-study-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: var(--accent-green);
-        }
-
-        .case-study-header p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-        }
-
-        .case-study-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-
-        .case-study-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-        }
-
-        .case-study-description h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--accent-light-green);
-        }
-
-        .case-study-description p {
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .case-study-details {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 20px;
-        }
-
-        .case-study-details h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--accent-light-green);
-        }
-
-        .case-study-details-item {
-            margin-bottom: 15px;
-        }
-
-        .case-study-details-item h4 {
-            font-size: 1rem;
-            margin-bottom: 5px;
-            color: var(--accent-green);
-        }
-
-        .case-study-details-item p {
-            color: var(--text-light);
-        }
-
-        .case-study-cta {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .case-study-cta a {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-light-green));
-            color: white;
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .case-study-cta a:hover {
-            background: linear-gradient(45deg, var(--accent-light-green), var(--accent-green));
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(139, 195, 74, 0.2);
-        }
-
         /* Responsive */
         @media (max-width: 1024px) {
             .hero h1 {
                 font-size: 4rem;
             }
-            
-            .about-container {
+            .about {
                 flex-direction: column;
             }
-            
             .about-content {
                 padding-right: 0;
                 margin-bottom: 40px;
-            }
-            
-            .reviews-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .case-study-content {
-                grid-template-columns: 1fr;
             }
         }
 
@@ -2092,84 +924,38 @@
             header {
                 padding: 15px 20px;
             }
-            
             .hero {
                 padding: 0 20px;
                 flex-direction: column;
                 text-align: center;
             }
-            
             .hero-content {
                 max-width: 100%;
             }
-            
             .hero h1 {
                 font-size: 3rem;
             }
-            
             .hero-image {
                 position: relative;
                 width: 100%;
                 height: 300px;
                 margin-top: 50px;
             }
-            
             .hero-logo {
                 width: 70%;
             }
-            
-            .services,
-            .portfolio,
-            .about,
-            .team,
-            .testimonials,
-            .contact,
-            .careers,
-            .blog {
+            .services, .portfolio, .about {
                 padding: 80px 20px;
             }
-            
             .section-header h2 {
                 font-size: 2.5rem;
             }
-            
-            .contact-container {
-                flex-direction: column;
-            }
-            
             .footer-content {
                 grid-template-columns: 1fr;
             }
-            
             .side-menu {
                 width: 300px;
                 left: -300px;
-            }
-            
-            .review-box {
-                width: 250px;
-                right: 10px;
-                bottom: 10px;
-            }
-            
-            .project-modal-content {
-                width: 95%;
-                padding: 20px;
-            }
-            
-            .project-budget {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .whatsapp-chat-widget {
-                width: 280px;
-                height: 350px;
-            }
-            
-            .case-study-modal-content {
-                width: 95%;
-                padding: 20px;
             }
         }
 
@@ -2177,44 +963,14 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
             .section-header h2 {
                 font-size: 2rem;
             }
-            
             .about-content h2 {
                 font-size: 2.5rem;
             }
-            
             .portfolio-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .careers-grid,
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .review-form-container {
-                padding: 30px 20px;
-            }
-            
-            .review-modal-content {
-                width: 95%;
-                padding: 20px;
-            }
-            
-            .project-modal-content {
-                padding: 20px;
-            }
-            
-            .whatsapp-chat-widget {
-                width: 250px;
-                height: 300px;
             }
         }
     </style>
@@ -2241,8 +997,8 @@
             <div class="cart-icon">
                 <i class="fas fa-shopping-bag"></i>
             </div>
-            <button class="store-btn" id="storeBtn">Store</button>
-            <button class="cta-button" id="startProjectBtn">Start A Project</button>
+            <button class="store-btn">Store</button>
+            <button class="cta-button">Start A Project</button>
         </div>
     </header>
 
@@ -2261,27 +1017,19 @@
                 <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
                 <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
                 <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
-                <li><a href="#team"><i class="fas fa-users"></i> Our Team</a></li>
-                <li><a href="#testimonials"><i class="fas fa-quote-left"></i> Testimonials</a></li>
                 <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                <li><a href="#careers"><i class="fas fa-briefcase"></i> Careers</a></li>
-                <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
-                <li><a href="https://www.instagram.com/_typixel.co_/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-                <li><a href="https://wa.me/919072891142?text=Hello%20Typixel.co%20team%2C%20I'm%20interested%20in%20your%20graphic%20design%20work.%20Could%20you%20please%20share%20more%20details%3F" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
             </ul>
         </div>
         <div class="side-menu-contact">
             <h3>Contact Info</h3>
             <p><i class="fas fa-map-marker-alt"></i>Kotakkal, Malappuram, Kerala 676501</p>
             <p><i class="fas fa-phone-alt"></i>9072891142</p>
-            <p><i class="fab fa-whatsapp"></i>9072891142</p>
-            <p><i class="fas fa-envelope"></i>typixeldotcom.com@gmail.com</p>
+            <p><i class="fas fa-envelope"></i>hello@typixel.co</p>
             <div class="side-menu-social">
                 <a href="https://www.instagram.com/_typixel.co_/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/919072891142?text=Client%20Reviews%0ARead%20what%20our%20clients%20have%20to%20say%20about%20their%20experience%20working%20with%20us.%0A%0ALeave%20a%20Review%0AYour%20Name%0AEnter%20your%20name%0AYour%20Email%0AEnter%20your%20email%0ARating%0AYour%20Review%0AShare%20your%20experience%20with%20us%0ASubmit%20Review%0AReviewer%0AJames%20Anderson%0ATechStart%20Inc.%0A%0AExceptional%20service%20from%20start%20to%20finish.%20The%20team%20at%20Typixel.co%20understood%20our%20vision%20perfectly%20and%20delivered%20a%20website%20that%20exceeded%20our%20expectations.%20Their%20attention%20to%20detail%20and%20creative%20approach%20is%20unmatched.%0A%0APosted%20on%20June%2015%2C%202023%0A%0AReviewer%0ALisa%20Thompson%0AFashionHub%0A%0AWorking%20with%20Typixel.co%20was%20a%20game-changer%20for%20our%20business.%20The%20mobile%20app%20they%20developed%20for%20us%20has%20significantly%20improved%20customer%20engagement%20and%20streamlined%20our%20operations.%20Highly%20recommend%20their%20services!%0A%0APosted%20on%20May%2028%2C%202023%0A%0AReviewer%0ARobert%20Garcia%0AGreenLife%20Co.%0A%0AThe%20branding%20and%20website%20redesign%20by%20Typixel.co%20transformed%20our%20online%20presence.%20Their%20team%20was%20professional%2C%20creative%2C%20and%20responsive%20throughout%20the%20project.%20The%20only%20reason%20for%204%20stars%20instead%20of%205%20is%20that%20the%20project%20took%20slightly%20longer%20than%20initially%20quoted.%0A%0APosted%20on%20April%2010%2C%202023" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://wa.me/919072891142" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-dribbble"></i></a>
             </div>
         </div>
     </div>
@@ -2292,8 +1040,8 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Hi, I'm Rifad – a graphic designer specialising in branding & UI-UX</h1>
-            <p>I create stunning visual experiences that help businesses connect with their audience and achieve their goals. Let's bring your vision to life.</p>
+            <h1>We are Typixel.co – a creative brand specialising in branding & UI-UX</h1>
+            <p>We create stunning visual experiences that help businesses connect with their audience and achieve their goals. Let's bring your vision to life.</p>
             <div class="hero-buttons">
                 <a href="#portfolio" class="primary-btn">View Portfolio</a>
                 <a href="#contact" class="secondary-btn">Get In Touch</a>
@@ -2367,47 +1115,47 @@
             <button class="filter-btn" data-filter="poster">Poster Design</button>
             <button class="filter-btn" data-filter="web">Web Design</button>
             <button class="filter-btn" data-filter="branding">Branding</button>
-            <button class="filter-btn" data-filter="video editing">Video Editing</button>
+            <button class="filter-btn" data-filter="video">Video Editing</button>
         </div>
         <div class="portfolio-grid">
             <div class="portfolio-item" data-category="branding">
-                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Brand Identity for TechStart">
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Brand Identity">
                 <div class="portfolio-overlay">
                     <h3>Brand Identity for TechStart</h3>
                     <p>Branding</p>
-                    <a href="#" class="portfolio-link view-case-study" data-project="techstart"><i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="portfolio-link"><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="portfolio-item" data-category="poster">
-                <img src="https://images.unsplash.com/photo-1559028006-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Event Poster for Music Festival">
+                <img src="https://images.unsplash.com/photo-1559028006-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Event Poster">
                 <div class="portfolio-overlay">
                     <h3>Event Poster for Music Festival</h3>
                     <p>Poster Design</p>
-                    <a href="#" class="portfolio-link view-case-study" data-project="music-festival"><i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="portfolio-link"><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="portfolio-item" data-category="branding">
-                <img src="https://images.unsplash.com/photo-1557804506-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Logo Design for GreenLife Co.">
+                <img src="https://images.unsplash.com/photo-1557804506-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Logo Design">
                 <div class="portfolio-overlay">
                     <h3>Logo Design for GreenLife Co.</h3>
                     <p>Branding</p>
-                    <a href="#" class="portfolio-link view-case-study" data-project="greenlife"><i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="portfolio-link"><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="portfolio-item" data-category="web">
-                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="E-commerce Website for FashionHub">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="E-commerce Website">
                 <div class="portfolio-overlay">
                     <h3>E-commerce Website for FashionHub</h3>
                     <p>Web Design</p>
-                    <a href="#" class="portfolio-link view-case-study" data-project="fashionhub"><i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="portfolio-link"><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="portfolio-item" data-category="video editing">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Promotional Video for TechStart">
+            <div class="portfolio-item" data-category="video">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Promotional Video">
                 <div class="portfolio-overlay">
                     <h3>Promotional Video for TechStart</h3>
                     <p>Video Editing</p>
-                    <a href="#" class="portfolio-link view-case-study" data-project="promo-video"><i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="portfolio-link"><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="portfolio-item" data-category="poster">
@@ -2415,23 +1163,7 @@
                 <div class="portfolio-overlay">
                     <h3>Product Launch Poster</h3>
                     <p>Poster Design</p>
-                    <a href="#" class="portfolio-link view-case-study" data-project="product-launch"><i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="branding">
-                <img src="https://images.unsplash.com/photo-1559028006-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Business Card Design for Startup">
-                <div class="portfolio-overlay">
-                    <h3>Business Card Design for Startup</h3>
-                    <p>Branding</p>
-                    <a href="#" class="portfolio-link view-case-study" data-project="business-card"><i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="web">
-                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mobile Banking App UI">
-                <div class="portfolio-overlay">
-                    <h3>Mobile Banking App UI</h3>
-                    <p>Web Design</p>
-                    <a href="#" class="portfolio-link view-case-study" data-project="banking-app"><i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="portfolio-link"><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -2440,10 +1172,33 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="about-content">
-            <h2>About Me</h2>
-            <p>I'm Rifad, a passionate graphic designer with over 5 years of experience in creating compelling visual identities. My journey in design began with a fascination for how colors, shapes, and typography can evoke emotions and tell stories.</p>
-            <p>My design philosophy is centered around simplicity, functionality, and creating meaningful connections between brands and their audience. I believe that great design not only looks beautiful but also serves a purpose - whether it's to inform, persuade, or inspire.</p>
-            <p>When I'm not designing, you can find me exploring new design trends, experimenting with new techniques, or seeking inspiration from nature and everyday life. I'm committed to continuous learning and staying updated with the latest design tools and technologies.</p>
+            <h2>About Our Brand</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2012</div>
+                    <div class="timeline-content">
+                        <p>We started as a design experiment, creating posters and small brand identities for local events. Those early projects built the foundation of our design philosophy.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-content">
+                        <p>We began serving local businesses and startups, focusing on brand identities that convert and connect with real audiences.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                        <p>We introduced UI/UX services, blending design precision with modern web technology.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">Today</div>
+                    <div class="timeline-content">
+                        <p>Typixel.co stands as a growing creative studio crafting purposeful brands and high-performance digital experiences.</p>
+                    </div>
+                </div>
+            </div>
             <div class="about-stats">
                 <div class="stat-item">
                     <h3>50+</h3>
@@ -2460,328 +1215,21 @@
             </div>
         </div>
         <div class="about-image">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About Rifad">
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team" id="team">
-        <div class="section-header">
-            <h2>Our Team</h2>
-            <p>Meet the creative minds behind Typixel.co. Our talented team is dedicated to delivering exceptional results for our clients.</p>
-        </div>
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="member-image">
-                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Team Member">
-                    <div class="member-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3>Rifad</h3>
-                    <p>Managing Director</p>
-                </div>
-            </div>
-            <div class="team-member">
-                <div class="member-image">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Team Member">
-                    <div class="member-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3>Hashim</h3>
-                    <p>CEO</p>
-                </div>
-            </div>
-            <div class="team-member">
-                <div class="member-image">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Team Member">
-                    <div class="member-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3>Anshid</h3>
-                    <p>UX Designer</p>
-                </div>
-            </div>
-            <div class="team-member">
-                <div class="member-image">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Team Member">
-                    <div class="member-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3>Murshid</h3>
-                    <p>Designer</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="section-header">
-            <h2>Client Testimonials</h2>
-            <p>Don't just take our word for it. Hear what our clients have to say about working with us.</p>
-        </div>
-        <div class="testimonials-container">
-            <div class="testimonial-item active">
-                <p class="testimonial-text">"Working with Rifad was an absolute pleasure. He transformed our outdated brand identity into a modern, cohesive visual language that perfectly represents our company values. His attention to detail and creative approach exceeded our expectations."</p>
-                <div class="testimonial-author">
-                    <div class="author-image">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Client">
-                    </div>
-                    <div class="author-info">
-                        <h4>James Anderson</h4>
-                        <p>CEO, TechStart Inc.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <p class="testimonial-text">"Rifad designed an exceptional logo and brand identity for our startup. Not only is it visually stunning, but it's also incredibly meaningful and perfectly captures our mission. His professionalism and expertise throughout the project were outstanding."</p>
-                <div class="testimonial-author">
-                    <div class="author-image">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Client">
-                    </div>
-                    <div class="author-info">
-                        <h4>Lisa Thompson</h4>
-                        <p>Founder, FashionHub</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <p class="testimonial-text">"The promotional video that Rifad created for our product launch was phenomenal. He took our raw footage and transformed it into a compelling story that resonated with our audience. The video significantly boosted our engagement and sales. Highly recommended!"</p>
-                <div class="testimonial-author">
-                    <div class="author-image">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Client">
-                    </div>
-                    <div class="author-info">
-                        <h4>Robert Garcia</h4>
-                        <p>Marketing Director, GreenLife Co.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="testimonial-controls">
-            <div class="testimonial-dot active" data-index="0"></div>
-            <div class="testimonial-dot" data-index="1"></div>
-            <div class="testimonial-dot" data-index="2"></div>
-        </div>
-    </section>
-
-    <!-- Careers Section -->
-    <section class="careers" id="careers">
-        <div class="careers-container">
-            <div class="section-header">
-                <h2>Join Our Team</h2>
-                <p>We're always looking for talented individuals to join our creative team. Explore our current openings and find your perfect role.</p>
-            </div>
-            <div class="careers-grid">
-                <div class="career-card">
-                    <h3>Graphic Designer (Intern / Junior)</h3>
-                    <p>We're looking for a creative graphic designer who can turn ideas into eye-catching visuals. You'll work on posters, branding, and social media designs.</p>
-                    <div class="skills">
-                        <h4>Skills:</h4>
-                        <p>Adobe Photoshop, Illustrator, Canva</p>
-                    </div>
-                    <div class="contact">
-                        <i class="fab fa-whatsapp"></i> Submit your portfolio to +919072891142
-                    </div>
-                    <a href="https://wa.me/919072891142?text=Hello%2C%20I'm%20interested%20in%20the%20Graphic%20Designer%20position.%20I'd%20like%20to%20submit%20my%20portfolio." class="apply-btn">Apply Now</a>
-                </div>
-                <div class="career-card">
-                    <h3>Branding & Identity Designer</h3>
-                    <p>Help shape brand identities from concept to final design. You'll create logos, color systems, and visual styles that define a brand's voice.</p>
-                    <div class="skills">
-                        <h4>Skills:</h4>
-                        <p>Logo Design, Brand Strategy, Typography</p>
-                    </div>
-                    <div class="contact">
-                        <i class="fab fa-whatsapp"></i> Submit your portfolio to +919072891142
-                    </div>
-                    <a href="https://wa.me/919072891142?text=Hello%2C%20I'm%20interested%20in%20the%20Branding%20%26%20Identity%20Designer%20position.%20I'd%20like%20to%20submit%20my%20portfolio." class="apply-btn">Apply Now</a>
-                </div>
-                <div class="career-card">
-                    <h3>Video Editor / Motion Designer</h3>
-                    <p>We're searching for a visual storyteller with a strong sense of rhythm and style. You'll create engaging videos and animations for digital platforms.</p>
-                    <div class="skills">
-                        <h4>Skills:</h4>
-                        <p>Adobe Premiere Pro, After Effects, CapCut</p>
-                    </div>
-                    <div class="contact">
-                        <i class="fab fa-whatsapp"></i> Submit your portfolio to +919072891142
-                    </div>
-                    <a href="https://wa.me/919072891142?text=Hello%2C%20I'm%20interested%20in%20the%20Video%20Editor%20%2F%20Motion%20Designer%20position.%20I'd%20like%20to%20submit%20my%20portfolio." class="apply-btn">Apply Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section class="blog" id="blog">
-        <div class="blog-container">
-            <div class="section-header">
-                <h2>Latest Blog Posts</h2>
-                <p>Stay updated with the latest trends, insights, and news from the world of digital design and marketing.</p>
-            </div>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Blog Post 1">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">Design</span>
-                            <span class="blog-date"><i class="far fa-calendar"></i> June 15, 2023</span>
-                        </div>
-                        <h3>The Power of Minimal Design</h3>
-                        <div class="blog-excerpt">
-                            Minimal design is not about doing less because it's easy—it's about making every element count...
-                        </div>
-                        <div class="blog-full-content">
-                            Minimal design is not about doing less because it's easy—it's about making every element count. By focusing on simplicity, balance, and clarity, minimal design allows your message to shine without distractions. At Typixel.co, we create visuals that communicate clearly, leaving a lasting impression with fewer, more meaningful elements. Whether it's a logo, poster, or digital campaign, minimal design is timeless and powerful.
-                        </div>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1559028006-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Blog Post 2">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">Branding</span>
-                            <span class="blog-date"><i class="far fa-calendar"></i> May 28, 2023</span>
-                        </div>
-                        <h3>How Branding Shapes Perception</h3>
-                        <div class="blog-excerpt">
-                            Branding is more than just a logo or color palette. It's the story your business tells at first glance...
-                        </div>
-                        <div class="blog-full-content">
-                            Branding is more than just a logo or color palette. It's the story your business tells at first glance. Strong branding builds trust, evokes emotion, and creates a memorable identity. At Typixel.co, we focus on creating cohesive visual identities that speak for your brand before you even say a word. Every font, color, and visual element is chosen with your audience in mind to make your brand unforgettable.
-                        </div>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Blog Post 3">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">Digital</span>
-                            <span class="blog-date"><i class="far fa-calendar"></i> May 10, 2023</span>
-                        </div>
-                        <h3>Designing for the Digital Age</h3>
-                        <div class="blog-excerpt">
-                            The digital world moves fast, and good design has to keep up. From social media graphics to web visuals...
-                        </div>
-                        <div class="blog-full-content">
-                            The digital world moves fast, and good design has to keep up. From social media graphics to web visuals and video content, every piece must be visually engaging and instantly understandable. At Typixel.co, we combine creativity with strategy to ensure your designs don't just look good—they connect with people. Adapting to trends while keeping your brand consistent is the key to staying relevant in a constantly evolving digital landscape.
-                        </div>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="contact-container">
-            <div class="contact-info">
-                <h2>Get In Touch</h2>
-                <p>Have a project in mind or want to learn more about our services? I'd love to hear from you. Fill out the form and I'll get back to you as soon as possible.</p>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div>
-                        <h4>Our Location</h4>
-                        <p>Kotakkal, Malappuram,Kerala 676501,India</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <div>
-                        <h4>Phone Number</h4>
-                        <p>9072891142</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <div>
-                        <h4>WhatsApp</h4>
-                        <p>9072891142</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div>
-                        <h4>Instagram</h4>
-                        <p>@_typixel.co_</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                        <h4>Email Address</h4>
-                        <p>hello@typixel.co</p>
-                    </div>
-                </div>
-            </div>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="contactName" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="contactEmail" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="contactSubject" placeholder="Subject">
-                    </div>
-                    <div class="form-group">
-                        <textarea id="contactMessage" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About Typixel.co">
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <div class="footer-content">
             <div class="footer-column">
                 <h3>Typixel.co</h3>
-                <p>I'm a passionate graphic designer dedicated to crafting exceptional visual experiences that help businesses grow and succeed.</p>
+                <p>We are a passionate creative brand dedicated to crafting exceptional visual experiences that help businesses grow and succeed.</p>
                 <div class="social-links">
                     <a href="https://www.instagram.com/_typixel.co_/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/919072891142?text=Hello%20Typixel.co%20team%2C%20I'm%20interested%20in%20your%20graphic%20design%20work.%20Could%20you%20please%20share%20more%20details%3F" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/919072891142" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-dribbble"></i></a>
                 </div>
             </div>
             <div class="footer-column">
@@ -2792,18 +1240,16 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#careers">Careers</a></li>
-                    <li><a href="#blog">Blog</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Services</h3>
                 <ul class="footer-links">
-                    <li><a href="#logo-design">Logo Design</a></li>
-                    <li><a href="#branding">Branding</a></li>
-                    <li><a href="#poster-design">Poster Design</a></li>
-                    <li><a href="#business-cards">Business Cards</a></li>
-                    <li><a href="#video-editing">Video Editing</a></li>
+                    <li><a href="#services">Logo Design</a></li>
+                    <li><a href="#services">Branding</a></li>
+                    <li><a href="#services">Poster Design</a></li>
+                    <li><a href="#services">Business Cards</a></li>
+                    <li><a href="#services">Video Editing</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -2822,387 +1268,11 @@
         </div>
     </footer>
 
-    <!-- Review Popup Modal -->
-    <div class="review-modal" id="reviewModal">
-        <div class="review-modal-content">
-            <button class="review-modal-close" id="reviewModalClose">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2>Leave a Review</h2>
-            <form class="review-modal-form" id="reviewModalForm">
-                <div class="form-group">
-                    <label for="review-modal-name">Your Name</label>
-                    <input type="text" id="review-modal-name" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="review-modal-email">Your Email</label>
-                    <input type="email" id="review-modal-email" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                    <label>Rating</label>
-                    <div class="review-modal-rating">
-                        <input type="radio" id="review-modal-star5" name="review-modal-rating" value="5">
-                        <label for="review-modal-star5"><i class="fas fa-star"></i></label>
-                        <input type="radio" id="review-modal-star4" name="review-modal-rating" value="4">
-                        <label for="review-modal-star4"><i class="fas fa-star"></i></label>
-                        <input type="radio" id="review-modal-star3" name="review-modal-rating" value="3">
-                        <label for="review-modal-star3"><i class="fas fa-star"></i></label>
-                        <input type="radio" id="review-modal-star2" name="review-modal-rating" value="2">
-                        <label for="review-modal-star2"><i class="fas fa-star"></i></label>
-                        <input type="radio" id="review-modal-star1" name="review-modal-rating" value="1">
-                        <label for="review-modal-star1"><i class="fas fa-star"></i></label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="review-modal-message">Your Review</label>
-                    <textarea id="review-modal-message" placeholder="Share your experience with us" required></textarea>
-                </div>
-                <button type="submit" class="review-modal-submit">Submit Review</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Review Box -->
-    <div class="review-box" id="reviewBox">
-        <div class="review-box-header">
-            <div class="review-box-title">Client Review</div>
-            <button class="review-box-close" id="reviewBoxClose">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="review-box-content" id="reviewBoxContent">
-            Working with Rifad was an absolute pleasure. He transformed our outdated brand identity into a modern, cohesive visual language that perfectly represents our company values.
-        </div>
-        <div class="review-box-author">
-            <div class="review-box-author-name">James Anderson</div>
-            <div class="review-box-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-        </div>
-    </div>
-
-    <!-- Project Modal -->
-    <div class="project-modal" id="projectModal">
-        <div class="project-modal-content">
-            <button class="project-modal-close" id="projectModalClose">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2>Start Your Project</h2>
-            <p>Tell me about your project and I'll get back to you with a customized solution.</p>
-            <form class="project-modal-form" id="projectModalForm">
-                <div class="form-group">
-                    <label for="project-name">Your Name</label>
-                    <input type="text" id="project-name" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="project-email">Your Email</label>
-                    <input type="email" id="project-email" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                    <label for="project-company">Company Name</label>
-                    <input type="text" id="project-company" placeholder="Enter your company name">
-                </div>
-                <div class="form-group">
-                    <label for="project-phone">Phone Number</label>
-                    <input type="tel" id="project-phone" placeholder="Enter your phone number">
-                </div>
-                <div class="form-group">
-                    <label for="project-service">Service Required</label>
-                    <select id="project-service" required>
-                        <option value="">Select a service</option>
-                        <option value="logo-design">Logo Design</option>
-                        <option value="app-development">App Development</option>
-                        <option value="poster-design">Poster Design</option>
-                        <option value="business-cards">Business Cards</option>
-                        <option value="branding-kits">Branding Kits</option>
-                        <option value="video-editing">Video Editing</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="project-timeline">Project Timeline</label>
-                    <select id="project-timeline" required>
-                        <option value="">Select timeline</option>
-                        <option value="asap">As soon as possible</option>
-                        <option value="1-month">Within 1 month</option>
-                        <option value="3-months">Within 3 months</option>
-                        <option value="6-months">Within 6 months</option>
-                        <option value="flexible">Flexible</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Project Budget</label>
-                    <div class="project-budget">
-                        <div class="budget-option" data-value="5k-10k">
-                            <h4>$5K - $10K</h4>
-                            <p>Small project</p>
-                        </div>
-                        <div class="budget-option" data-value="10k-25k">
-                            <h4>$10K - $25K</h4>
-                            <p>Medium project</p>
-                        </div>
-                        <div class="budget-option" data-value="25k-50k">
-                            <h4>$25K - $50K</h4>
-                            <p>Large project</p>
-                        </div>
-                        <div class="budget-option" data-value="50k+">
-                            <h4>$50K+</h4>
-                            <p>Enterprise project</p>
-                        </div>
-                    </div>
-                    <input type="hidden" id="project-budget" name="project-budget" required>
-                </div>
-                <div class="form-group">
-                    <label for="project-details">Project Details</label>
-                    <textarea id="project-details" placeholder="Tell me about your project requirements" required></textarea>
-                </div>
-                <button type="submit" class="project-modal-submit">Submit Project Request</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Case Study Modal -->
-    <div class="case-study-modal" id="caseStudyModal">
-        <div class="case-study-modal-content">
-            <button class="case-study-modal-close" id="caseStudyModalClose">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="case-study-header">
-                <h2 id="caseStudyTitle">Project Title</h2>
-                <p id="caseStudySubtitle">Project Subtitle</p>
-            </div>
-            <img id="caseStudyImage" src="" alt="Project Image" class="case-study-image">
-            <div class="case-study-content">
-                <div class="case-study-description">
-                    <h3>Project Overview</h3>
-                    <p id="caseStudyOverview">Project overview text will be displayed here.</p>
-                    
-                    <h3>Challenge</h3>
-                    <p id="caseStudyChallenge">Challenge text will be displayed here.</p>
-                    
-                    <h3>Solution</h3>
-                    <p id="caseStudySolution">Solution text will be displayed here.</p>
-                    
-                    <h3>Results</h3>
-                    <p id="caseStudyResults">Results text will be displayed here.</p>
-                </div>
-                <div class="case-study-details">
-                    <h3>Project Details</h3>
-                    <div class="case-study-details-item">
-                        <h4>Client</h4>
-                        <p id="caseStudyClient">Client name</p>
-                    </div>
-                    <div class="case-study-details-item">
-                        <h4>Category</h4>
-                        <p id="caseStudyCategory">Project category</p>
-                    </div>
-                    <div class="case-study-details-item">
-                        <h4>Tools Used</h4>
-                        <p id="caseStudyTools">Tools used</p>
-                    </div>
-                    <div class="case-study-details-item">
-                        <h4>Duration</h4>
-                        <p id="caseStudyDuration">Project duration</p>
-                    </div>
-                </div>
-            </div>
-            <div class="case-study-cta">
-                <a href="#contact" class="primary-btn">Start Your Project</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- WhatsApp Chat Widget -->
-    <div class="whatsapp-chat" id="whatsappChat">
-        <div class="whatsapp-chat-widget" id="whatsappChatWidget">
-            <div class="whatsapp-chat-header">
-                <div class="whatsapp-chat-header-info">
-                    <img src="https://z-cdn-media.chatglm.cn/files/d6ac8840-3c75-4553-9fbe-0769e75e9acb_552435611_17858920911505650_1464688557598200235_n.png?auth_key=1792815400-b9265ca7194145f5b226fbfaa930cf5b-0-9f64e82160c13b5204a186b97090e026" alt="Typixel.co" class="whatsapp-chat-header-avatar">
-                    <div>
-                        <div class="whatsapp-chat-header-name">Rifad - Typixel.co</div>
-                        <div class="whatsapp-chat-header-status">Typically replies instantly</div>
-                    </div>
-                </div>
-                <button class="whatsapp-chat-close" id="whatsappChatClose">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="whatsapp-chat-body" id="whatsappChatBody">
-                <div class="whatsapp-chat-message bot">
-                    Hi there! 👋 I'm Rifad, a graphic designer specializing in branding & UI-UX. How can I help you today?
-                </div>
-            </div>
-            <div class="whatsapp-chat-input">
-                <input type="text" id="whatsappChatInput" placeholder="Type a message...">
-                <button id="whatsappChatSend">
-                    <i class="fab fa-whatsapp"></i>
-                </button>
-            </div>
-        </div>
-        <button class="whatsapp-chat-button" id="whatsappChatButton">
-            <i class="fab fa-whatsapp"></i>
-        </button>
-    </div>
-
-    <!-- Notification -->
-    <div class="notification" id="notification">
-        <span id="notificationMessage">Thank you for your feedback!</span>
-        <button class="notification-close" id="notificationClose">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-
     <script>
-        // Case study data
-        const caseStudies = {
-            techstart: {
-                title: "Brand Identity for TechStart",
-                subtitle: "Complete brand identity design for a tech startup",
-                image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                overview: "TechStart approached me to create a complete brand identity that would reflect their innovative approach to technology solutions. They needed a cohesive visual language that would work across all touchpoints, from digital platforms to print materials.",
-                challenge: "The challenge was to create a brand identity that would stand out in the crowded tech startup space while conveying professionalism, innovation, and trustworthiness. The client wanted something modern but not overly complex.",
-                solution: "I developed a clean, minimalist logo with a tech-inspired color palette of blues and greens. The design incorporated elements that suggest connectivity and forward movement. I also created a comprehensive brand guideline document, business cards, letterheads, and social media templates.",
-                tools: "Adobe Illustrator, Adobe Photoshop, Figma",
-                client: "TechStart Inc.",
-                category: "Branding",
-                duration: "3 weeks",
-                results: "The new brand identity helped TechStart secure funding from investors and increased their brand recognition by 40% within the first quarter of launch. The client reported that the cohesive visual language made them appear more established and professional to potential clients."
-            },
-            "music-festival": {
-                title: "Event Poster for Music Festival",
-                subtitle: "Promotional poster design for annual music festival",
-                image: "https://images.unsplash.com/photo-1559028006-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                overview: "I was commissioned to design a promotional poster for an annual music festival featuring both local and international artists. The poster needed to capture the energy and diversity of the event while providing essential information in a visually appealing way.",
-                challenge: "The challenge was to create a design that would appeal to a diverse audience with varying musical tastes while standing out in a crowded promotional space. The poster needed to work both in print and digital formats.",
-                solution: "I created a vibrant, dynamic design using bold typography and colorful illustrations that represent different music genres. The layout was carefully structured to highlight the headlining acts while maintaining visual hierarchy for all performers. I also designed social media versions of the poster for digital promotion.",
-                tools: "Adobe Photoshop, Adobe Illustrator",
-                client: "Music Festival Organizers",
-                category: "Poster Design",
-                duration: "1 week",
-                results: "The poster design received overwhelmingly positive feedback on social media, with shares increasing by 60% compared to the previous year. Ticket sales were 25% higher than the previous year, which the organizers attributed in part to the more engaging promotional materials."
-            },
-            greenlife: {
-                title: "Logo Design for GreenLife Co.",
-                subtitle: "Eco-friendly brand logo design",
-                image: "https://images.unsplash.com/photo-1557804506-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                overview: "GreenLife Co., a sustainable products company, needed a logo that would communicate their commitment to environmental responsibility while appealing to modern consumers. The logo needed to work across various product packaging and marketing materials.",
-                challenge: "The challenge was to create a logo that felt natural and eco-friendly without being cliché. The client wanted something that would stand out in the growing sustainable products market while conveying trust and quality.",
-                solution: "I designed a minimalist logo incorporating a leaf motif within a circular shape to represent sustainability and continuity. The color palette used earthy greens and browns to reinforce the natural theme. I also created variations of the logo for different applications, including a simplified version for small product labels.",
-                tools: "Adobe Illustrator, Adobe Photoshop",
-                client: "GreenLife Co.",
-                category: "Branding",
-                duration: "2 weeks",
-                results: "The new logo helped GreenLife Co. secure placement in several premium retail locations. Customer feedback indicated that the logo effectively communicated the brand's values, with 85% of surveyed customers recognizing the company as eco-friendly based on the logo alone."
-            },
-            fashionhub: {
-                title: "E-commerce Website for FashionHub",
-                subtitle: "Complete e-commerce website design and development",
-                image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                overview: "FashionHub, a boutique clothing retailer, needed an e-commerce website that would showcase their products effectively while providing a seamless shopping experience. The design needed to reflect their brand's aesthetic while prioritizing usability and conversion.",
-                challenge: "The challenge was to create a visually appealing website that would load quickly and work seamlessly across all devices. The client also needed a backend system that would allow them to easily update products and manage inventory.",
-                solution: "I designed a clean, minimalist website with a focus on high-quality product imagery. The user interface was optimized for easy navigation and a smooth checkout process. I developed the site using a responsive framework to ensure it worked perfectly on mobile devices. The backend was built using a user-friendly CMS that allowed the client to manage their inventory easily.",
-                tools: "Figma, HTML, CSS, JavaScript, Shopify",
-                client: "FashionHub",
-                category: "Web Design",
-                duration: "6 weeks",
-                results: "The new e-commerce site increased online sales by 45% in the first quarter after launch. The bounce rate decreased by 30%, and the average session length increased by 2 minutes. The client reported that the intuitive backend system reduced the time spent on inventory management by 50%."
-            },
-            "promo-video": {
-                title: "Promotional Video for TechStart",
-                subtitle: "Corporate promotional video production and editing",
-                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                overview: "TechStart needed a promotional video to showcase their new product launch at an industry conference. The video needed to be engaging, informative, and professional while maintaining the company's brand identity.",
-                challenge: "The challenge was to create a video that would effectively communicate complex technical information in an accessible way. The video needed to be visually engaging while maintaining a professional tone appropriate for a B2B audience.",
-                solution: "I produced and edited a 3-minute promotional video combining product demonstrations, customer testimonials, and animated graphics to explain the product's features. The video used a consistent color scheme and typography that aligned with TechStart's brand identity. I also created shorter versions for social media promotion.",
-                tools: "Adobe Premiere Pro, Adobe After Effects, Audition",
-                client: "TechStart Inc.",
-                category: "Video Editing",
-                duration: "2 weeks",
-                results: "The promotional video was viewed over 10,000 times during the conference and received positive feedback from attendees. TechStart reported a 35% increase in booth traffic compared to previous years, and they secured 20 qualified leads directly from the video presentation."
-            },
-            "product-launch": {
-                title: "Product Launch Poster",
-                subtitle: "Promotional poster for new product launch",
-                image: "https://images.unsplash.com/photo-1551739440-5dd934d3a94a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                overview: "I was tasked with creating a series of promotional posters for the launch of a new consumer electronics product. The posters needed to generate excitement and clearly communicate the product's key features.",
-                challenge: "The challenge was to create posters that would stand out in a crowded retail environment while conveying multiple product benefits without appearing cluttered. The design needed to work across different sizes and formats.",
-                solution: "I designed a series of posters with a consistent visual theme but varying focal points to highlight different product features. The design used bold colors and dynamic imagery to grab attention, with clear typography for product information. I also created digital versions for online promotion.",
-                tools: "Adobe Photoshop, Adobe Illustrator",
-                client: "Consumer Electronics Company",
-                category: "Poster Design",
-                duration: "1 week",
-                results: "The poster campaign contributed to a successful product launch, with sales exceeding projections by 20% in the first month. Retail partners reported that the posters effectively drove customer inquiries and helped differentiate the product from competitors."
-            },
-            "business-card": {
-                title: "Business Card Design for Startup",
-                subtitle: "Professional business card design for tech startup",
-                image: "https://images.unsplash.com/photo-1559028006-44a36f563b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                overview: "A tech startup needed business cards that would make a strong first impression while reflecting their innovative approach. The design needed to be professional yet creative, with space for essential contact information.",
-                challenge: "The challenge was to create a business card that would stand out without being overly trendy or unprofessional. The design needed to work with the company's existing brand identity while adding a unique touch.",
-                solution: "I designed a minimalist business card with a subtle embossed logo and a modern color palette. The front featured the logo and company name, while the back included contact details with a clean, organized layout. I used high-quality cardstock with a matte finish to enhance the premium feel.",
-                tools: "Adobe Illustrator, Adobe Photoshop",
-                client: "Tech Startup",
-                category: "Branding",
-                duration: "3 days",
-                results: "The client reported receiving numerous compliments on their business cards at networking events. The distinctive design helped them stand out and led to several follow-up conversations with potential investors and partners."
-            },
-            "banking-app": {
-                title: "Mobile Banking App UI",
-                subtitle: "User interface design for mobile banking application",
-                image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                overview: "I was commissioned to design the user interface for a new mobile banking application. The design needed to be secure, intuitive, and accessible while maintaining a professional appearance appropriate for a financial institution.",
-                challenge: "The challenge was to create an interface that would simplify complex banking operations while maintaining the highest standards of security and accessibility. The design needed to work across different devices and screen sizes.",
-                solution: "I designed a clean, intuitive interface with a focus on user journey optimization. The design used a clear visual hierarchy, consistent navigation patterns, and appropriate use of color to indicate different states and actions. I created detailed wireframes and interactive prototypes to test and refine the user experience.",
-                tools: "Figma, Adobe XD, Adobe Illustrator",
-                client: "Financial Technology Company",
-                category: "Web Design",
-                duration: "4 weeks",
-                results: "The mobile banking app received positive feedback from beta testers, who praised its intuitive interface and ease of use. The client reported that the design helped reduce customer support inquiries by 25% compared to their previous application."
-            }
-        };
-
-        // Sample reviews data
-        const reviews = [
-            {
-                name: "James Anderson",
-                company: "TechStart Inc.",
-                rating: 5,
-                text: "Working with Rifad was an absolute pleasure. He transformed our outdated brand identity into a modern, cohesive visual language that perfectly represents our company values."
-            },
-            {
-                name: "Lisa Thompson",
-                company: "FashionHub",
-                rating: 5,
-                text: "Rifad designed an exceptional logo and brand identity for our startup. Not only is it visually stunning, but it's also incredibly meaningful and perfectly captures our mission."
-            },
-            {
-                name: "Robert Garcia",
-                company: "GreenLife Co.",
-                rating: 4,
-                text: "The promotional video that Rifad created for our product launch was phenomenal. He took our raw footage and transformed it into a compelling story that resonated with our audience."
-            }
-        ];
-
-        let currentReviewIndex = 0;
-
         // Preloader
         window.addEventListener('load', function() {
             setTimeout(function() {
                 document.querySelector('.preloader').classList.add('hidden');
-                
-                // Show WhatsApp chat after 5 seconds
-                setTimeout(function() {
-                    document.getElementById('whatsappChat').style.display = 'flex';
-                }, 5000);
-                
-                // Show review box after 7 seconds
-                setTimeout(function() {
-                    showReviewBox();
-                }, 7000);
             }, 1500);
         });
 
@@ -3252,13 +1322,11 @@
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', function() {
-                // Remove active class from all buttons
                 filterBtns.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
                 this.classList.add('active');
-                
+
                 const filter = this.getAttribute('data-filter');
-                
+
                 portfolioItems.forEach(item => {
                     if (filter === 'all' || item.getAttribute('data-category') === filter) {
                         item.style.display = 'block';
@@ -3277,346 +1345,21 @@
             });
         });
 
-        // Testimonials slider
-        const testimonialItems = document.querySelectorAll('.testimonial-item');
-        const testimonialDots = document.querySelectorAll('.testimonial-dot');
-        let currentTestimonial = 0;
-
-        function showTestimonial(index) {
-            testimonialItems.forEach(item => item.classList.remove('active'));
-            testimonialDots.forEach(dot => dot.classList.remove('active'));
-            
-            testimonialItems[index].classList.add('active');
-            testimonialDots[index].classList.add('active');
-            
-            currentTestimonial = index;
-        }
-
-        testimonialDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showTestimonial(index);
-            });
-        });
-
-        // Auto-rotate testimonials
-        setInterval(() => {
-            let nextIndex = (currentTestimonial + 1) % testimonialItems.length;
-            showTestimonial(nextIndex);
-        }, 5000);
-
-        // Review modal
-        const reviewModal = document.getElementById('reviewModal');
-        const reviewModalClose = document.getElementById('reviewModalClose');
-        const reviewModalForm = document.getElementById('reviewModalForm');
-
-        reviewModalClose.addEventListener('click', function() {
-            reviewModal.classList.remove('active');
-        });
-
-        reviewModalForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show notification
-            showNotification("Thank you for your feedback!");
-            
-            // Close modal
-            reviewModal.classList.remove('active');
-            
-            // Reset form
-            this.reset();
-        });
-
-        // Review box
-        const reviewBox = document.getElementById('reviewBox');
-        const reviewBoxClose = document.getElementById('reviewBoxClose');
-        const reviewBoxContent = document.getElementById('reviewBoxContent');
-        const reviewBoxAuthorName = document.querySelector('.review-box-author-name');
-        const reviewBoxRating = document.querySelector('.review-box-rating');
-
-        function showReviewBox() {
-            reviewBox.classList.add('show');
-            updateReviewBox();
-            
-            // Auto-cycle reviews every 4 seconds
-            setInterval(() => {
-                currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
-                updateReviewBox();
-            }, 4000);
-        }
-
-        function updateReviewBox() {
-            const review = reviews[currentReviewIndex];
-            
-            // Fade out
-            reviewBox.style.opacity = '0.5';
-            
-            setTimeout(() => {
-                // Update content
-                reviewBoxContent.textContent = review.text;
-                reviewBoxAuthorName.textContent = review.name;
-                
-                // Update rating
-                let starsHTML = '';
-                for (let i = 1; i <= 5; i++) {
-                    if (i <= review.rating) {
-                        starsHTML += '<i class="fas fa-star"></i>';
-                    } else {
-                        starsHTML += '<i class="far fa-star"></i>';
-                    }
-                }
-                reviewBoxRating.innerHTML = starsHTML;
-                
-                // Fade in
-                reviewBox.style.opacity = '1';
-            }, 300);
-        }
-
-        reviewBoxClose.addEventListener('click', function() {
-            reviewBox.classList.remove('show');
-        });
-
-        // Project modal
-        const startProjectBtn = document.getElementById('startProjectBtn');
-        const projectModal = document.getElementById('projectModal');
-        const projectModalClose = document.getElementById('projectModalClose');
-        const projectModalForm = document.getElementById('projectModalForm');
-        const budgetOptions = document.querySelectorAll('.budget-option');
-        const projectBudgetInput = document.getElementById('project-budget');
-
-        startProjectBtn.addEventListener('click', function() {
-            projectModal.classList.add('active');
-        });
-
-        projectModalClose.addEventListener('click', function() {
-            projectModal.classList.remove('active');
-        });
-
-        // Budget selection
-        budgetOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                // Remove selected class from all options
-                budgetOptions.forEach(opt => opt.classList.remove('selected'));
-                
-                // Add selected class to clicked option
-                this.classList.add('selected');
-                
-                // Update hidden input value
-                projectBudgetInput.value = this.getAttribute('data-value');
-            });
-        });
-
-        projectModalForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show notification
-            showNotification("Thank you for your project request! I'll get back to you soon.");
-            
-            // Close modal
-            projectModal.classList.remove('active');
-            
-            // Reset form
-            this.reset();
-            
-            // Reset budget selection
-            budgetOptions.forEach(opt => opt.classList.remove('selected'));
-        });
-
-        // Store button functionality
-        const storeBtn = document.getElementById('storeBtn');
-        storeBtn.addEventListener('click', function() {
-            showNotification("Our store is coming soon! Stay tuned for amazing design products.");
-        });
-
-        // Blog "Read More" functionality
-        const readMoreLinks = document.querySelectorAll('.read-more');
-        readMoreLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
-                const blogCard = this.closest('.blog-card');
-                const excerpt = blogCard.querySelector('.blog-excerpt');
-                const fullContent = blogCard.querySelector('.blog-full-content');
-                
-                if (fullContent.classList.contains('show')) {
-                    // Show less
-                    fullContent.classList.remove('show');
-                    excerpt.style.display = 'block';
-                    this.innerHTML = 'Read More <i class="fas fa-arrow-right"></i>';
-                } else {
-                    // Show more
-                    excerpt.style.display = 'none';
-                    fullContent.classList.add('show');
-                    this.innerHTML = 'Read Less <i class="fas fa-arrow-up"></i>';
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
 
-        // Apply button functionality
-        const applyButtons = document.querySelectorAll('.apply-btn');
-        applyButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                showNotification("Thank you for your interest! I'll contact you soon.");
-            });
-        });
-
-        // WhatsApp Chat Widget
-        const whatsappChatButton = document.getElementById('whatsappChatButton');
-        const whatsappChatWidget = document.getElementById('whatsappChatWidget');
-        const whatsappChatClose = document.getElementById('whatsappChatClose');
-        const whatsappChatInput = document.getElementById('whatsappChatInput');
-        const whatsappChatSend = document.getElementById('whatsappChatSend');
-        const whatsappChatBody = document.getElementById('whatsappChatBody');
-
-        whatsappChatButton.addEventListener('click', function() {
-            whatsappChatWidget.classList.add('active');
-        });
-
-        whatsappChatClose.addEventListener('click', function() {
-            whatsappChatWidget.classList.remove('active');
-        });
-
-        function sendMessage() {
-            const message = whatsappChatInput.value.trim();
-            if (message) {
-                // Add user message to chat
-                const userMessage = document.createElement('div');
-                userMessage.className = 'whatsapp-chat-message user';
-                userMessage.textContent = message;
-                whatsappChatBody.appendChild(userMessage);
-                
-                // Clear input
-                whatsappChatInput.value = '';
-                
-                // Scroll to bottom
-                whatsappChatBody.scrollTop = whatsappChatBody.scrollHeight;
-                
-                // Simulate bot response
-                setTimeout(() => {
-                    const botMessage = document.createElement('div');
-                    botMessage.className = 'whatsapp-chat-message bot';
-                    botMessage.textContent = "Thank you for your message! I'll get back to you as soon as possible. In the meantime, feel free to check out my portfolio or services.";
-                    whatsappChatBody.appendChild(botMessage);
-                    
-                    // Scroll to bottom
-                    whatsappChatBody.scrollTop = whatsappChatBody.scrollHeight;
-                }, 1000);
-            }
-        }
-
-        whatsappChatSend.addEventListener('click', sendMessage);
-        
-        whatsappChatInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-
-        // Case Study Modal
-        const caseStudyModal = document.getElementById('caseStudyModal');
-        const caseStudyModalClose = document.getElementById('caseStudyModalClose');
-        const viewCaseStudyButtons = document.querySelectorAll('.view-case-study');
-
-        viewCaseStudyButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const projectId = this.getAttribute('data-project');
-                const caseStudy = caseStudies[projectId];
-                
-                if (caseStudy) {
-                    // Populate case study modal with data
-                    document.getElementById('caseStudyTitle').textContent = caseStudy.title;
-                    document.getElementById('caseStudySubtitle').textContent = caseStudy.subtitle;
-                    document.getElementById('caseStudyImage').src = caseStudy.image;
-                    document.getElementById('caseStudyOverview').textContent = caseStudy.overview;
-                    document.getElementById('caseStudyChallenge').textContent = caseStudy.challenge;
-                    document.getElementById('caseStudySolution').textContent = caseStudy.solution;
-                    document.getElementById('caseStudyResults').textContent = caseStudy.results;
-                    document.getElementById('caseStudyClient').textContent = caseStudy.client;
-                    document.getElementById('caseStudyCategory').textContent = caseStudy.category;
-                    document.getElementById('caseStudyTools').textContent = caseStudy.tools;
-                    document.getElementById('caseStudyDuration').textContent = caseStudy.duration;
-                    
-                    // Show modal
-                    caseStudyModal.classList.add('active');
-                }
-            });
-        });
-
-        caseStudyModalClose.addEventListener('click', function() {
-            caseStudyModal.classList.remove('active');
-        });
-
-        // Notification
-        const notification = document.getElementById('notification');
-        const notificationMessage = document.getElementById('notificationMessage');
-        const notificationClose = document.getElementById('notificationClose');
-
-        function showNotification(message) {
-            notificationMessage.textContent = message;
-            notification.classList.add('show');
-            
-            // Auto hide after 5 seconds
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 5000);
-        }
-
-        notificationClose.addEventListener('click', function() {
-            notification.classList.remove('show');
-        });
-
-        // Form submission with Gmail SMTP (simulated)
-        const contactForm = document.getElementById('contactForm');
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('contactName').value;
-            const email = document.getElementById('contactEmail').value;
-            const subject = document.getElementById('contactSubject').value;
-            const message = document.getElementById('contactMessage').value;
-            
-            // In a real implementation, you would send this data to a server-side script
-            // that uses Gmail SMTP to send the email
-            
-            // Show notification
-            showNotification("Thank you for your message! I'll get back to you within 24 hours.");
-            
-            // Reset form
-            this.reset();
-        });
-
-        // Add CSS for animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-            
-            @keyframes slideOut {
-                from {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-                to {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Add animation to portfolio items when they come into view
+        // Animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -3631,48 +1374,13 @@
             });
         }, observerOptions);
 
-        // Initially hide portfolio items
-        portfolioItems.forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(item);
-        });
-
-        // Add animation to service cards when they come into view
-        const serviceCards = document.querySelectorAll('.service-card');
-        serviceCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
-
-        // Add animation to team members when they come into view
-        const teamMembers = document.querySelectorAll('.team-member');
-        teamMembers.forEach(member => {
-            member.style.opacity = '0';
-            member.style.transform = 'translateY(20px)';
-            member.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(member);
-        });
-
-        // Add animation to career cards when they come into view
-        const careerCards = document.querySelectorAll('.career-card');
-        careerCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
-
-        // Add animation to blog cards when they come into view
-        const blogCards = document.querySelectorAll('.blog-card');
-        blogCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+        // Observe elements
+        const animatedElements = document.querySelectorAll('.service-card, .portfolio-item, .timeline-item');
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
